@@ -5,8 +5,6 @@ const express = require('express')
 const bodyParser = require('body-parser')
 const app = express()
 
-const isProduction = process.env.NODE_ENV === "production"
-
 app.use(bodyParser.json())
 app.use(bodyParser.urlencoded({ extended: false }))
 app.use(require('method-override')())
