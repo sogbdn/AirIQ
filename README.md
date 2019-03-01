@@ -5,7 +5,7 @@
 3. From the */app* folder, run ```npm install``` (React dependencies).
 4. Use ```npm run dev``` to start the server on ```http://localhost:3000/```
 
-## CREATING THE KNEX database
+## CREATING THE KNEX DATABASE
 
 1. From the */Final_Project* folder, run ```psql```.
 2. From the psql terminal, run ```CREATE DATABASE air_iq;```.
