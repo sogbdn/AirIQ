@@ -1,4 +1,4 @@
-#INSTALL DEPENDENCIES
+# INSTALL DEPENDENCIES
 
 1. From the */Final_Project* folder, run ```npm install``` (express and pg dependencies).
 2. cd into the */app* folder.
