@@ -1,4 +1,4 @@
-/* make sure to rollback before migrating */
+/* make sure to rollback before migrating or making changes */
 exports.up = function(knex, Promise) {
   return knex.schema.createTable('users', function (table) {
     table.increments('id').primary();

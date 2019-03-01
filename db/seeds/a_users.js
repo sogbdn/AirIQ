@@ -8,6 +8,7 @@ exports.seed = function(knex, Promise) {
       // Deletes ALL existing entries
       .then(function() {
         return knex("users").insert([
+          /* add actual values to test the database */
           {
             name: "Leslie"
           },
