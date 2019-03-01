@@ -3,3 +3,4 @@
 1. From the */Final_Project* folder, run ```npm install``` (express and pg dependencies).
 2. cd into the */app* folder.
 3. From the */app* folder, run ```npm install``` (react dependencies).
+4. Use ```npm run dev``` to start the server on ```http://localhost:3000/```
