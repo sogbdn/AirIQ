@@ -1,25 +1,25 @@
-import React, { Component } from 'react';
-// https://unpkg.com/react-bootstrap@1.0.0-beta.5/Form.js
-import Form from 'react-bootstrap/Form';
-import Button from 'react-bootstrap/Button';
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
 
-class Register extends Component {
 
-  componentDidMount() {
-    console.log("Register Mounted");
-  }
-  render() {
-    return (
-    <Form>
+</head>
+<body>
+  <Form>
     <Form.Group controlId="formFirstName">
     <Form.Label>First Name</Form.Label>
     <Form.Control type="text" placeholder="Enter first name" />
-    
+    </Form.Text>
   </Form.Group>
 
   <Form.Group controlId="formLastName">
     <Form.Label>Last Name</Form.Label>
     <Form.Control type="text" placeholder="Enter Last name" />
+    </Form.Text>
   </Form.Group>
 
   <Form.Group controlId="formBasicEmail">
@@ -29,14 +29,17 @@ class Register extends Component {
       We'll never share your email with anyone else.
     </Form.Text>
   </Form.Group>
+
+
   <Form.Group controlId="formPhoneNumber">
     <Form.Label>Phone Number *</Form.Label>
     <Form.Control type="string" placeholder="Enter number for opt in sms alerts" />
+    </Form.Text>
   </Form.Group>
   <Form.Group controlId="formBasicChecbox">
     <Form.Check type="checkbox" label="Check me out" />
   </Form.Group>
-  <Form.Group controlId="exampleForm.ControlSelect1">
+  <Form.Group controlId="exampleForm.ControlSelect1"></Form.Group>
     <Form.Label>Example select</Form.Label>
     <Form.Control as="select">
       <option>General Concern</option>
@@ -48,17 +51,17 @@ class Register extends Component {
     <Form.Label>Password</Form.Label>
     <Form.Control type="password" placeholder="Password" />
   </Form.Group>
-  <Form.Group controlId="formPasswordConfirm">
+  <Form.Group controlId="formBasicPassword">
     <Form.Label>Password Confirmation</Form.Label>
     <Form.Control type="password" placeholder="Password confirmation" />
   </Form.Group>
   <Button variant="primary" type="submit">
     Submit
   </Button>
-</Form>
-      
-    );
-  }
-}
+</Form>;
+  
+</body>
+</html>
 
-export default Register;
+
+
