@@ -10,7 +10,7 @@ class Register extends Component {
   }
   render() {
     return (
-      <Form>
+    <Form>
     <Form.Group controlId="formFirstName">
     <Form.Label>First Name</Form.Label>
     <Form.Control type="text" placeholder="Enter first name" />
