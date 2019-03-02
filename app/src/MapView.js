@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 // https://unpkg.com/react-bootstrap@1.0.0-beta.5/Form.js
 //import Form from 'react-bootstrap/Form';
 //import Button from 'react-bootstrap/Button';
+
 import {Map, InfoWindow, Marker, GoogleApiWrapper} from 'google-maps-react';
 
 export class MapViews extends Component {
@@ -57,5 +58,5 @@ export class MapViews extends Component {
 }
        
 export default GoogleApiWrapper({
-  apiKey: ('AIzaSyDNAgi4SP4LXKpgJJptoGktkbtO4OhxQpc')
+  apiKey: ('API_KEY')
 })(MapViews)
