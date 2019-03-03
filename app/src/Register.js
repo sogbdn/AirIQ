@@ -2,6 +2,8 @@ import React, { Component } from 'react';
 // https://unpkg.com/react-bootstrap@1.0.0-beta.5/Form.js
 import Form from 'react-bootstrap/Form';
 import Button from 'react-bootstrap/Button';
+import Col from 'react-bootstrap/Col';
+import InputGroup from 'react-bootstrap/InputGroup'
 
 class Register extends Component {
 
@@ -10,53 +12,83 @@ class Register extends Component {
   }
   render() {
     return (
-    <Form>
-    <Form.Group controlId="formFirstName">
-    <Form.Label>First Name</Form.Label>
-    <Form.Control type="text" placeholder="Enter first name" />
-    
-  </Form.Group>
-
-  <Form.Group controlId="formLastName">
-    <Form.Label>Last Name</Form.Label>
-    <Form.Control type="text" placeholder="Enter Last name" />
-  </Form.Group>
-
-  <Form.Group controlId="formBasicEmail">
-    <Form.Label>Email address</Form.Label>
-    <Form.Control type="email" placeholder="Enter email" />
-    <Form.Text className="text-muted">
-      We'll never share your email with anyone else.
-    </Form.Text>
-  </Form.Group>
-  <Form.Group controlId="formPhoneNumber">
-    <Form.Label>Phone Number *</Form.Label>
-    <Form.Control type="string" placeholder="Enter number for opt in sms alerts" />
-  </Form.Group>
-  <Form.Group controlId="formBasicChecbox">
-    <Form.Check type="checkbox" label="Check me out" />
-  </Form.Group>
-  <Form.Group controlId="exampleForm.ControlSelect1">
-    <Form.Label>Example select</Form.Label>
-    <Form.Control as="select">
-      <option>General Concern</option>
-      <option>Medical Concern</option>
-      <option>Lifestyle/Sport Concern</option>
-    </Form.Control>
-  </Form.Group>
-  <Form.Group controlId="formBasicPassword">
-    <Form.Label>Password</Form.Label>
-    <Form.Control type="password" placeholder="Password" />
-  </Form.Group>
-  <Form.Group controlId="formPasswordConfirm">
-    <Form.Label>Password Confirmation</Form.Label>
-    <Form.Control type="password" placeholder="Password confirmation" />
-  </Form.Group>
-  <Button variant="primary" type="submit">
-    Submit
-  </Button>
-</Form>
-      
+      <Form
+      noValidate
+      validated={'validated'}
+      onSubmit={e => this.handleSubmit(e)}
+    >
+      <Form.Row>
+        <Form.Group as={Col} md="4" controlId="validationCustom01">
+          <Form.Label>First name</Form.Label>
+          <Form.Control
+            required
+            type="text"
+            placeholder="First name"
+            defaultValue="Mark"
+          />
+          <Form.Control.Feedback>Looks good!</Form.Control.Feedback>
+        </Form.Group>
+        <Form.Group as={Col} md="4" controlId="validationCustom02">
+          <Form.Label>Last name</Form.Label>
+          <Form.Control
+            required
+            type="text"
+            placeholder="Last name"
+            defaultValue="Otto"
+          />
+          <Form.Control.Feedback>Looks good!</Form.Control.Feedback>
+        </Form.Group>
+        <Form.Group as={Col} md="4" controlId="validationCustomUsername">
+          <Form.Label>Username</Form.Label>
+          <InputGroup>
+            <InputGroup.Prepend>
+              <InputGroup.Text id="inputGroupPrepend">@</InputGroup.Text>
+            </InputGroup.Prepend>
+            <Form.Control
+              type="text"
+              placeholder="Username"
+              aria-describedby="inputGroupPrepend"
+              required
+            />
+            <Form.Control.Feedback type="invalid">
+              Please choose a username.
+            </Form.Control.Feedback>
+          </InputGroup>
+        </Form.Group>
+      </Form.Row>
+      <Form.Row>
+        <Form.Group as={Col} md="6" controlId="validationCustom03">
+          <Form.Label>City</Form.Label>
+          <Form.Control type="text" placeholder="City" required />
+          <Form.Control.Feedback type="invalid">
+            Please provide a valid city.
+          </Form.Control.Feedback>
+        </Form.Group>
+        <Form.Group as={Col} md="3" controlId="validationCustom04">
+          <Form.Label>State</Form.Label>
+          <Form.Control type="text" placeholder="State" required />
+          <Form.Control.Feedback type="invalid">
+            Please provide a valid state.
+          </Form.Control.Feedback>
+        </Form.Group>
+        <Form.Group as={Col} md="3" controlId="validationCustom05">
+          <Form.Label>Zip</Form.Label>
+          <Form.Control type="text" placeholder="Zip" required />
+          <Form.Control.Feedback type="invalid">
+            Please provide a valid zip.
+          </Form.Control.Feedback>
+        </Form.Group>
+      </Form.Row>
+      <Form.Group>
+        <Form.Check
+          required
+          label="Agree to terms and conditions"
+          feedback="You must agree before submitting."
+        />
+      </Form.Group>
+      <Button type="submit">Submit form</Button>
+    </Form>
+ 
     );
   }
 }
