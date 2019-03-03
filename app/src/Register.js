@@ -38,45 +38,41 @@ class Register extends Component {
           />
           <Form.Control.Feedback>Looks good!</Form.Control.Feedback>
         </Form.Group>
-        <Form.Group as={Col} md="4" controlId="validationCustomUsername">
-          <Form.Label>Username</Form.Label>
+        <Form.Group as={Col} md="4" controlId="validationCustomEmail">
+          <Form.Label>Email</Form.Label>
           <InputGroup>
-            <InputGroup.Prepend>
-              <InputGroup.Text id="inputGroupPrepend">@</InputGroup.Text>
-            </InputGroup.Prepend>
             <Form.Control
-              type="text"
-              placeholder="Username"
+              type="email"
+              placeholder="Email"
               aria-describedby="inputGroupPrepend"
               required
             />
             <Form.Control.Feedback type="invalid">
-              Please choose a username.
+              Please enter a valid email.
             </Form.Control.Feedback>
           </InputGroup>
         </Form.Group>
       </Form.Row>
       <Form.Row>
-        <Form.Group as={Col} md="6" controlId="validationCustom03">
-          <Form.Label>City</Form.Label>
-          <Form.Control type="text" placeholder="City" required />
-          <Form.Control.Feedback type="invalid">
-            Please provide a valid city.
-          </Form.Control.Feedback>
+        
+        <Form.Group as={Col} md="6" controlId="validationCustom05">
+        <Form.Label>Phone Number</Form.Label>
+          <Form.Control type="num" placeholder="Phone Number" required />
+        <Form.Control.Feedback>
+        {['checkbox'].map(type => (
+    <div key={`inline-${type}`} className="mb-3">
+      <Form.Check inline label="Best AirQ days" type={type} id={`inline-${type}-1 inline-${type}-2`} />
+      <Form.Check inline label="Poor AirQ days" type={type} id={`inline-${type}-2`} />
+    </div>
+      ))}
+      </Form.Control.Feedback>
+        </Form.Group>
+        <Form.Group as={Col} md="3" controlId="validationCustom03">
+          
+          
         </Form.Group>
         <Form.Group as={Col} md="3" controlId="validationCustom04">
-          <Form.Label>State</Form.Label>
-          <Form.Control type="text" placeholder="State" required />
-          <Form.Control.Feedback type="invalid">
-            Please provide a valid state.
-          </Form.Control.Feedback>
-        </Form.Group>
-        <Form.Group as={Col} md="3" controlId="validationCustom05">
-          <Form.Label>Zip</Form.Label>
-          <Form.Control type="text" placeholder="Zip" required />
-          <Form.Control.Feedback type="invalid">
-            Please provide a valid zip.
-          </Form.Control.Feedback>
+          
         </Form.Group>
       </Form.Row>
       <Form.Group>
@@ -94,3 +90,8 @@ class Register extends Component {
 }
 
 export default Register;
+
+// bsPrefix	
+// string
+// 'form-group'	
+// Change the underlying component CSS base class name and modifier class names prefix. This is an escape hatch for working with heavily customized bootstrap css.
