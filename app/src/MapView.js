@@ -36,14 +36,14 @@ export class MapViews extends Component {
     return (
       <Map google={this.props.google} zoom={14}
       onClick={this.onMapClicked}
+      initialCenter={{lat: 45.496338, lng: -73.570732}}
       >
   
-        <Marker onClick={this.onMarkerClick}
-                name={'Current location'} 
-                name={'SOMA'}
-                position={{lat: 37.778519, lng: -122.405640}} //first to say this is javascript the second to say this is an object
-                />
-  
+      <Marker onClick={this.onMarkerClick}
+              name={'Current location'} 
+              position={{lat: 45.496338, lng: -73.570732}} //first to say this is javascript the second to say this is an object
+              />
+
   <InfoWindow
           marker={this.state.activeMarker}
           visible={this.state.showingInfoWindow}>
@@ -58,5 +58,11 @@ export class MapViews extends Component {
 }
        
 export default GoogleApiWrapper({
-  apiKey: ('API_KEY')
+  apiKey: ('AIzaSyDNAgi4SP4LXKpgJJptoGktkbtO4OhxQpc')
 })(MapViews)
+
+//initalCenter: Takes an object containing latitude and longitude coordinates. Sets the maps center upon loading.
+
+// center: Takes an object containing latitude and longitude coordinates. Use this if you want to re-render the map after the initial render.
+
+//the center is probably what will need to be called when the new location is submitted 
