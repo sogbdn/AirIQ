@@ -3,8 +3,10 @@ import React, { Component } from 'react';
 import Navbar from 'react-bootstrap/Navbar';
 import NavDropdown from 'react-bootstrap/NavDropdown';
 import Nav from 'react-bootstrap/Nav'
-import Container from 'react-bootstrap/Container'
+
+//import ModalHeader from 'react-bootstrap/ModalHeader'
 import 'bootstrap/dist/css/bootstrap.min.css';
+//import Container from 'react-bootstrap/Container';
 
 class NavBar extends Component {
 
@@ -13,7 +15,7 @@ class NavBar extends Component {
   }
   render() {
     return (
-      <Container>
+    
       <Navbar collapseOnSelect expand="md" bg="dark" variant="dark">
   <Navbar.Brand href="#home">AirIQ</Navbar.Brand>
   <Navbar.Toggle aria-controls="responsive-navbar-nav" />
@@ -29,7 +31,8 @@ class NavBar extends Component {
     </Nav>
   </Navbar.Collapse>
 </Navbar>
-    </Container>
+
+
       
     );
   }

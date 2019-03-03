@@ -4,6 +4,7 @@ import Form from 'react-bootstrap/Form';
 import Button from 'react-bootstrap/Button';
 import Col from 'react-bootstrap/Col';
 import InputGroup from 'react-bootstrap/InputGroup'
+import Container from 'react-bootstrap/Container'
 
 class Register extends Component {
 
@@ -12,6 +13,7 @@ class Register extends Component {
   }
   render() {
     return (
+      <Container>
       <Form
       noValidate
       validated={'validated'}
@@ -56,7 +58,7 @@ class Register extends Component {
       <Form.Row>
         
         <Form.Group as={Col} md="6" controlId="validationCustom05">
-        <Form.Label>Phone Number</Form.Label>
+        <Form.Label>Phone Number * Optional SMS alerts</Form.Label>
           <Form.Control type="num" placeholder="Phone Number" required />
         <Form.Control.Feedback>
         {['checkbox'].map(type => (
@@ -84,7 +86,7 @@ class Register extends Component {
       </Form.Group>
       <Button type="submit">Submit form</Button>
     </Form>
- 
+    </Container>
     );
   }
 }
