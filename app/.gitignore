@@ -24,6 +24,8 @@ mapstyle3.js
 scripts.html
 map_test.html
  .DS_Store
+ secret.js
+ app/src/secret.js
 
 
 npm-debug.log*

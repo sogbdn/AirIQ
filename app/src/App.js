@@ -3,6 +3,8 @@ import React, { Component } from 'react';
 import './App.css';
 import Register from './Register'
 import MapView from './MapView'  //the curly braces take a piece of the objeect that has the same name  /// bc there are two exports and we ony want map views from that file
+import NavBar from './NavBar' 
+import AqCard from './AqCard' 
 
 class App extends Component {
 
@@ -11,10 +13,16 @@ class App extends Component {
   }
   render() {
     return (
-      <div className="App">
+      <div>
+      <div className="Menu">
+      <NavBar></NavBar>
+      </div>
+      <div><AqCard></AqCard></div>
+      <div className="Form">
         <Register></Register>
         <MapView></MapView>
         
+      </div>
       </div>
     )
   }
