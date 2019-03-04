@@ -1,8 +1,16 @@
 import React, { Component } from 'react';
+import { BrowserRouter as Router, Switch, Route, Link } from 'react-router-dom';
 // https://unpkg.com/react-bootstrap@1.0.0-beta.5/Form.js
 import Navbar from 'react-bootstrap/Navbar';
 import NavDropdown from 'react-bootstrap/NavDropdown';
 import Nav from 'react-bootstrap/Nav'
+
+// import the pages for react router dom
+import Registration from './components/pages/Registration'
+import Login from './components/pages/Login'
+import UserProfile from './components/pages/UserProfile'
+import MapView from './components/pages/MapView'
+import AirIndex from './components/pages/AirIndex'
 
 //import ModalHeader from 'react-bootstrap/ModalHeader'
 import 'bootstrap/dist/css/bootstrap.min.css';
@@ -15,29 +23,45 @@ class NavBar extends Component {
   }
   render() {
     return (
-  
-    <Navbar collapseOnSelect expand="md" className="navbar-custom" variant="dark">
-    <Navbar.Brand href="#home">AirIQ</Navbar.Brand>
-      <Navbar.Toggle aria-controls="responsive-navbar-nav" />
-        <Navbar.Collapse id="responsive-navbar-nav">
-          <Nav className="mr-auto">
-            <Nav.Link href="#features">Air Quality Index</Nav.Link>
-            <Nav.Link href="#pricing">Map View
-            </Nav.Link>
-            <NavDropdown title="User Area" id="collasible-nav-dropdown">
-              <NavDropdown.Item href="#user/login">Login
-              </NavDropdown.Item>
-              <NavDropdown.Item href="#user/profile">User Profile
-              </NavDropdown.Item>
-              <NavDropdown.Item href="#register">Register
-              </NavDropdown.Item>
-            </NavDropdown>
-          </Nav>
-        </Navbar.Collapse>
-    </Navbar>
+      /*Router only takes one child element, hence the div */
+    <Router>
+      <div>
+        <Navbar collapseOnSelect expand="md" className="navbar-custom" variant="dark">
+          <Navbar.Brand><Link to={'/'}> AirIQ </Link></Navbar.Brand>
+          <Navbar.Toggle aria-controls="responsive-navbar-nav" />
+          <Navbar.Collapse id="responsive-navbar-nav">
+            <Nav className="mr-auto">
+              <Nav.Link>
+                <Link to={'/airQuality'}>Air Quality Index</Link>
+              </Nav.Link>
+              <Nav.Link>
+                <Link to={'/map'}>Map View</Link>
+              </Nav.Link>
+              <NavDropdown title="User Area" id="collasible-nav-dropdown">
+                <NavDropdown.Item>
+                  <Link to={'/login'}>Login</Link>
+                </NavDropdown.Item>
+                <NavDropdown.Item>
+                  <Link to={'/user'}>User Profile</Link>
+                </NavDropdown.Item>
+                <NavDropdown.Item>
+                  <Link to={'/register'}>Register</Link>
+                </NavDropdown.Item>
+              </NavDropdown>
+            </Nav>
+          </Navbar.Collapse>
+        </Navbar>
+        <Switch>
+          <Route path='/airQuality' component={AirIndex} />
+          <Route path='/map' component={MapView} />
+          <Route path='/login' component={Login} />
+          <Route path='/user' component={UserProfile} />
+          <Route path='/register' component={Registration} />
+        </Switch>
+      </div>
+    </Router>
     );
   }
 }
 
 export default NavBar;
-
