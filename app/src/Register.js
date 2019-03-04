@@ -5,7 +5,7 @@ import Button from 'react-bootstrap/Button';
 import Col from 'react-bootstrap/Col';
 import InputGroup from 'react-bootstrap/InputGroup'
 import Container from 'react-bootstrap/Container'
-import axios from 'axios'
+import axios from 'axios';
 
 class Register extends Component {
 
@@ -66,16 +66,17 @@ class Register extends Component {
 //if i want the green checks --- this is where
 
     */
-    this.setState({ [e.target.name]: e.target.value });
+    this.setState({ [e.target.name]: {value: e.target.value} });
   }
 
   handleSubmit = (event) => {
   event.preventDefault()
-  const { fname, lname, email } = this.state;
+  const { first_name, last_name, email, phone_number, concern_type, good_days, bad_days } = this.state;
 
-  axios.post('/', { fname, lname, email })
+  axios.post('/register', {first_name: first_name.value, last_name: last_name.value, email: email.value, phone_number: phone_number.value, concern_type: concern_type.value, good_days: good_days.value, bad_days: bad_days.value})
     .then((result) => {
       //access the results here....
+      console.log('server responded', result)
     });
   }
 
@@ -101,7 +102,7 @@ class Register extends Component {
             required
             type="text"
             name="first_name"
-            value={first_name}
+            value={first_name.value}
             onChange={this.onChange}
             placeholder="First name"
             //defaultValue="Mark"
@@ -115,7 +116,7 @@ class Register extends Component {
             required
             type="text"
             name="last_name"
-            value={last_name}
+            value={last_name.value}
             onChange={this.onChange}
             placeholder="Last name"
             defaultValue="Otto"
@@ -129,7 +130,7 @@ class Register extends Component {
               type="email"
               placeholder="Email"
               name="email"
-              value={email}
+              value={email.value}
               onChange={this.onChange}
               aria-describedby="inputGroupPrepend"
               required
@@ -143,10 +144,15 @@ class Register extends Component {
       <Form.Row>
       <Form.Group as={Col} md="3" controlId="validationCustom03">
     <Form.Label>Health Concern Teir*</Form.Label>
-    <Form.Control as="select" multiple>
-      <option>General Health Interest</option>
-      <option>Medical Concern</option>
-      <option>Lifestyle/Sports Concern</option>
+    <Form.Control as="select" 
+    name="concern_type"
+    value={concern_type.value}
+    onChange={this.onChange}
+    required 
+    >
+      <option value="general_concern">General Health Interest</option>
+      <option value="medical_concern">Medical Concern</option>
+      <option value="lifestyle">Lifestyle/Sports Concern</option>
     </Form.Control>
   </Form.Group>
 
@@ -155,7 +161,7 @@ class Register extends Component {
           <Form.Control type="num"
           placeholder="Phone Number"
           name="phone_number"
-          value={phone_number}
+          value={phone_number.value}
           onChange={this.onChange}
           required />
         <Form.Control.Feedback>
@@ -176,7 +182,7 @@ class Register extends Component {
       </Form.Row>
       <Form.Group>
         <Form.Check
-          required
+         
           label="Agree to terms and conditions"
           feedback="You must agree before submitting."
         />
