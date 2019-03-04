@@ -12,16 +12,10 @@
   "author": "",
   "license": "ISC",
   "dependencies": {
-    "babel-core": "^6.26.3",
-    "babel-loader": "^8.0.5",
-    "babel-preset-react": "^6.24.1",
     "body-parser": "^1.18.3",
-    "bootstrap": "^4.3.1",
     "concurrently": "^3.6.0",
-    "css-loader": "^2.1.0",
     "dotenv": "^6.1.0",
     "express": "^4.16.4",
-    "extract-text-webpack-plugin": "^2.0.0-rc.3",
     "formik": "^1.5.1",
     "knex": "^0.16.3",
     "method-override": "*",
@@ -30,13 +24,7 @@
     "react": "^16.8.3",
     "react-dom": "^16.8.3",
     "react-router": "^4.3.1",
-    "sass-loader": "^7.1.0",
     "slug": "^0.9.2",
-    "style-loader": "^0.23.1",
-    "webpack": "^4.29.6",
-    "webpack-dev-middleware": "^3.6.0",
-    "webpack-dev-server": "^3.2.1",
-    "webpack-hot-middleware": "^2.24.3",
     "yup": "^0.26.10"
   },
   "devDependencies": {
@@ -45,5 +33,5 @@
     "nodemon": "^1.18.1"
   },
   "proxy": "http://localhost:3001"
-  
+
 }
