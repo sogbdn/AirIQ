@@ -1,6 +1,5 @@
 import React, { Component } from "react";
 //import { browserHistory } from 'react-router';
-import NavBar from '../partials/_NavBar' 
 
 export default class Login extends Component {
   componentDidMount() {
@@ -9,7 +8,6 @@ export default class Login extends Component {
   render() {
     return (
       <div>
-      <NavBar></NavBar>
         Login placeholder
       </div>
     );

@@ -2,9 +2,9 @@ import React, { Component } from 'react';
 // import logo from './logo.svg';
 
 import Register from './Register'
-import MapView from './MapView'  
-import NavBar from './NavBar' 
-import AqCard from './AqCard' 
+import MapView from './MapView'
+import NavBar from './NavBar'
+import AqCard from './AqCard'
 import './App.css';
 
 
@@ -30,11 +30,11 @@ class App extends Component {
       <NavBar></NavBar>
       </div>
       <div><AqCard></AqCard></div>
-      
+
       <div className="Form">
         <Register></Register>
         <MapView></MapView>
-        
+
       </div>
       </div>
     )
