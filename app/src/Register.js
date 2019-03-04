@@ -5,6 +5,7 @@ import Button from 'react-bootstrap/Button';
 import Col from 'react-bootstrap/Col';
 import InputGroup from 'react-bootstrap/InputGroup'
 import Container from 'react-bootstrap/Container'
+import axios from 'axios'
 
 class Register extends Component {
 
@@ -77,12 +78,12 @@ class Register extends Component {
       //access the results here....
     });
   }
-  
+
 
   componentDidMount() {
     console.log("Register Mounted");
   }
-  render() { 
+  render() {
 
     const {first_name, last_name, email, phone_number, good_days, bad_days, concern_type} = this.state;
 
@@ -148,11 +149,11 @@ class Register extends Component {
       <option>Lifestyle/Sports Concern</option>
     </Form.Control>
   </Form.Group>
-        
+
         <Form.Group as={Col} md="6" controlId="validationCustom05">
         <Form.Label>Phone Number * Optional SMS alerts</Form.Label>
-          <Form.Control type="num" 
-          placeholder="Phone Number" 
+          <Form.Control type="num"
+          placeholder="Phone Number"
           name="phone_number"
           value={phone_number}
           onChange={this.onChange}
@@ -160,17 +161,17 @@ class Register extends Component {
         <Form.Control.Feedback>
         {['checkbox'].map(type => (
     <div key={`inline-${type}`} className="mb-3">
-      <Form.Check inline label="Best AirQ days" 
-      type={type} 
+      <Form.Check inline label="Best AirQ days"
+      type={type}
       id={`inline-${type}-1 inline-${type}-2`} />
       <Form.Check inline label="Poor AirQ days" type={type} id={`inline-${type}-2`} />
     </div>
       ))}
       </Form.Control.Feedback>
         </Form.Group>
-        
+
         <Form.Group as={Col} md="3" controlId="validationCustom04">
-          
+
         </Form.Group>
       </Form.Row>
       <Form.Group>
@@ -189,7 +190,7 @@ class Register extends Component {
 
 export default Register;
 
-// bsPrefix	
+// bsPrefix
 // string
-// 'form-group'	
+// 'form-group'
 // Change the underlying component CSS base class name and modifier class names prefix. This is an escape hatch for working with heavily customized bootstrap css.
