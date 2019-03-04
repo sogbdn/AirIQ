@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 // import logo from './logo.svg';
 
 import Register from './Register'
-import MapView from './MapView'  //the curly braces take a piece of the objeect that has the same name  /// bc there are two exports and we ony want map views from that file
+import MapView from './MapView'  
 import NavBar from './NavBar' 
 import AqCard from './AqCard' 
 import './App.css';
