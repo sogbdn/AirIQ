@@ -9,9 +9,9 @@ const knex = require('knex')(knexConfig[env])
 const app = express()
 
 var webpack = require('webpack');
-var config = require('./webpack.config.dev.js');
+// var config = require('./webpack.config.dev.js');
 
-var compiler = webpack(config);
+// var compiler = webpack(config);
 
 require("dotenv").config()
 
