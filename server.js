@@ -35,6 +35,11 @@ app.get('/ping', function (req, res) {
  return res.send('pong')
 })
 
+app.post('/register', function (req, res){
+  console.log(req.body)
+  res.send('oksomething like that')
+})
+
 const server = app.listen(process.env.PORT || 3001, () => {
   console.log('Listening on port ' + server.address().port)
 })
