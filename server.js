@@ -33,54 +33,50 @@ const server = app.listen(process.env.PORT || 3001, () => {
 // POST routes
 app.post('/register', (req, res) => {
 	knex('users')
-		.insert([
-			{
-				first_name: req.body.first_name,
-				last_name: req.body.last_name,
-				email: req.body.email,
-				phone_number: req.body.phone_number,
-				password: req.body.password,
-				profile_type: req.body.profile_type,
-				sms_good_days: req.body.sms_good_days,
-				sms_bad_days: req.body.sms_bad_days
-			}
-		])
+		.returning([ 'id', 'email' ])
+		.insert({
+			first_name: req.body.first_name,
+			last_name: req.body.last_name,
+			email: req.body.email,
+			phone_number: req.body.phone_number,
+			password: req.body.password,
+			profile_type: req.body.profile_type,
+			sms_good_days: req.body.sms_good_days,
+			sms_bad_days: req.body.sms_bad_days
+		})
 		.then((results) => {
+			req.session.cookie.user_id = results[0];
 			return res.json({
 				success: true,
 				message: 'new user registered in database'
 			});
 		});
-
-	knex('users')
-		.select('id')
-		.from('users')
-		.where({
-			first_name: req.body.first_name,
-			last_name: req.body.last_name
-		})
-		.then((results) => {
-			req.session.cookie.user_id = results[0].id;
-			console.log(req.session);
-			//  return res.json({
-			//	success: true,
-			//	message: 'new user logged in'
-			//});
-		});
-	res.redirect('/');
+	//res.redirect('/') for react
 });
 
 app.post('/login', (req, res) => {
 	const loginEmail = req.body.email;
 	const loginPassword = req.body.password;
-	//retrieve the user with this Email in the database and return its id
-	knex.select('*').from('users').where({ email: loginEmail, password: loginPassword }).then((results) => {
-		if (results.length !== 0) {
-			req.session.cookie.user_id = results[0].id;
-		} else {
-			//res.redirect('/login');
-		}
-	});
+	//retrieve the user with this Email in the database and return its
+	knex
+		.select('*')
+		.from('users')
+		.where({ email: loginEmail, password: loginPassword })
+		.then((results) => {
+			if (results.length !== 0) {
+				req.session.cookie.user_id = results[0].id;
+				return res.json({
+					success: true,
+					message: 'new user login successful'
+				});
+			} else {
+				res.json({ success: false, message: 'login was unsuccessful' });
+			}
+		})
+		.catch((error) => {
+			res.json({ success: false, message: 'login was unsuccessful' });
+		});
+	// redirect with react
 });
 
 app.post('/logout', (req, res) => {
