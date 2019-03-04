@@ -34,3 +34,4 @@ app/public/register_stash.html
 npm-debug.log*
 yarn-debug.log*
 yarn-error.log*
+app/package-lock.json
