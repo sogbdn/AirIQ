@@ -16,7 +16,7 @@ class NavBar extends Component {
   render() {
     return (
     
-      <Navbar collapseOnSelect expand="md" bg="dark" variant="dark">
+      <Navbar collapseOnSelect expand="md" className="navbar-custom" variant="dark">
   <Navbar.Brand href="#home">AirIQ</Navbar.Brand>
   <Navbar.Toggle aria-controls="responsive-navbar-nav" />
   <Navbar.Collapse id="responsive-navbar-nav">
@@ -31,9 +31,6 @@ class NavBar extends Component {
     </Nav>
   </Navbar.Collapse>
 </Navbar>
-
-
-      
     );
   }
 }
