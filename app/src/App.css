@@ -23,6 +23,65 @@
   color: #61dafb;
 }
 
+body {
+  font-family: 'Open Sans', sans-serif;
+  font-size: 1.1em;
+}
+
+.cardcustom {
+  margin-top: 1em;
+  min-height: 240px;
+  
+}
+
+.navbar-custom {
+  background-color: teal;
+}
+
+
+
+.avatar{
+
+  border-radius: 12px;
+  margin: 0.7em
+}
+
+.aqinum {
+  font-size: 3.1em;
+  font-weight: lighter;
+  color: white;
+ 
+}
+
+.bg-default{
+  background-color: gray;
+}
+
+.bg-alert1 {
+
+background-color:#31c060;
+}
+
+.bg-alert2 {
+
+  background-color:#fff110;
+}
+
+.bg-alert3 {
+
+  background-color: #ffa810;
+}
+
+.bg-alert4 {
+
+  background-color: #d80404;
+}
+
+.bg-alert5 {
+
+  background-color: #860f30;
+}
+
 @keyframes App-logo-spin {
   from {
     transform: rotate(0deg);
