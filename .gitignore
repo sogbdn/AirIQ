@@ -4,3 +4,4 @@ node_modules
  .DS_Store
  register_stash.html
  app/public/register_stash.html
+ app/package-lock.json
