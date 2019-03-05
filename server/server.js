@@ -9,8 +9,11 @@ const env = 'development';
 const knex = require('knex')(knexConfig[env]);
 const app = express();
 const session = require('express-session');
+const jsonWebToken = require('jsonwebtoken');
 
 require('dotenv').config();
+
+const myJWTSecretKey = process.env.secret;
 
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: false }));
@@ -22,18 +25,34 @@ app.use(
 	})
 );
 
+const server = app.listen(process.env.PORT || 3001, () => {
+	console.log('Listening on port ' + server.address().port);
+});
+
+// GET routes
 app.get('/ping', function(req, res) {
 	return res.send('pong');
 });
 
-const server = app.listen(process.env.PORT || 3001, () => {
-	console.log('Listening on port ' + server.address().port);
+app.get('/verify/:token', (req, res) => {
+	try {
+		const tokenDecodedData = jsonWebToken.verify(req.params.token, myJWTSecretKey);
+		return res.json({
+			error: false,
+			data: tokenDecodedData
+		});
+	} catch (error) {
+		res.json({
+			error: true,
+			data: error
+		});
+	}
 });
 
 // POST routes
 app.post('/register', (req, res) => {
 	knex('users')
-		.returning([ 'id', 'email' ])
+		.returning('id')
 		.insert({
 			first_name: req.body.first_name,
 			last_name: req.body.last_name,
@@ -44,12 +63,16 @@ app.post('/register', (req, res) => {
 			sms_good_days: req.body.sms_good_days,
 			sms_bad_days: req.body.sms_bad_days
 		})
-		.then((results) => {
-			req.session.cookie.user_id = results[0];
-			return res.json({
-				success: true,
-				message: 'new user registered in database'
+		.then(([ id ]) => {
+			//	req.session.cookie.user_id = results[0];
+			const token = jsonWebToken.sign(id, myJWTSecretKey);
+			res.json({
+				token: token
 			});
+			//return res.json({
+			//success: true,
+			//	message: 'new user registered in database'
+			//});
 		});
 	//res.redirect('/') for react
 });
@@ -64,11 +87,15 @@ app.post('/login', (req, res) => {
 		.where({ email: loginEmail, password: loginPassword })
 		.then((results) => {
 			if (results.length !== 0) {
-				req.session.cookie.user_id = results[0].id;
-				return res.json({
-					success: true,
-					message: 'new user login successful'
+				//	req.session.cookie.user_id = results[0].id;
+				const token = jsonWebToken.sign(results[0].id, myJWTSecretKey);
+				res.json({
+					token: token
 				});
+				//	return res.json({
+				//		success: true,
+				//		message: 'new user login successful'
+				//	});
 			} else {
 				res.json({ success: false, message: 'login was unsuccessful' });
 			}
