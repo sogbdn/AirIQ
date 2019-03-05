@@ -11,6 +11,8 @@ import Login from './components/pages/Login'
 import UserProfile from './components/pages/UserProfile'
 import MapView from './components/pages/MapView'
 import AirIndex from './components/pages/AirIndex'
+import About from './components/pages/About'
+import AirCard from './components/partials/_AirCard'
 
 //import ModalHeader from 'react-bootstrap/ModalHeader'
 import 'bootstrap/dist/css/bootstrap.min.css';
@@ -27,7 +29,9 @@ class NavBar extends Component {
     <Router>
       <div>
         <Navbar collapseOnSelect expand="md" className="navbar-custom" variant="dark">
-          <Navbar.Brand><Link to={'/'}> AirIQ </Link></Navbar.Brand>
+          <Navbar.Brand>
+            <Link to={'/'}> AirIQ </Link>
+          </Navbar.Brand>
           <Navbar.Toggle aria-controls="responsive-navbar-nav" />
           <Navbar.Collapse id="responsive-navbar-nav">
             <Nav className="mr-auto">
@@ -52,6 +56,8 @@ class NavBar extends Component {
           </Navbar.Collapse>
         </Navbar>
         <Switch>
+          <Route exact path='/' component={AirCard} />
+          <Route path='/concerns' component={About} />
           <Route path='/airQuality' component={AirIndex} />
           <Route path='/map' component={MapView} />
           <Route path='/login' component={Login} />
