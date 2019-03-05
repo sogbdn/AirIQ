@@ -3,9 +3,10 @@ import { geolocated } from 'react-geolocated';
 import axios from 'axios';
 
 // import Card from 'react-bootstrap/Card'
-// import Container from 'react-bootstrap/Container';
+import Container from 'react-bootstrap/Container'
 // import Col from 'react-bootstrap/Col'
 // import Row from 'react-bootstrap/Row'
+import AirCard from './_AirCard'
 
 class AQIretrieve extends Component {
 	constructor(props) {
@@ -35,6 +36,7 @@ class AQIretrieve extends Component {
 			return <div> Geolocation is not enabled </div>;
 		} else if (this.props.coords) {
 			return (
+				<Container><AirCard airQuality={newAqius}/>
 				<table>
 					<tbody>
 						<tr>
@@ -50,6 +52,7 @@ class AQIretrieve extends Component {
 						</tr>
 					</tbody>
 				</table>
+				</Container>
 			);
 		} else {
 			return <div>Getting the location data&hellip; </div>;
