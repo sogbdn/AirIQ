@@ -7,6 +7,8 @@ import Container from 'react-bootstrap/Container';
 import Col from 'react-bootstrap/Col'
 import Row from 'react-bootstrap/Row'
 
+import AQIretrieve from './AQIretrieve';
+
 
 export default class AirCard extends Component {
 
