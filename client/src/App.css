@@ -42,7 +42,7 @@ body {
 
 .avatar{
 
-  border-radius: 12px;
+  
   margin: 0.7em;
   
 }
@@ -90,5 +90,23 @@ background-color:#31c060;
   to {
     transform: rotate(360deg);
   }
+}
+
+
+.isValid {
+background-color: green
+}
+
+.isInValid {
+  background-color: red
+
+}
+
+.navbar-custom a {
+  color: white
+}
+
+.dropdown-item a {
+  color: teal
 }
 

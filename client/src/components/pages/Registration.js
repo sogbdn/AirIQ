@@ -47,6 +47,15 @@ export default class Registration extends Component {
   }
 
   onChange = (e) => {
+
+    //const validentries = ^(\+\d{1,2}\s)?\(?\d{3}\)?[\s.-]\d{3}[\s.-]\d{4}$
+
+    // if (e.target.name === "phone_number") {
+    //   if (e.target.value.match(validentries))
+          //validation = true
+    // }
+
+
     /*
       Because we named the inputs to match their
       corresponding values in state, it's
@@ -93,8 +102,8 @@ export default class Registration extends Component {
       <div>
       <Container>
       <Form
-      //noValidate
-      //validated={'validated'}
+      // noValidate
+      // validated={'validated'}
       onSubmit={e => this.handleSubmit(e)}
     >
       <Form.Row>
@@ -165,7 +174,8 @@ export default class Registration extends Component {
           name="phone_number"
           value={phone_number.value}
           onChange={this.onChange}
-          required />
+          //validation = {null}
+          />
         <Form.Control.Feedback>
         {['checkbox'].map(type => (
     <div key={`inline-${type}`} className="mb-3">
