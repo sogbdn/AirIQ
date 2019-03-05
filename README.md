@@ -1,9 +1,11 @@
 # INSTALL DEPENDENCIES
 
-1. From the */Final_Project* folder, run ```npm install``` (express, pg and knex dependencies).
-2. cd into the */app* folder.
-3. From the */app* folder, run ```npm install``` (React dependencies).
-4. Use ```npm run dev``` to start the server on ```http://localhost:3000/```
+1. cd into the */server* folder.
+2. From the */server* folder, run ```npm install``` (server dependencies).
+3. Open a second terminal and cd into the */client* folder.
+4. From the */client* folder, run ```npm install``` (React dependencies).
+5. Use ```npm run server``` from the */server* terminal to start the server on ```http://localhost:3000/```
+6. User ```npm start``` from the */client* terminal to start the client on 3001
 
 ## CREATING THE KNEX DATABASE
 

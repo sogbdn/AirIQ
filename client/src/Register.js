@@ -91,8 +91,8 @@ class Register extends Component {
     return (
       <Container>
       <Form
-      //noValidate
-      //validated={'validated'}
+      noValidate
+      validated={'validated'}
       onSubmit={e => this.handleSubmit(e)}
     >
       <Form.Row>
@@ -142,7 +142,7 @@ class Register extends Component {
         </Form.Group>
       </Form.Row>
       <Form.Row>
-      <Form.Group as={Col} md="3" controlId="validationCustom03">
+      <Form.Group as={Col} md="4" controlId="validationCustom03">
     <Form.Label>Health Concern Teir*</Form.Label>
     <Form.Control as="select" 
     name="concern_type"
@@ -156,8 +156,8 @@ class Register extends Component {
     </Form.Control>
   </Form.Group>
 
-        <Form.Group as={Col} md="6" controlId="validationCustom05">
-        <Form.Label>Phone Number * Optional SMS alerts</Form.Label>
+        <Form.Group as={Col} md="4" controlId="validationCustom05">
+        <Form.Label>Tomatoe * Optional SMS alerts</Form.Label>
           <Form.Control type="num"
           placeholder="Phone Number"
           name="phone_number"
@@ -166,7 +166,7 @@ class Register extends Component {
           required />
         <Form.Control.Feedback>
         {['checkbox'].map(type => (
-    <div key={`inline-${type}`} className="mb-3">
+    <div key={`inline-${type}`} className="mb-1">
       <Form.Check inline label="Best AirQ days"
       type={type}
       id={`inline-${type}-1 inline-${type}-2`} />
