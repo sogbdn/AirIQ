@@ -8,8 +8,14 @@ import axios from 'axios';
 // import Row from 'react-bootstrap/Row'
 
 class AQIretrieve extends Component {
+	constructor(props) {
+		super(props);
+		this.state = {
+			newAqius: ''
+		};
+	}
+
 	componentDidMount() {
-		console.log('Geolocation found');
 		axios
 			.get(
 				`https://api.airvisual.com/v2/nearest_city?lat={this.props.coords.latitude}&lon={this.props.coords.longitude}&key=u78aw3FawH3LQxNQx`
@@ -17,11 +23,12 @@ class AQIretrieve extends Component {
 			.then((res) => {
 				console.log('AirVisual response', res);
 				console.log('aqius', res.data.data.current.pollution.aqius);
+				this.setState({ newAqius: res.data.data.current.pollution.aqius });
 			});
 	}
 
 	render() {
-		console.log(this.props.coords);
+		const { newAqius } = this.state;
 		if (!this.props.isGeolocationAvailable) {
 			return <div> Your browser does not support Geolocation </div>;
 		} else if (!this.props.isGeolocationEnabled) {
@@ -30,6 +37,9 @@ class AQIretrieve extends Component {
 			return (
 				<table>
 					<tbody>
+						<tr>
+							<td> AQI geolocated: {newAqius} </td>
+						</tr>
 						<tr>
 							<td>latitude</td>
 							<td>{this.props.coords.latitude}</td>

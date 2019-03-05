@@ -29,8 +29,10 @@ class App extends Component {
 					<NavBar />
 				</div>
 				<div>
-					<AqCard />
 					<AQIretrieve />
+				</div>
+				<div>
+					<AqCard />
 				</div>
 
 				<div className="Form">
