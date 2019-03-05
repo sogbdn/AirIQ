@@ -7,6 +7,7 @@ import InputGroup from 'react-bootstrap/InputGroup'
 import Container from 'react-bootstrap/Container'
 import axios from 'axios';
 
+//Registration form copied from register.js
 export default class Registration extends Component {
 
   constructor() {
