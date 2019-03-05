@@ -13,6 +13,7 @@ import MapView from './components/pages/MapView'
 import AirIndex from './components/pages/AirIndex'
 import About from './components/pages/About'
 import AirCard from './components/partials/_AirCard'
+import RegistrationComp from './components/pages/Registrationcomplete'
 
 //import ModalHeader from 'react-bootstrap/ModalHeader'
 import 'bootstrap/dist/css/bootstrap.min.css';
@@ -63,6 +64,7 @@ class NavBar extends Component {
           <Route path='/login' component={Login} />
           <Route path='/user' component={UserProfile} />
           <Route path='/register' component={Registration} />
+          <Route path='/registrationcomplete' component={RegistrationComp} />
         </Switch>
       </div>
     </Router>

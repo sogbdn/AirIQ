@@ -6,6 +6,7 @@ import Col from 'react-bootstrap/Col';
 import InputGroup from 'react-bootstrap/InputGroup'
 import Container from 'react-bootstrap/Container'
 import axios from 'axios';
+import { BrowserRouter as Router, Switch, Route, Link } from 'react-router-dom';
 
 export default class Registration extends Component {
 
@@ -61,14 +62,14 @@ export default class Registration extends Component {
         console.log('false')
       }
     }
-    // else if (e.target.name === "first_number") {
-    //   var validentries2 =/[A-Z]/g; // there is a sneaky space being allowed in the valid characters
-    //   if (e.target.value.match(validentries2)&& e.target.value.length <= 15) {
-    //     validation = true
-    //   } else {
-    //     validation = false
-    //   }
-    // }
+    else if (e.target.name === "first_number") {
+      var validentries2 =/[A-Z]/g; // there is a sneaky space being allowed in the valid characters
+      if (e.target.value.match(validentries2)&& e.target.value.length <= 15) {
+        validation = true
+      } else {
+        validation = false
+      }
+    }
 
     // else if (e.target.name === "last_number") {
     //   var validentries3 =/[A-Z]/g; // there is a sneaky space being allowed in the valid characters
@@ -151,6 +152,7 @@ export default class Registration extends Component {
             name="last_name"
             value={last_name.value}
             onChange={this.onChange}
+            
       className={this.validationClass(last_name.validation)}
         placeholder="First Name"
           />
@@ -230,6 +232,8 @@ export default class Registration extends Component {
     );
   }
 }
+
+// <Button type="submit"><Link to={'/registrationcomplete'}>Submit form</Link></Button> 
 
 
 // bsPrefix
