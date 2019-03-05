@@ -14,6 +14,8 @@ import AirIndex from './components/pages/AirIndex'
 import About from './components/pages/About'
 import AirCard from './components/partials/_AirCard'
 
+import withAuth from './components/withAuth';
+
 //import ModalHeader from 'react-bootstrap/ModalHeader'
 import 'bootstrap/dist/css/bootstrap.min.css';
 //import Container from 'react-bootstrap/Container';
@@ -59,7 +61,7 @@ class NavBar extends Component {
           <Route exact path='/' component={AirCard} />
           <Route path='/concerns' component={About} />
           <Route path='/airQuality' component={AirIndex} />
-          <Route path='/map' component={MapView} />
+          <Route path='/map' component={withAuth(MapView)} />
           <Route path='/login' component={Login} />
           <Route path='/user' component={UserProfile} />
           <Route path='/register' component={Registration} />
