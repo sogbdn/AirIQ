@@ -1,17 +1,27 @@
 import React, { Component } from 'react';
 import { geolocated } from 'react-geolocated';
+import axios from 'axios';
+
 // import Card from 'react-bootstrap/Card'
 // import Container from 'react-bootstrap/Container';
 // import Col from 'react-bootstrap/Col'
 // import Row from 'react-bootstrap/Row'
-import './App.css';
 
 class AQIretrieve extends Component {
 	componentDidMount() {
 		console.log('Geolocation found');
+		axios
+			.get(
+				`https://api.airvisual.com/v2/nearest_city?lat={this.props.coords.latitude}&lon={this.props.coords.longitude}&key=u78aw3FawH3LQxNQx`
+			)
+			.then((res) => {
+				console.log('AirVisual response', res);
+				console.log('aqius', res.data.data.current.pollution.aqius);
+			});
 	}
 
 	render() {
+		console.log(this.props.coords);
 		if (!this.props.isGeolocationAvailable) {
 			return <div> Your browser does not support Geolocation </div>;
 		} else if (!this.props.isGeolocationEnabled) {
