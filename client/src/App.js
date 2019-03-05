@@ -30,14 +30,6 @@ class App extends Component {
 				<div>
 					<AQIretrieve />
 				</div>
-				<div>
-					<AqCard />
-				</div>
-
-				<div className="Form">
-					<Register />
-					<MapView />
-				</div>
 			</div>
 		);
 	}
