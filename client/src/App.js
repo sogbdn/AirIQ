@@ -32,18 +32,17 @@ class App extends Component {
 			<Router>
 				<div>
 				<div className="Menu"><NavBar /></div>
-				<Switch>	
+				<Switch>
 					<Route exact path='/' component={AQIretrieve} />
 					<Route exact path='/concerns' component={About} />
 					<Route path='/airQuality' component={AirIndex} />
-					<Route path='/map' component={MapView} />
 					<Route path='/login' component={Login} />
 					<Route path='/user' component={UserProfile} />
 					<Route exact path='/register' component={Registration} />
 					<Route path='/registrationcomplete' component={RegistrationComp} />
 					<Route path='/map' component={withAuth(MapView)} />
-				</Switch>	
-				</div>				
+				</Switch>
+				</div>
 		</Router>
 		);
 	}
