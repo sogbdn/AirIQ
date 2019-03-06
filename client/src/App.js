@@ -6,6 +6,7 @@ import NavBar from './NavBar';
 import AqCard from './AqCard';
 import './App.css';
 import AQIretrieve from './components/partials/AQIretrieve';
+import Geolocation from './components/partials/Geolocation';
 
 class App extends Component {
 	// constructor(props) {
@@ -28,6 +29,7 @@ class App extends Component {
 					<NavBar />
 				</div>
 				<div>
+					<Geolocation />
 					<AQIretrieve />
 				</div>
 			</div>
