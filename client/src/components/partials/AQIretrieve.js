@@ -2,11 +2,11 @@ import React, { Component } from 'react';
 import axios from 'axios';
 
 // import Card from 'react-bootstrap/Card'
-import Container from 'react-bootstrap/Container'
+import Container from 'react-bootstrap/Container';
 // import Col from 'react-bootstrap/Col'
 // import Row from 'react-bootstrap/Row'
-import AirCard from './_AirCard'
-import MapView from '../pages/MapView'
+import AirCard from './_AirCard';
+import MapView from '../pages/MapView';
 
 export default class AQIretrieve extends Component {
 	constructor(props) {
@@ -34,12 +34,10 @@ export default class AQIretrieve extends Component {
 		return (
 			<tbody>
 				<tr>
-					<td> AQI geolocated </td>
-					<td> {newAqius} </td>
-      <AirCard airQuality={newAqius}/>
-      <MapView airQuality={newAqius} />
+					<AirCard airQuality={newAqius} />
+					<MapView airQuality={newAqius} />
 				</tr>
 			</tbody>
-		)
+		);
 	}
 }

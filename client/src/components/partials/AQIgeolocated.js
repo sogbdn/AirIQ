@@ -7,7 +7,7 @@ import AQIretrieve from './AQIretrieve';
 // import Col from 'react-bootstrap/Col'
 // import Row from 'react-bootstrap/Row'
 
-class Geolocation extends Component {
+class AQIgeolocated extends Component {
 	render() {
 		if (!this.props.isGeolocationAvailable) {
 			return <div> Your browser does not support Geolocation </div>;
@@ -40,4 +40,4 @@ export default geolocated({
 		enableHighAccuracy: false
 	},
 	userDecisionTimeout: 0
-})(Geolocation);
+})(AQIgeolocated);
