@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import { geolocated } from 'react-geolocated';
+import AQIretrieve from './AQIretrieve';
 
 // import Card from 'react-bootstrap/Card'
 // import Container from 'react-bootstrap/Container';
@@ -8,7 +9,6 @@ import { geolocated } from 'react-geolocated';
 
 class Geolocation extends Component {
 	render() {
-		const { newAqius } = this.state;
 		if (!this.props.isGeolocationAvailable) {
 			return <div> Your browser does not support Geolocation </div>;
 		} else if (!this.props.isGeolocationEnabled) {
@@ -25,6 +25,7 @@ class Geolocation extends Component {
 							<td>longitude</td>
 							<td>{this.props.coords.longitude}</td>
 						</tr>
+						<AQIretrieve lat={this.props.coords.latitude} long={this.props.coords.longitude} />
 					</tbody>
 				</table>
 			);

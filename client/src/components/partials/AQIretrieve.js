@@ -17,8 +17,8 @@ export default class AQIretrieve extends Component {
 	componentDidMount() {
 		axios
 			.get(
-				`https://api.airvisual.com/v2/nearest_city?lat=${this.props.coords.latitude}&lon=${this.props.coords
-					.longitude}&key=u78aw3FawH3LQxNQx`
+				`https://api.airvisual.com/v2/nearest_city?lat=${this.props.lat}&lon=${this.props
+					.long}&key=u78aw3FawH3LQxNQx`
 			)
 			.then((res) => {
 				console.log('AirVisual response', res);
