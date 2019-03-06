@@ -7,7 +7,7 @@ import Row from 'react-bootstrap/Row'
 import AirRatingRecom  from './_AirRatingRecom'
 
 
-
+//
 
 export default class AirCard extends Component {
 

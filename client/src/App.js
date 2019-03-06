@@ -5,6 +5,7 @@ import withAuth from './components/withAuth';
 import AQIretrieve from './components/partials/AQIretrieve';
 import { BrowserRouter as Router, Switch, Route, Link } from 'react-router-dom';
 import Registration from './components/pages/Registration'
+import Geolocation from './components/partials/Geolocation'
 import Login from './components/pages/Login'
 import UserProfile from './components/pages/UserProfile'
 import MapView from './components/pages/MapView'
@@ -24,7 +25,7 @@ class App extends Component {
 				<div>
 				<div className="Menu"><NavBar /></div>
 				<Switch>
-					<Route exact path='/' component={AQIretrieve} />
+					<Route exact path='/' component={Geolocation} />
 					<Route exact path='/concerns' component={About} />
 					<Route path='/airQuality' component={AirIndex} />
 					<Route path='/login' component={Login} />
