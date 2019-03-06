@@ -11,6 +11,7 @@ import Login from './components/pages/Login';
 import MapView from './components/pages/MapView';
 import Registration from './components/pages/Registration';
 import UserProfile from './components/pages/UserProfile';
+import Registrationcomplete from './components/pages/UserProfile';
 
 ReactDOM.render((
   <Router history = {browserHistory}>
