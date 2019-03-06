@@ -34,10 +34,8 @@ export default class AQIretrieve extends Component {
 		return (
 			<tbody>
 				<tr>
-					<td> AQI geolocated </td>
-					<td> {newAqius} </td>
       <AirCard airQuality={newAqius}/>
-      <MapView airQuality={newAqius} />
+      <MapView airQuality={newAqius}/>
 				</tr>
 			</tbody>
 		)

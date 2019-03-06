@@ -9,6 +9,7 @@ import Login from './components/pages/Login';
 import UserProfile from './components/pages/UserProfile';
 import MapView from './components/pages/MapView';
 import AirIndex from './components/pages/AirIndex';
+//import AirCard from './components/partials/_AirCard';
 import About from './components/pages/About';
 import RegistrationComp from './components/pages/Registrationcomplete';
 import Geolocation from './components/partials/Geolocation.js';
@@ -32,7 +33,7 @@ class App extends Component {
 						<Route path="/user" component={UserProfile} />
 						<Route exact path="/register" component={Registration} />
 						<Route path="/registrationcomplete" component={RegistrationComp} />
-						<Route path="/map" component={withAuth(MapView)} />
+						<Route path="/map" component={MapView} />
 					</Switch>
 				</div>
 			</Router>

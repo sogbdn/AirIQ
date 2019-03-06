@@ -15,19 +15,8 @@ class Geolocation extends Component {
 			return <div> Geolocation is not enabled </div>;
 		} else if (this.props.coords) {
 			return (
-				<table>
-					<tbody>
-						<tr>
-							<td>latitude</td>
-							<td>{this.props.coords.latitude}</td>
-						</tr>
-						<tr>
-							<td>longitude</td>
-							<td>{this.props.coords.longitude}</td>
-						</tr>
-						<AQIretrieve lat={this.props.coords.latitude} long={this.props.coords.longitude} />
-					</tbody>
-				</table>
+
+			<AQIretrieve lat={this.props.coords.latitude} long={this.props.coords.longitude} />
 			);
 		} else {
 			return <div>Getting the location data&hellip; </div>;

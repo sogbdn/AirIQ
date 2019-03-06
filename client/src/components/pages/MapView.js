@@ -3,7 +3,6 @@ import React, { Component } from "react";
 
 import {Map, InfoWindow, Marker, GoogleApiWrapper} from 'google-maps-react';
 
-
 export class MapView extends Component {
 
     state = {
@@ -33,7 +32,7 @@ export class MapView extends Component {
     }
     render() {
       return (
-        <div>
+       <div>
         <div>{this.props.airQuality}</div>
         <Map google={this.props.google} zoom={14}
         onClick={this.onMapClicked}
@@ -55,7 +54,7 @@ export class MapView extends Component {
             marker={this.state.activeMarker}
             visible={this.state.showingInfoWindow}>
               <div>
-                <h1>'something'</h1>
+                <h1>{this.props.airQuality}</h1>
               </div>
           </InfoWindow>
         </Map>
