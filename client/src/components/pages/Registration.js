@@ -51,7 +51,7 @@ export default class Registration extends Component {
   }
 
   onChange = (e) => {
-    let validation; 
+    let validation;
     if (e.target.name === "phone_number") {
       var validentries1 = /^(\+\d{1,2}\s)?\(?\d{3}\)?[\s.-]?\d{3}[\s.-]?\d{4}$/; // there is a sneaky space being allowed in the valid characters
       if (e.target.value.match(validentries1)) {
@@ -99,7 +99,6 @@ export default class Registration extends Component {
     .then((result) => {
       localStorage.setItem('token', result.data.token)
       //access the results here....
-      localStorage.setItem('token', result.data.token)//////IMPORT FROM JUSTIN
       console.log('server responded', result)
     });
   }
@@ -114,7 +113,7 @@ export default class Registration extends Component {
     else {
       return "invalid"
     }
-    
+
   }
 
   componentDidMount() {
@@ -154,7 +153,7 @@ export default class Registration extends Component {
             name="last_name"
             value={last_name.value}
             onChange={this.onChange}
-            
+
       className={this.validationClass(last_name.validation)}
         placeholder="First Name"
           />
@@ -181,11 +180,11 @@ export default class Registration extends Component {
       <Form.Row>
       <Form.Group as={Col} md="4" controlId="validationCustom03">
     <Form.Label>Health Concern Teir*</Form.Label>
-    <Form.Control as="select" 
+    <Form.Control as="select"
     name="concern_type"
     value={concern_type.value}
     onChange={this.onChange}
-    required 
+    required
     >
       <option value="general_concern">General Health Interest</option>
       <option value="medical_concern">Medical Concern</option>
@@ -202,15 +201,15 @@ export default class Registration extends Component {
       onChange={this.onChange}
       className={this.validationClass(phone_number.validation)}
       />
-        
-        { phone_number.validation ? 
+
+        { phone_number.validation ?
     <div key={`inline-checkbox`} className="mb-1">
       <Form.Check inline label="Best AirQ days"
       type='checkbox'
       id={`inline-checkbox-1 inline-checkbox-2`} />
-      <Form.Check inline label="Poor AirQ days" 
-      type='checkbox' 
-      id={`inline-checkbox-2`} 
+      <Form.Check inline label="Poor AirQ days"
+      type='checkbox'
+      id={`inline-checkbox-2`}
       //onChange={this.onChange}
       />
     </div> : null
@@ -223,7 +222,7 @@ export default class Registration extends Component {
       </Form.Row>
       <Form.Group>
         <Form.Check
-         
+
           label="Agree to terms and conditions"
           feedback="You must agree before submitting."
         />
@@ -235,7 +234,7 @@ export default class Registration extends Component {
   }
 }
 
-// <Button type="submit"><Link to={'/registrationcomplete'}>Submit form</Link></Button> 
+// <Button type="submit"><Link to={'/registrationcomplete'}>Submit form</Link></Button>
 
 
 // bsPrefix
