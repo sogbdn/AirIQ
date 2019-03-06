@@ -88,7 +88,7 @@ app.post('/login', (req, res) => {
 		.then((results) => {
 			if (results.length !== 0) {
 				//	req.session.cookie.user_id = results[0].id;
-				const token = jsonWebToken.sign(results[0].id, myJWTSecretKey);
+				const token = jsonWebToken.sign(results[0], myJWTSecretKey);
 				res.json({
 					token: token
 				});
