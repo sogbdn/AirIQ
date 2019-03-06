@@ -33,20 +33,20 @@ export default class AirIndex extends Component {
   <tbody>
     <tr>
       <td>Good</td>
-      <td>Mark</td>
-      <td>Otto</td>
+      <td>Mild</td>
+      <td>Concern</td>
       <td></td>
     </tr>
     <tr>
-      <td>2</td>
-      <td>Jacob</td>
-      <td>Thornton</td>
+      <td></td>
+      <td></td>
+      <td></td>
       <td></td>
     </tr>
     <tr>
       <td>3</td>
-      <td colSpan="2">Larry the Bird</td>
-      <td>@twitter</td>
+      <td colSpan="2"></td>
+      <td></td>
     </tr>
   </tbody>
 </Table>
