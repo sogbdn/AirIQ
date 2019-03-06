@@ -41,10 +41,8 @@ body {
 
 
 .avatar{
-
-  border-radius: 12px;
-  margin: 0.7em;
-  
+  margin-top: 0.7em;
+  margin-bottom: 0.7em;
 }
 
 .aqinum {
@@ -54,7 +52,7 @@ body {
  
 }
 
-.bg-default{
+.bg-unavailable{
   background-color: gray;
 }
 
@@ -90,5 +88,29 @@ background-color:#31c060;
   to {
     transform: rotate(360deg);
   }
+}
+
+.form-control.valid:focus  {
+    box-shadow: 0 0 0 0.2rem #1cb24940;
+  }
+  
+.form-control.invalid:focus  {
+      box-shadow: 0 0 0 0.2rem #d6164340;
+    }
+
+.valid {
+      border-color: green !important;
+}
+
+.navbar-custom a {
+  color: white
+}
+
+.dropdown-item a {
+  color: teal
+}
+
+.container {
+  margin-top: 1em;
 }
 

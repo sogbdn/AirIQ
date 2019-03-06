@@ -33,15 +33,23 @@ export class MapView extends Component {
     }
     render() {
       return (
+        <div>
+        <div>{this.props.airQuality}</div>
         <Map google={this.props.google} zoom={14}
         onClick={this.onMapClicked}
         initialCenter={{lat: 45.496338, lng: -73.570732}}
         >
 
         <Marker onClick={this.onMarkerClick}
-                name={'Current location'}
-                position={{lat: 45.496338, lng: -73.570732}} //first to say this is javascript the second to say this is an object
-                />
+          name={'Current location'}
+          position={{lat: 45.496338, lng: -73.570732}} //first to say this is javascript the second to say this is an object
+          />
+
+<Marker onClick={this.onMarkerClick}
+          name={'Current location'}
+          position={{lat: this.props.latitude, lng: this.props.longitude}} //first to say this is javascript the second to say this is an object
+          />
+              
 
     <InfoWindow
             marker={this.state.activeMarker}
@@ -51,6 +59,7 @@ export class MapView extends Component {
               </div>
           </InfoWindow>
         </Map>
+        </div>
       );
 
     }
