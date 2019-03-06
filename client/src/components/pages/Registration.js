@@ -97,6 +97,7 @@ export default class Registration extends Component {
 
   axios.post('/register', {first_name: first_name.value, last_name: last_name.value, email: email.value, phone_number: phone_number.value, concern_type: concern_type.value, good_days: good_days.value, bad_days: bad_days.value})
     .then((result) => {
+      localStorage.setItem('token', result.data.token)
       //access the results here....
       localStorage.setItem('token', result.data.token)//////IMPORT FROM JUSTIN
       console.log('server responded', result)

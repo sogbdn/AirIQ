@@ -7,6 +7,8 @@ import Nav from 'react-bootstrap/Nav'
 
 
 
+import withAuth from './components/withAuth';
+
 //import ModalHeader from 'react-bootstrap/ModalHeader'
 import 'bootstrap/dist/css/bootstrap.min.css';
 //import Container from 'react-bootstrap/Container';
@@ -47,7 +49,6 @@ class NavBar extends Component {
             </Nav>
           </Navbar.Collapse>
         </Navbar>
-       
       </div>
     );
   }
