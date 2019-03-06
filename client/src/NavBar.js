@@ -15,6 +15,11 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 
 class NavBar extends Component {
 
+
+  handleSubmit = (event) => {
+    localStorage.removeItem("token")
+  }
+
   componentDidMount() {
     console.log("NavBar Mounted");
   }
@@ -45,6 +50,12 @@ class NavBar extends Component {
                 <NavDropdown.Item>
                   <Link to={'/user'}>User Profile</Link>
                 </NavDropdown.Item>
+                <NavDropdown.Item>
+                 <Link
+                  to={'/login'}
+                  onClick={e => this.handleSubmit(e)}
+                 >Logout</Link>
+                 </NavDropdown.Item>
                 <NavDropdown.Item>
                   <Link to={'/register'}>Register</Link>
                 </NavDropdown.Item>
