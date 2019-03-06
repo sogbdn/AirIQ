@@ -1,5 +1,4 @@
 import React, { Component } from 'react';
-import { geolocated } from 'react-geolocated';
 import axios from 'axios';
 
 // import Card from 'react-bootstrap/Card'
@@ -9,7 +8,7 @@ import Container from 'react-bootstrap/Container'
 import AirCard from './_AirCard'
 import MapView from '../pages/MapView'
 
-class AQIretrieve extends Component {
+export default class AQIretrieve extends Component {
 	constructor(props) {
 		super(props);
 		this.state = {
@@ -20,7 +19,8 @@ class AQIretrieve extends Component {
 	componentDidMount() {
 		axios
 			.get(
-				`https://api.airvisual.com/v2/nearest_city?lat={this.props.coords.latitude}&lon={this.props.coords.longitude}&key=u78aw3FawH3LQxNQx`
+				`https://api.airvisual.com/v2/nearest_city?lat=${this.props.lat}&lon=${this.props
+					.long}&key=u78aw3FawH3LQxNQx`
 			)
 			.then((res) => {
 				console.log('AirVisual response', res);
@@ -31,40 +31,15 @@ class AQIretrieve extends Component {
 
 	render() {
 		const { newAqius } = this.state;
-		if (!this.props.isGeolocationAvailable) {
-			return <div> Your browser does not support Geolocation </div>;
-		} else if (!this.props.isGeolocationEnabled) {
-			return <div> Geolocation is not enabled </div>;
-		} else if (this.props.coords) {
-			return (
-				<Container><AirCard airQuality={newAqius}/>
-				<MapView airQuality={newAqius} longitude={this.props.coords.longitude} latitude={this.props.coords.latitude}/>
-				<table>
-					<tbody>
-						<tr>
-							<td> AQI geolocated: {newAqius} </td>
-						</tr>
-						<tr>
-							<td>latitude</td>
-							<td>{this.props.coords.latitude}</td>
-						</tr>
-						<tr>
-							<td>longitude</td>
-							<td>{this.props.coords.longitude}</td>
-						</tr>
-					</tbody>
-				</table>
-				</Container>
-			);
-		} else {
-			return <div>Getting the location data&hellip; </div>;
-		}
+		return (
+			<tbody>
+				<tr>
+					<td> AQI geolocated </td>
+					<td> {newAqius} </td>
+      <AirCard airQuality={newAqius}/>
+      <MapView airQuality={newAqius} />
+				</tr>
+			</tbody>
+		)
 	}
 }
-
-export default geolocated({
-	positionOptions: {
-		enableHighAccuracy: false
-	},
-	userDecisionTimeout: 5000
-})(AQIretrieve);

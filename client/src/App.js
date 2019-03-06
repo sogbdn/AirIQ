@@ -10,25 +10,16 @@ import UserProfile from './components/pages/UserProfile'
 import MapView from './components/pages/MapView'
 import AirIndex from './components/pages/AirIndex'
 import About from './components/pages/About'
-//
 import RegistrationComp from './components/pages/Registrationcomplete'
 
-class App extends Component {
-	// constructor(props) {
-	//   super(props);
-	//   this.state = {
-	//     currentUser: {name: "Anonymous"},
-	//     messages: [],
-	//     numusers: 0,
-	//     //key: uuidv4(); --- this did nothing to solve error message
-	//   };
-	// }
 
+class App extends Component {
 	componentDidMount() {
 		console.log('Components Mounted!');
 	}
 	render() {
 		return (
+
 			<Router>
 				<div>
 				<div className="Menu"><NavBar /></div>
