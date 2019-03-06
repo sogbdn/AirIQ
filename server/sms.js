@@ -11,9 +11,12 @@ const app = express();
 const session = require('express-session');
 const jsonWebToken = require('jsonwebtoken');
 
+require('dotenv').config();
+
 // Twilio Credentials
-const accountSid = 'ACccea60ddaffa294e513c9fc050764833';
-const authToken = 'd25b4c964d745f17749c51bd795cd99b';
+const accountSid = process.env.SMSID;
+const authToken = process.env.SMSAUTH;
+
 // require the Twilio module and create a REST client
 const client = require('twilio')(accountSid, authToken);
 
