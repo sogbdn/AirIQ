@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import NavBar from './NavBar';
 import './App.css';
+import withAuth from './components/withAuth';
 import AQIretrieve from './components/partials/AQIretrieve';
 import { BrowserRouter as Router, Switch, Route, Link } from 'react-router-dom';
 import Registration from './components/pages/Registration'
@@ -40,6 +41,7 @@ class App extends Component {
 					<Route path='/user' component={UserProfile} />
 					<Route exact path='/register' component={Registration} />
 					<Route path='/registrationcomplete' component={RegistrationComp} />
+					<Route path='/map' component={withAuth(MapView)} />
 				</Switch>	
 				</div>				
 		</Router>
