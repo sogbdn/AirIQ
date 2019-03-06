@@ -215,17 +215,20 @@ export default class Registration extends Component {
     </div> : null
       }
         </Form.Group>
+        
 
-        <Form.Group as={Col} md="3" controlId="validationCustom04">
+        <Form.Group as={Col} md="3" controlId="validationCustom04" controlId="formBasicPassword">
+    <Form.Label>Password</Form.Label>
+    <Form.Control type="password" placeholder="Password" required />
+
+        </Form.Group>
+        <Form.Group as={Col} md="3" controlId="validationCustom04" controlId="formBasicPassword">
+    <Form.Label>Password Confirmation</Form.Label>
+    <Form.Control type="password" placeholder="Password" required />
 
         </Form.Group>
       </Form.Row>
       <Form.Group>
-        <Form.Check
-
-          label="Agree to terms and conditions"
-          feedback="You must agree before submitting."
-        />
       </Form.Group>
       <Button type="submit">Submit form</Button>
     </Form>
