@@ -26,14 +26,14 @@ class App extends Component {
 						<NavBar />
 					</div>
 					<Switch>
-						<Route exact path="/" component={Geolocation} />
+						<Route exact path="/" component={ () => <Geolocation displaymap = 'false'/> } />
 						<Route exact path="/concerns" component={About} />
 						<Route path="/airQuality" component={AirIndex} />
 						<Route path="/login" component={Login} />
 						<Route path="/user" component={UserProfile} />
 						<Route exact path="/register" component={Registration} />
 						<Route path="/registrationcomplete" component={RegistrationComp} />
-						<Route path="/map" component={MapView} />
+						<Route path="/map" component={ () => <MapView  displaymap='true'/> } />
 					</Switch>
 				</div>
 			</Router>
