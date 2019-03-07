@@ -4,6 +4,7 @@ import { BrowserRouter as Router, Switch, Route, Link } from 'react-router-dom';
 import Navbar from 'react-bootstrap/Navbar';
 import NavDropdown from 'react-bootstrap/NavDropdown';
 import Nav from 'react-bootstrap/Nav'
+import Image from 'react-bootstrap/Image'
 
 
 
@@ -34,14 +35,20 @@ class NavBar extends Component {
           <Navbar.Toggle aria-controls="responsive-navbar-nav" />
           <Navbar.Collapse id="responsive-navbar-nav">
             <Nav className="mr-auto">
+            <Nav.Link>
+                <Link to={'/features'}>Services</Link>
+              </Nav.Link>
               <Nav.Link>
-                <Link to={'/airQuality'}>Air Quality Index</Link>
+                <Link to={'/airQindex'}>About Air Quality Index</Link>
               </Nav.Link>
               <Nav.Link>
                 <Link to={'/map'}>Map View</Link>
               </Nav.Link>
               <NavDropdown title="User Area" id="collasible-nav-dropdown">
                 <NavDropdown.Item>
+                <Nav.Link>
+                <Link to={'/about'}>Other Resources</Link>
+              </Nav.Link>
                   <Link to={'/login'}>Login</Link>
                 </NavDropdown.Item>
                 <NavDropdown.Item>

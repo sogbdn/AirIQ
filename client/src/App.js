@@ -27,8 +27,8 @@ class App extends Component {
 					</div>
 					<Switch>
 						<Route exact path="/" component={ () => <Geolocation displaymap = 'false'/> } />
-						<Route exact path="/concerns" component={About} />
-						<Route path="/airQuality" component={AirIndex} />
+						<Route exact path="/features" component={About} />
+						<Route path="/airQindex" component={AirIndex} />
 						<Route path="/login" component={Login} />
 						<Route path="/user" component={UserProfile} />
 						<Route exact path="/register" component={Registration} />
