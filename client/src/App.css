@@ -98,6 +98,13 @@ p.white {
   
 }
 
+.navbar-icon {
+  max-width: 10px;
+  display: flex;
+  align-items: center;
+  padding: 7px 14px;
+}
+
 
 
 .avatar{

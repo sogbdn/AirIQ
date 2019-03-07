@@ -5,9 +5,10 @@ import Container from 'react-bootstrap/Container';
 import Col from 'react-bootstrap/Col'
 import Row from 'react-bootstrap/Row'
 import AirRatingRecom  from './_AirRatingRecom'
+import Image from 'react-bootstrap/Image'
 
 
-//
+///
 
 export default class AirCard extends Component {
 
@@ -47,35 +48,39 @@ export default class AirCard extends Component {
 
 
     return (
+      <div>
       <Container>
       <Card bg={this.qualityColor(this.props.airQuality)} className="cardcustom">
         <Card.Body>
         <Row>
-          <Col lg={2} md= {3} sm={4} xs={6}><Card.Img variant="top" src="icon_black.png" className ="avatar" bsPrefix/><Card.Subtitle className="mb-2">Air Quality: Good</Card.Subtitle></Col>
+          <Col lg={2} md= {3} sm={4} xs={6}><Card.Img variant="top" src="icon_black.png" className ="avatar" bsPrefix/></Col>
           <Col lg={10} md= {9} sm={8} xs={6}>
-          <Card.Subtitle className="mb-2">Air Quality Index</Card.Subtitle>
-          <div className="Aqi_num"><p className="aqinum">{this.props.airQuality}</p>
-          <p><AirRatingRecom airRating = {this.qualityColor(this.props.airQuality)}/></p>
-          
+          <Card.Subtitle className="mb-2"><Card.Link href="/airQuality">Air Quality Index:  {this.props.airQuality} </Card.Link>- for Montreal, QC - March 7, 2017</Card.Subtitle>
+          <div className="Aqi_num">
+          <p className="aqiheadline"><AirRatingRecom airRating = {this.qualityColor(this.props.airQuality)}/></p>
           </div>
-          </Col>
-        </Row>
-        <Row>
-          <Col sm>
-          <Card.Text>
-          </Card.Text>
-          </Col>
-        </Row>
-        <Row>
-          <Col sm>
-          <Card.Link href="#">About AQI Air Index</Card.Link>
-          <Card.Link href="#">Health Recommendations by Concern</Card.Link>
-          </Col>
-        </Row>
-      </Card.Body>
-    </Card>
-    
-    </Container>
+          <div align="right">
+    <div className="cardicons" align="right"><Image src="forest.svg"/></div>
+    </div>
+    </Col>
+  </Row>
+  </Card.Body>
+</Card>
+</Container>
+<Container>
+  <Card>
+    <Card.Body>
+    <Row>
+    <Col sm>
+    <Card.Link href="#">Health Recommendations by Concern</Card.Link>
+    </Col>
+    </Row>
+    </Card.Body>
+  </Card>
+</Container>
+<Container>
+</Container>
+</div>
 
     );
   }
