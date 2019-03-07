@@ -45,9 +45,6 @@ class NavBar extends Component {
                   <Link to={'/login'}>Login</Link>
                 </NavDropdown.Item>
                 <NavDropdown.Item>
-                  <Link to={'/logout'}>Logout</Link>
-                </NavDropdown.Item>
-                <NavDropdown.Item>
                   <Link to={'/user'}>User Profile</Link>
                 </NavDropdown.Item>
                 <NavDropdown.Item>
