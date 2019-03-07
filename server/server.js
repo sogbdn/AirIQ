@@ -10,6 +10,7 @@ const knex = require('knex')(knexConfig[env]);
 const app = express();
 const session = require('express-session');
 const jsonWebToken = require('jsonwebtoken');
+const fetch = require('node-fetch');
 
 require('dotenv').config();
 
@@ -24,6 +25,13 @@ app.use(
 		cookie: { maxAge: 60000 }
 	})
 );
+
+app.use(function(req, res, next) {
+  res.header("Access-Control-Allow-Origin", "*");
+  res.header("Access-Control-Allow-Headers", "Origin, X-Requested-With, Content-Type, Accept");
+  next();
+});
+
 
 const server = app.listen(process.env.PORT || 3001, () => {
 	console.log('Listening on port ' + server.address().port);
@@ -109,3 +117,24 @@ app.post('/login', (req, res) => {
 app.post('/logout', (req, res) => {
 	req.session = null;
 });
+
+app.get('/airqualityAPI', (req, res) =>{
+	let vars = {
+		lat: req.query.lat,
+		long: req.query.long,
+		airVisKey: process.env.airVisKey
+	}
+	fetch(`https://api.airvisual.com/v2/nearest_city?lat=${vars.lat}&lon=${vars.long}&key=${vars.airVisKey}`)
+	.then(function(response) {
+		return response.json();
+	})
+	.then(function(myJson) {
+		res.json(myJson);
+	});
+})
+
+app.get('/verifyUser', (req, res) => {
+	bob = jsonWebToken.verify(req.query.currentUser, 'blablabla');
+	console.log(bob);
+	res.json(bob)
+})
