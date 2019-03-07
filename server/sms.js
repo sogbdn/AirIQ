@@ -25,7 +25,7 @@ var numbersToMessage = [ '+15144633838', '+15144633838' ];
 numbersToMessage.forEach(function(number) {
 	var message = client.messages
 		.create({
-			body: 'Hello Justin, test 3 avec array',
+			body: 'Hello Justin',
 			from: '+15799001336',
 			to: '+15144633838'
 		})
@@ -37,6 +37,7 @@ knex
 	.select('*')
 	.from('users')
 	.then((results) => {
+		AQI = 1;
 		userArrayGeneral = [];
 		userArrayMedical = [];
 		userArrayLifeStyle = [];
@@ -50,6 +51,32 @@ knex
 				userArrayLifeStyle.push(user);
 			}
 		});
+		filterGeneral = [];
+		filterMedical = [];
+		filterLifeStyle = [];
+		userArrayGeneral.map(function(user) {
+			if (AQI < 50 && user.sms_good_days === 'yes') {
+				filterGeneral.push(user);
+			} else if (AQI > 150 && user.sms_bad_days === 'yes') {
+				filterGeneral.push(user);
+			}
+		});
+		userArrayMedical.map(function(user) {
+			if (AQI < 50 && user.sms_good_days === 'yes') {
+				filterMedical.push(user);
+			} else if (AQI > 150 && user.sms_bad_days === 'yes') {
+				filterMedical.push(user);
+			}
+		});
+		userArrayLifeStyle.map(function(user) {
+			if (AQI < 50 && user.sms_good_days === 'yes') {
+				filterLifeStyle.push(user);
+			} else if (AQI > 150 && user.sms_bad_days === 'yes') {
+				filterLifeStyle.push(user);
+			}
+		});
+		console.log(filterMedical);
+		console.log(filterLifeStyle);
 	})
 	.catch((error) => {
 		res.json({ success: false, message: 'array created' });
