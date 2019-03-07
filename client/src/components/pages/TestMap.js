@@ -8,6 +8,9 @@ export class MapView extends Component {
     showingInfoWindow: false,
     activeMarker: {},
     selectedPlace: {marker: {}},
+    address:'',
+    area: '',
+    state:'',
     points: [
       { id: 1, lat: 45.495338, lng: -73.570732, airiq: this.props.airQuality, icon: "/marker_2.png" },
       { id: 2, lat: 45.494338, lng: -73.670732, airiq: 73, icon: "/marker_2.png" },
@@ -54,9 +57,11 @@ export class MapView extends Component {
       console.log("Map Mounted");
     }
     render() {
+      
 
       {return !this.props.displaymap ? null :
        <div>
+         
         <div>{this.props.airQuality}</div>
         <Map google={this.props.google} zoom={14}
         onClick={this.onMapClicked}

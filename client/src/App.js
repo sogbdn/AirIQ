@@ -13,6 +13,7 @@ import AirIndex from './components/pages/AirIndex';
 import About from './components/pages/About';
 import RegistrationComp from './components/pages/Registrationcomplete';
 import Geolocation from './components/partials/Geolocation.js';
+import TestMap from './components/pages/TestMap';
 
 class App extends Component {
 	componentDidMount() {
@@ -30,6 +31,7 @@ class App extends Component {
 						<Route exact path="/features" component={About} />
 						<Route path="/airQindex" component={AirIndex} />
 						<Route path="/login" component={Login} />
+						<Route path="/testmap" component={TestMap} />
 						<Route path="/user" component={UserProfile} />
 						<Route exact path="/register" component={Registration} />
 						<Route path="/registrationcomplete" component={RegistrationComp} />
