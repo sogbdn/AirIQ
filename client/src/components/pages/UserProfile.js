@@ -1,4 +1,5 @@
-import React, { Component } from "react";;
+import React, { Component } from "react";
+import Container from 'react-bootstrap/Container'
 
 var jwt = require('jsonwebtoken');
 //page not actually defined yet
