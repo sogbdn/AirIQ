@@ -1,51 +1,78 @@
 import React, { Component } from "react";
 import Container from 'react-bootstrap/Container'
 
+var jwt = require('jsonwebtoken');
 //page not actually defined yet
 export default class UserProfile extends Component {
+
+  constructor() {
+    super();
+    const currentUser = localStorage.getItem('token');
+    if (currentUser) {
+      const decodedUser = jwt.verify(currentUser, 'blablabla');
+      this.state = {
+        first_name: decodedUser.first_name,
+        last_name: decodedUser.last_name,
+        email: decodedUser.email,
+        phone_number: decodedUser.phone_number,
+        concern_type: decodedUser.profile_type,
+        bad_days: decodedUser.sms_bad_days,
+        good_days: decodedUser.sms_good_days
+      }
+    } else {
+      this.state = {
+        first_name: null,
+        last_name: null,
+        email: null,
+        phone_number: null,
+        concern_type: null,
+        bad_days: null,
+        good_days: null
+      }
+    }
+  }
+
   componentDidMount() {
     console.log("UserProfile Mounted");
   }
+
   render() {
+    const currentUser = localStorage.getItem('token');
 
-    var users = [
-      {
-        id: 1,
-        first_name: "Laura",
-        last_name: "Palmer",
-        email: "laura.palmer@gmail.com",
-        password: "blackjack",
-        password_confirmation: "blackjack",
-        profile_type: 1,
-        sms_good_days: false,
-        sms_bad_days: true
-      },
-      {
-        id: 2,
-        first_name: "Dale",
-        last_name: "Cooper",
-        email: "coffelover4ever@gmail.com",
-        password: "cherrypie",
-        password_confirmation: "cherrypie",
-        profile_type: 2,
-        sms_good_days: true,
-        sms_bad_days: false
-      }
-    ];
-    
-    for ( var prop in users){
+    const {first_name, last_name, email, phone_number, good_days, bad_days, concern_type} = this.state;
+    if (currentUser) {
+      return (
+        <div>
+          <div>
+            {first_name}
+          </div>
+          <div>
+            {last_name}
+          </div>
+          <div>
+            {email}
+          </div>
+          <div>
+            {phone_number}
+          </div>
+          <div>
+            {good_days}
+          </div>
+          <div>
+            {bad_days}
+          </div>
+          <div>
+            {concern_type}
+          </div>
+        </div>
 
-      console.log(users[prop].first_name)
-     
+      )
+    } else {
+      return (
+        <div>
+          You are not logged in
+        </div>
+      )
     }
-
-    
-    return (
-    
-        <Container>
-       something
-        </Container>
-      
-    );
   }
 }
