@@ -29,9 +29,27 @@ body {
   color: #333;
 }
 
+.kite {
+  -moz-transform: scaleX(-1) rotate(20deg);
+        -o-transform: scaleX(-1) rotate(20deg);
+        -webkit-transform: scaleX(-1) rotate(20deg);
+        transform: scaleX(-1) rotate(20deg);
+        height: 80px;
+}
+
 .cardcustom {
   margin-top: 1em;
   min-height: 240px; 
+}
+
+.introcard {
+  background-color: #20b7ed;
+  margin-top: 1em;
+  min-height: 240px; 
+}
+
+p.white {
+  color: white;
 }
 
 
@@ -59,8 +77,25 @@ body {
   min-height: 240px; 
 }
 
+.alert5 {
+  background-color: #530303;
+  margin-top: 1em;
+  min-height: 240px; 
+}
+
+.alert6 {
+  background-color: #1e0101;
+  margin-top: 1em;
+  min-height: 240px; 
+}
+
 .navbar-custom {
-  background-color: teal;
+  background-color: #1b8fb9;
+}
+
+.cardicons{
+  max-width: 30%;
+  
 }
 
 
@@ -77,14 +112,18 @@ body {
  
 }
 
+.aqiwhitenum{
+  color: #999;
+}
+
 .aqiheadline {
-  font-size: 2.1em;
+  font-size: 1.8em;
   font-weight: lighter;
   color: white;
 }
 
 .aqiheadlinedark {
-  font-size: 2.1em;
+  font-size: 1.8em;
   font-weight: lighter;
   color: black;
 }
