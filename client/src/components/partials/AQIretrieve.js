@@ -2,11 +2,11 @@ import React, { Component } from 'react';
 import axios from 'axios';
 
 // import Card from 'react-bootstrap/Card'
-import Container from 'react-bootstrap/Container'
+import Container from 'react-bootstrap/Container';
 // import Col from 'react-bootstrap/Col'
 // import Row from 'react-bootstrap/Row'
-import AirCard from './_AirCard'
-import MapView from '../pages/MapView'
+import AirCard from './_AirCard';
+import MapView from '../pages/MapView';
 
 export default class AQIretrieve extends Component {
 	constructor(props) {
@@ -26,6 +26,7 @@ export default class AQIretrieve extends Component {
 				console.log('AirVisual response', res);
 				console.log('aqius', res.data.data.current.pollution.aqius);
 				this.setState({ newAqius: res.data.data.current.pollution.aqius });
+				// post request to send data in a json object (geoloc, AQI, user id?) to back end
 			});
 	}
 
@@ -34,10 +35,10 @@ export default class AQIretrieve extends Component {
 		return (
 			<tbody>
 				<tr>
-      <AirCard airQuality={newAqius}/>
-      <MapView airQuality={newAqius} displaymap= {this.props.displaymap}/>
+					<AirCard airQuality={newAqius} />
+					<MapView airQuality={newAqius} displaymap={this.props.displaymap} />
 				</tr>
 			</tbody>
-		)
+		);
 	}
 }

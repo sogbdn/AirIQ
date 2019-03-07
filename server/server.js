@@ -110,3 +110,5 @@ app.post('/logout', (req, res) => {
 	req.session = null;
 	res.redirect('/');
 });
+
+// Post for sending json object with AQI, geoloc, user to db
