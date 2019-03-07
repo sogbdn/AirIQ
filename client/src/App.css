@@ -26,12 +26,37 @@
 body {
   font-family: 'Open Sans', sans-serif;
   font-size: 1.1em;
+  color: #333;
 }
 
 .cardcustom {
   margin-top: 1em;
-  min-height: 240px;
-  
+  min-height: 240px; 
+}
+
+
+.alert1 {
+  background-color: #31c060;
+  margin-top: 1em;
+  min-height: 240px; 
+}
+
+.alert2 {
+  background-color: #fff110;
+  margin-top: 1em;
+  min-height: 240px; 
+}
+
+.alert3 {
+  background-color: #ffa810;
+  margin-top: 1em;
+  min-height: 240px; 
+}
+
+.alert4 {
+  background-color: #d80404;;
+  margin-top: 1em;
+  min-height: 240px; 
 }
 
 .navbar-custom {
@@ -46,11 +71,25 @@ body {
 }
 
 .aqinum {
-  font-size: 3.1em;
+  font-size: 1.8em;
   font-weight: lighter;
-  color: white;
+  color: #333;
  
 }
+
+.aqiheadline {
+  font-size: 2.1em;
+  font-weight: lighter;
+  color: white;
+}
+
+.aqiheadlinedark {
+  font-size: 2.1em;
+  font-weight: lighter;
+  color: black;
+}
+
+
 
 .bg-unavailable{
   background-color: gray;
