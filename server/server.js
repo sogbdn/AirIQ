@@ -20,7 +20,7 @@ app.use(bodyParser.urlencoded({ extended: false }));
 app.use(require('method-override')());
 app.use(
 	session({
-		secret: 'qsd1213',
+		secret: process.env.SESSION,
 		cookie: { maxAge: 60000 }
 	})
 );
@@ -108,5 +108,4 @@ app.post('/login', (req, res) => {
 
 app.post('/logout', (req, res) => {
 	req.session = null;
-	res.redirect('/');
 });
