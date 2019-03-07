@@ -105,6 +105,16 @@ p.white {
   padding: 7px 14px;
 }
 
+a.card-link {
+  color:#333;
+
+}
+
+a.card-link:active{
+  color: white;
+
+}
+
 
 
 .avatar{

@@ -7,7 +7,6 @@ import Nav from 'react-bootstrap/Nav'
 import Image from 'react-bootstrap/Image'
 
 
-
 import withAuth from './components/withAuth';
 
 //import ModalHeader from 'react-bootstrap/ModalHeader'
@@ -24,6 +23,9 @@ class NavBar extends Component {
   componentDidMount() {
     console.log("NavBar Mounted");
   }
+
+ 
+
   render() {
     return (
       /*Router only takes one child element, hence the div */
