@@ -44,7 +44,7 @@ class NavBar extends Component {
                 <Link to={'/airQindex'}>About Air Quality Index</Link>
               </Nav.Link>
               <Nav.Link>
-                <Link to={'/map'}>Map View</Link>
+                <Link to={'/map'}><Image src="location-pointer.svg"/>Map View</Link>
               </Nav.Link>
               <NavDropdown title="User Area" id="collasible-nav-dropdown">
                 <NavDropdown.Item>

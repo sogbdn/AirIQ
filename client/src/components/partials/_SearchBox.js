@@ -1,7 +1,7 @@
 import React, { Component } from "react";
 import ReactDOM from 'react-dom';
 
-export default class SearchBox extends Component  {
+export default class SearchBox extends React {
   static propTypes = {
     placeholder: React.PropTypes.string,
     onPlacesChanged: React.PropTypes.func
@@ -16,11 +16,11 @@ export default class SearchBox extends Component  {
   }
   componentDidMount() {
     var input = ReactDOM.findDOMNode(this.refs.input);
-    this.searchBox = new google.maps.places.SearchBox(input);
+    //this.searchBox = new window.google.maps.places.SearchBox(input);
     this.searchBox.addListener('places_changed', this.onPlacesChanged);
   }
   componentWillUnmount() {
     // https://developers.google.com/maps/documentation/javascript/events#removing
-    google.maps.event.clearInstanceListeners(this.searchBox);
+    // google.maps.event.clearInstanceListeners(this.searchBox);
   }
 }

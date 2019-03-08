@@ -1,7 +1,9 @@
 import React, { Component } from "react";
 
-import {Map, InfoWindow, Marker, GoogleApiWrapper, SearchBox} from 'google-maps-react';
+import {Map, InfoWindow, Marker, GoogleApiWrapper} from 'google-maps-react';
 //import SearchBox from "react-google-maps/lib/components/places/SearchBox";
+
+//import SearchBox from '../partials/_SearchBox';
 
 export class MapView extends Component {
   state = {
@@ -60,7 +62,7 @@ export class MapView extends Component {
         <div>{this.props.airQuality}</div>
         <Map google={this.props.google} zoom={14}
         onClick={this.onMapClicked}
-        styles= {[{ stylers: [{ 'saturation': -100 }, { 'gamma': 0.8 }, { 'lightness': 4 }] }]}
+        styles= {[{ stylers: [{ 'saturation': -90 }, { 'gamma': 0.8 }, { 'lightness': 4 }] }]}
 
         initialCenter={{lat: 45.496338, lng: -73.570732}}
         >
@@ -71,6 +73,7 @@ export class MapView extends Component {
               <p>{this.state.selectedPlace.marker.airiq}</p>
             </div>
         </InfoWindow> 
+       
         </Map>
         </div>
       //);
