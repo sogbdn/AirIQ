@@ -22,7 +22,7 @@ export default class AirCard extends Component {
   }
 
   onSuggestSelect = (suggest) => {
-    if(suggest != undefined){
+    if(suggest !== undefined){
       this.props.onLocationUpdate(suggest.location)
     }
   }
