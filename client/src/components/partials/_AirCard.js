@@ -7,6 +7,7 @@ import Row from 'react-bootstrap/Row'
 import AirRatingRecom  from './_AirRatingRecom'
 import Image from 'react-bootstrap/Image'
 import Geosuggest from 'react-geosuggest';
+import Moment from 'react-moment';
 
 
 
@@ -24,7 +25,7 @@ export default class AirCard extends Component {
 
 
   qualityColor(airquality){
-    if (airquality < 50){
+    if (airquality > 0 && airquality < 50){
       return "alert1"
     }
     else if (airquality > 50 && airquality < 100){
@@ -51,7 +52,9 @@ export default class AirCard extends Component {
 
 
   render() {
-
+    var today = new Date();
+    var date = `${today.getDate()}`;
+    var fullDate = today.getFullYear()+'-'+(today.getMonth()+1)+'-'+today.getDate();
 
 
     return (
@@ -62,7 +65,7 @@ export default class AirCard extends Component {
         <Row>
           <Col lg={2} md= {3} sm={4} xs={6}><Card.Img variant="top" src="icon_black.png" className ="avatar" bsPrefix/></Col>
           <Col lg={10} md= {9} sm={8} xs={6}>
-          <Card.Subtitle className="mb-2"><Card.Link href="/airQuality">Air Quality Index:  {this.props.airQuality} </Card.Link>- for Montreal, QC - March 7, 2017</Card.Subtitle>
+          <Card.Subtitle className="mb-2"><Card.Link href="/airQuality">Air Quality Index:  {this.props.airQuality} </Card.Link>- for Montreal, QC - <Moment format="MMMM Do YYYY">{fullDate}</Moment></Card.Subtitle>
           <div className="Aqi_num">
           <p className="aqiheadline"><AirRatingRecom airRating = {this.qualityColor(this.props.airQuality)}/></p>
           </div>
@@ -78,8 +81,8 @@ export default class AirCard extends Component {
   <Card>
     <Card.Body>
     <Row>
-    <p>Testing SubmitLocation </p>
-    <Geosuggest placeholder="apples" onSuggestSelect={this.onSuggestSelect}/>
+    <p>Check another location</p>
+    <Geosuggest placeholder="Enter Location" onSuggestSelect={this.onSuggestSelect}/>
 
     
     </Row>

@@ -9,9 +9,9 @@ export default class AirCard extends Component {
     AQI2 : "An okay day for short excursions, but maybe delay the marathon",
     AQI3: "...Might be a good day for indoor activities. It's a tough day outside, for the lungs and heart.",
     AQI4: "Take it easy and take shelter. Limit outdoor time or heavy exersions, where possible",
-    AQI5: "Significant health risk present. Take care and stay indoors",
+    AQI5: "Significant health risks. Avoid prolonged exposure outside",
     AQI6: "Hazardous. Serious lung and heart aggravation. Everyone should avoid all outdoor exertion",
-    AQI_null: "no rating available"
+    AQI_null: "Air Quality Service tower for this location unavailable"
   }
   extractrating(rating){
     if (rating === "alert1"){
