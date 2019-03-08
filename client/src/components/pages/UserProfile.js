@@ -1,16 +1,30 @@
 import React, { Component } from "react";
 import Container from 'react-bootstrap/Container'
+import axios from 'axios';
 
-var jwt = require('jsonwebtoken');
 //page not actually defined yet
 export default class UserProfile extends Component {
 
   constructor() {
     super();
+    this.state = {
+      first_name: '',
+      last_name: '',
+      email: '',
+      phone_number: '',
+      concern_type: '',
+      bad_days: '',
+      good_days: ''
+    }
+  }
+
+  componentDidMount() {
     const currentUser = localStorage.getItem('token');
-    if (currentUser) {
-      const decodedUser = jwt.verify(currentUser, 'blablabla');
-      this.state = {
+    axios
+    .get(`http://localhost:3001/verifyUser?currentUser=${currentUser}`)
+    .then((res) => {
+      let decodedUser = res.data;
+      this.setState( {
         first_name: decodedUser.first_name,
         last_name: decodedUser.last_name,
         email: decodedUser.email,
@@ -18,51 +32,36 @@ export default class UserProfile extends Component {
         concern_type: decodedUser.profile_type,
         bad_days: decodedUser.sms_bad_days,
         good_days: decodedUser.sms_good_days
-      }
-    } else {
-      this.state = {
-        first_name: null,
-        last_name: null,
-        email: null,
-        phone_number: null,
-        concern_type: null,
-        bad_days: null,
-        good_days: null
-      }
-    }
-  }
-
-  componentDidMount() {
+      })
+    });
     console.log("UserProfile Mounted");
   }
 
   render() {
     const currentUser = localStorage.getItem('token');
-
-    const {first_name, last_name, email, phone_number, good_days, bad_days, concern_type} = this.state;
     if (currentUser) {
       return (
         <div>
           <div>
-            {first_name}
+            {this.state.first_name}
           </div>
           <div>
-            {last_name}
+            {this.state.last_name}
           </div>
           <div>
-            {email}
+            {this.state.email}
           </div>
           <div>
-            {phone_number}
+            {this.state.phone_number}
           </div>
           <div>
-            {good_days}
+            {this.state.good_days}
           </div>
           <div>
-            {bad_days}
+            {this.state.bad_days}
           </div>
           <div>
-            {concern_type}
+            {this.state.concern_type}
           </div>
         </div>
 

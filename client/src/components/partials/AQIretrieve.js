@@ -2,11 +2,11 @@ import React, { Component } from 'react';
 import axios from 'axios';
 
 // import Card from 'react-bootstrap/Card'
-import Container from 'react-bootstrap/Container'
+import Container from 'react-bootstrap/Container';
 // import Col from 'react-bootstrap/Col'
 // import Row from 'react-bootstrap/Row'
-import AirCard from './_AirCard'
-import MapView from '../pages/MapView'
+import AirCard from './_AirCard';
+import MapView from '../pages/MapView';
 
 export default class AQIretrieve extends Component {
 	constructor(props) {
@@ -19,8 +19,7 @@ export default class AQIretrieve extends Component {
 	componentDidMount() {
 		axios
 			.get(
-				`https://api.airvisual.com/v2/nearest_city?lat=${this.props.lat}&lon=${this.props
-					.long}&key=u78aw3FawH3LQxNQx`
+				`http://localhost:3001/airqualityAPI?lat=${this.props.lat}&lon=${this.props.long}`
 			)
 			.then((res) => {
 				console.log('AirVisual response', res);
