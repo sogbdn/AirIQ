@@ -46,7 +46,7 @@ export default class AQIretrieve extends Component {
 			<tbody>
 				<tr>
       <AirCard airQuality= {newAqius} onLocationUpdate={this.onLocationUpdate}/>
-      {/* <MapView airQuality={newAqius} displaymap= {this.props.displaymap}/> */}
+       <MapView airQuality={newAqius} displaymap= {this.props.displaymap}/> 
 				</tr>
 			</tbody>
 		)
