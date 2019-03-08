@@ -4,6 +4,8 @@ import Card from 'react-bootstrap/Card'
 import Container from 'react-bootstrap/Container';
 import Col from 'react-bootstrap/Col'
 import Row from 'react-bootstrap/Row'
+import Collapse from 'react-bootstrap/Collapse'
+import Button from 'react-bootstrap/Button'
 import AirRatingRecom  from './_AirRatingRecom'
 import Image from 'react-bootstrap/Image'
 import Geosuggest from 'react-geosuggest';
@@ -40,6 +42,9 @@ export default class AirCard extends Component {
     else if (airquality > 200 && airquality <300){
       return "alert5"
     }
+    else if (airquality === 'undefined'){
+      return "unavailable"
+    }
     else {
       return "unavailable"
     }
@@ -48,6 +53,13 @@ export default class AirCard extends Component {
   //export const airstrings = {"AQ1": "something"}
   //airSTrings and try to access the object    AQ + props
 
+  constructor(props, context) {
+    super(props, context);
+
+    this.state = {
+      open: false,
+    };
+  }
 
 
 
@@ -55,6 +67,7 @@ export default class AirCard extends Component {
     var today = new Date();
     var date = `${today.getDate()}`;
     var fullDate = today.getFullYear()+'-'+(today.getMonth()+1)+'-'+today.getDate();
+    const { open } = this.state;
 
 
     return (
@@ -81,11 +94,33 @@ export default class AirCard extends Component {
   <Card>
     <Card.Body>
     <Row>
-    <p>Check another location</p>
+    <p>Check another location </p><br/>
+    
     <Geosuggest placeholder="Enter Location" onSuggestSelect={this.onSuggestSelect}/>
 
     
     </Row>
+    </Card.Body>
+  </Card>
+  <Card>
+    <Card.Body>
+    <Row>
+    <Col sm>
+      <div className="rainbow"  onClick={() => this.setState({ open: !open })}
+    aria-expanded={open}>
+      <div className="rainbowgreen"></div>
+      <div className="rainbowyellow"></div>
+      <div className="rainboworange"></div>
+      <div className="rainbowred"></div>
+      <div className="rainbowmaroon"></div>
+      <div className="rainbow"></div>
+      <p><Image src="plus.svg" /> About Air Quality Index&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</p>
+    </div>
+        <Collapse in={this.state.open}>
+          <div id="example-collapse-text">
+          The Air Quality Index (AQI) is used for reporting daily air quality. It tells you how clean or polluted your air is, and what associated health effects might be a concern for you. The AQI focuses on health effects you may experience within a few hours or days after breathing polluted air. EPA calculates the AQI for five major air pollutants regulated by the Clean Air Act: ground-level ozone, particle pollution (also known as particulate matter), carbon monoxide, sulfur dioxide, and nitrogen dioxide. For each of these pollutants, EPA has established national air quality standards to protect public health .Ground-level ozone and airborne particles are the two pollutants that pose the greatest threat to human health in this country.
+          </div>
+        </Collapse></Col></Row>
     </Card.Body>
   </Card>
 </Container>

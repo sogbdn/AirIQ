@@ -37,6 +37,10 @@ body {
         height: 80px;
 }
 
+a.card-link{
+  color:white;
+}
+
 .cardcustom {
   margin-top: 1em;
   min-height: 240px; 
@@ -164,6 +168,50 @@ background-color:#31c060;
 .bg-alert5 {
 
   background-color: #860f30;
+}
+
+
+.rainbow {
+  cursor: pointer;
+}
+
+.rainbow p{
+  
+  padding-top: 3.2em;
+
+}
+
+.rainbowgreen {
+  background-color:#31c060;
+  width: 20%;
+  height: 40px;
+  float:left;
+}
+.rainbowyellow {
+  background-color:#fff110;
+  width: 20%;
+  height: 40px;
+  float:left;
+}
+.rainboworange {
+background-color: #ffa810;
+width: 20%;
+height: 40px;
+float:left;
+}
+
+.rainbowred {
+background-color: #d80404;
+width: 20%;
+height: 40px;
+float:left;
+}
+
+.rainbowmaroon {
+  background-color: #860f30;
+  width: 20%;
+  height: 40px;
+  float:left;
 }
 
 @keyframes App-logo-spin {

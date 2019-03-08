@@ -28,6 +28,7 @@ export default class AQIretrieve extends Component {
 				
 				// temporary error handler for when no_nearest_city
 				if (res.data.status === "fail") {
+					this.setState({ newAqius: 'undefined' })
 					return res.data.data.message
 				}
 				
