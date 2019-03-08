@@ -27,7 +27,6 @@ export default class AirCard extends Component {
     }
   }
 
-
   qualityColor(airquality){
     if (airquality > 0 && airquality < 50){
       return "alert1"
@@ -51,6 +50,16 @@ export default class AirCard extends Component {
       return "unavailable"
     }
   }
+
+  qualitytext(airquality){
+    if (airquality > 50 && airquality < 200){
+      return "aqiheadlinedark"
+    }
+    else {
+      return "aqiheadline"
+    }
+  }
+
 //separate file create and object with and object
   //export const airstrings = {"AQ1": "something"}
   //airSTrings and try to access the object    AQ + props
@@ -82,10 +91,10 @@ export default class AirCard extends Component {
           <Col lg={10} md= {9} sm={8} xs={6}>
           <Card.Subtitle className="mb-2"><Card.Link href="/airQuality">Air Quality Index:  {this.props.airQuality} </Card.Link>- for {this.props.city} - <Moment format="MMMM Do YYYY">{fullDate}</Moment></Card.Subtitle>
           <div className="Aqi_num">
-          <p className="aqiheadline"><AirRatingRecom airRating = {this.qualityColor(this.props.airQuality)}/></p>
+          <p className={this.qualitytext(this.props.airQuality)}><AirRatingRecom airRating = {this.qualityColor(this.props.airQuality)}/></p>
           </div>
           <div align="right">
-    <div className="cardicons" align="right"><Image src="forest.svg"/></div>
+    <div className="cardicons" align="right"><Image name='cardicon' src="forest.svg"/></div>
     </div>
     </Col>
   </Row>
@@ -96,12 +105,10 @@ export default class AirCard extends Component {
   <Card>
     <Card.Body>
     <Row>
-    <p>Check another location </p><br/>
-    
-    <Geosuggest placeholder="Enter Location" onSuggestSelect={this.onSuggestSelect}/>
-
-    
+    <Geosuggest placeholder="Submit Another Location" onSuggestSelect={this.onSuggestSelect}/>
     </Row>
+    
+    
     </Card.Body>
   </Card>
   <Card>
