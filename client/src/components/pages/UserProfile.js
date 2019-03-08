@@ -2,6 +2,12 @@ import React, { Component } from "react";
 import Container from 'react-bootstrap/Container'
 import axios from 'axios';
 
+import Form from 'react-bootstrap/Form';
+import Button from 'react-bootstrap/Button';
+import Col from 'react-bootstrap/Col';
+import InputGroup from 'react-bootstrap/InputGroup'
+import { BrowserRouter as Router, Switch, Route, Link } from 'react-router-dom';
+
 //page not actually defined yet
 export default class UserProfile extends Component {
 
@@ -35,7 +41,26 @@ export default class UserProfile extends Component {
       })
     });
     console.log("UserProfile Mounted");
+
   }
+  onChange = (e) => {
+    this.setState({
+      phone_number: e.target.value
+    })
+  }
+
+  handleSubmit = (event) => {
+    event.preventDefault();
+    const first_name = this.state.first_name;
+    const last_name = this.state.last_name;
+    const email = this.state.email;
+    const phone_number = this.state.phone_number;
+    axios.post('/changeNumber', { first_name: first_name, last_name: last_name, email: email, phone_number:phone_number })
+      .then((result) => {
+        localStorage.setItem('token', result.data.token);
+        console.log('server responded', result)
+      });
+  };
 
   render() {
     const currentUser = localStorage.getItem('token');
@@ -51,9 +76,18 @@ export default class UserProfile extends Component {
           <div>
             {this.state.email}
           </div>
-          <div>
-            {this.state.phone_number}
-          </div>
+          <Form onSubmit={e => this.handleSubmit(e)}>
+            <Form.Group as={Col} md="4" controlId="validationCustom05">
+              <Form.Label>Phone Number</Form.Label>
+              <Form.Control type="num"
+                placeholder="Phone Number"
+                name="phone_number"
+                value={this.state.phone_number}
+                onChange={this.onChange}
+              />
+            </Form.Group>
+            <Button type="submit">Change Phone Number</Button>
+          </Form>
           <div>
             {this.state.good_days}
           </div>
