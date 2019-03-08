@@ -6,6 +6,8 @@ import Col from 'react-bootstrap/Col'
 import Row from 'react-bootstrap/Row'
 import AirRatingRecom  from './_AirRatingRecom'
 import Image from 'react-bootstrap/Image'
+import Geosuggest from 'react-geosuggest';
+
 
 
 ///
@@ -15,6 +17,11 @@ export default class AirCard extends Component {
   componentDidMount() {
     console.log("AirCard Mounted");
   }
+
+  onSuggestSelect = (suggest) => {
+    this.props.onLocationUpdate(suggest.location)
+  }
+
 
   qualityColor(airquality){
     if (airquality < 50){
@@ -71,9 +78,10 @@ export default class AirCard extends Component {
   <Card>
     <Card.Body>
     <Row>
-    <Col sm>
-    <Card.Link href="#">Health Recommendations by Concern</Card.Link>
-    </Col>
+    <p>Testing SubmitLocation </p>
+    <Geosuggest placeholder="apples" onSuggestSelect={this.onSuggestSelect}/>
+
+    
     </Row>
     </Card.Body>
   </Card>
