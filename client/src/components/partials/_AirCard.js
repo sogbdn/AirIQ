@@ -7,8 +7,11 @@ import Row from 'react-bootstrap/Row'
 import AirRatingRecom  from './_AirRatingRecom'
 import Image from 'react-bootstrap/Image'
 import Moment from 'react-moment';
+import Form from 'react-bootstrap/Form';
 //import Button from 'react-bootstrap/Button'
 import Collapse from 'react-bootstrap/Collapse'
+import Button from 'react-bootstrap/Button'
+import Geosuggest from 'react-geosuggest';
 
 
 //import 'moment-timezone';
@@ -20,6 +23,12 @@ export default class AirCard extends Component {
   componentDidMount() {
     console.log("AirCard Mounted");
   }
+
+  onSuggestSelect = (suggest) => {
+    this.props.onLocationUpdate(suggest.location)
+  }
+
+
 
   qualityColor(airquality){
     if (airquality < 50){
@@ -111,7 +120,10 @@ export default class AirCard extends Component {
     <Card.Body>
     <Row>
     <Col sm>
-    <Card.Link href="#">Health Recommendations by Concern</Card.Link>
+    <p>Testing SubmitLocation </p>
+    <Geosuggest placeholder="" onSuggestSelect={this.onSuggestSelect}/>
+
+    
     </Col>
     </Row>
     </Card.Body>

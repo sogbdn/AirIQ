@@ -12,14 +12,16 @@ export default class AQIretrieve extends Component {
 	constructor(props) {
 		super(props);
 		this.state = {
-			newAqius: ''
+			newAqius: '',
+			lat: props.lat,
+			lng: props.lng
 		};
 	}
 
-	componentDidMount() {
+	updateAQIus() {
 		axios
 			.get(
-				`http://localhost:3001/airqualityAPI?lat=${this.props.lat}&lon=${this.props.long}`
+				`http://localhost:3001/airqualityAPI?lat=${this.state.lat}&long=${this.state.lng}`
 			)
 			.then((res) => {
 				console.log('AirVisual response', res);
@@ -27,14 +29,24 @@ export default class AQIretrieve extends Component {
 				this.setState({ newAqius: res.data.data.current.pollution.aqius });
 			});
 	}
+	componentDidMount() {
+		this.updateAQIus()
+	}
+
+	onLocationUpdate = (location) => {
+		this.setState({
+			lat: location.lat, 
+			lng: location.lng
+		}, this.updateAQIus)
+	}
 
 	render() {
 		const { newAqius } = this.state;
 		return (
 			<tbody>
 				<tr>
-      <AirCard airQuality={newAqius}/>
-      <MapView airQuality={newAqius} displaymap= {this.props.displaymap}/>
+      <AirCard airQuality= {newAqius} onLocationUpdate={this.onLocationUpdate}/>
+      {/* <MapView airQuality={newAqius} displaymap= {this.props.displaymap}/> */}
 				</tr>
 			</tbody>
 		)
