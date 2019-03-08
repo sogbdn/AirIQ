@@ -85,6 +85,33 @@ app.post('/register', (req, res) => {
 	//res.redirect('/') for react
 });
 
+app.post('/changeNumber', (req, res) => {
+	const email = req.body.email;
+	const first_name = req.body.first_name;
+	const last_name = req.body.last_name;
+	const new_number = req.body.phone_number;
+
+	knex
+		.select('*')
+		.from('users')
+		.where({ email: email, first_name:first_name, last_name:last_name })
+		.update({ phone_number: new_number})
+		.returning('*')
+		.then((results) => {
+			if (results.length !== 0) {
+				const token = jsonWebToken.sign(results[0], myJWTSecretKey);
+				res.json({
+					token: token
+				});
+			} else {
+				res.json({ success: false, message: 'login was unsuccessful' });
+			}
+		})
+		.catch((error) => {
+			res.json({ success: false, message: 'login was unsuccessful' });
+		});
+})
+
 app.post('/login', (req, res) => {
 	const loginEmail = req.body.email;
 	const loginPassword = req.body.password;
@@ -135,6 +162,5 @@ app.get('/airqualityAPI', (req, res) =>{
 
 app.get('/verifyUser', (req, res) => {
 	bob = jsonWebToken.verify(req.query.currentUser, 'blablabla');
-	console.log(bob);
 	res.json(bob)
 })
