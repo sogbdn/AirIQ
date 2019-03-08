@@ -48,7 +48,7 @@ export default class AirCard extends Component {
 
 
     return (
-      <div>
+      <>
       <Container>
       <Card bg={this.qualityColor(this.props.airQuality)} className="cardcustom">
         <Card.Body>
@@ -80,7 +80,7 @@ export default class AirCard extends Component {
 </Container>
 <Container>
 </Container>
-</div>
+</>
 
     );
   }

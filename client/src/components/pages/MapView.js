@@ -46,8 +46,8 @@ export class MapView extends Component {
     }
     render() {
 
-      {return !this.props.displaymap ? null :
-       <div>
+      return (!this.props.displaymap ? null :
+       <>
         <div>{this.props.airQuality}</div>
         <Map google={this.props.google} zoom={14}
         onClick={this.onMapClicked}
@@ -60,9 +60,9 @@ export class MapView extends Component {
             </div>
         </InfoWindow>
         </Map>
-        </div>
+        </>
       //);
-      }
+      )
     }
   }
 

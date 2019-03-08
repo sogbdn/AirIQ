@@ -1,12 +1,9 @@
 import React, { Component } from "react";
-import Container from 'react-bootstrap/Container'
 import axios from 'axios';
 
 import Form from 'react-bootstrap/Form';
 import Button from 'react-bootstrap/Button';
 import Col from 'react-bootstrap/Col';
-import InputGroup from 'react-bootstrap/InputGroup'
-import { BrowserRouter as Router, Switch, Route, Link } from 'react-router-dom';
 
 //page not actually defined yet
 export default class UserProfile extends Component {

@@ -1,10 +1,6 @@
 import React, { Component } from 'react';
 import axios from 'axios';
 
-// import Card from 'react-bootstrap/Card'
-import Container from 'react-bootstrap/Container';
-// import Col from 'react-bootstrap/Col'
-// import Row from 'react-bootstrap/Row'
 import AirCard from './_AirCard';
 import MapView from '../pages/MapView';
 

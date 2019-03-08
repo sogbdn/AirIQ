@@ -6,13 +6,8 @@ import Col from 'react-bootstrap/Col';
 import InputGroup from 'react-bootstrap/InputGroup'
 import Container from 'react-bootstrap/Container'
 import axios from 'axios';
-import { BrowserRouter as Router, Switch, Route, Link } from 'react-router-dom';
 
 export default class Registration extends Component {
-
-  componentDidMount() {
-    console.log("Registration Mounted");
-  }
 
   constructor() {
     super();
@@ -121,13 +116,11 @@ export default class Registration extends Component {
   }
   render() {
 
-    const {first_name, last_name, email, phone_number, good_days, bad_days, concern_type} = this.state;
+    const {first_name, last_name, email, phone_number, concern_type} = this.state;
 
     return (
       <Container>
       <Form
-      // noValidate
-      // validated={'validated'}
       onSubmit={e => this.handleSubmit(e)}
     >
       <Form.Row>
@@ -215,14 +208,14 @@ export default class Registration extends Component {
     </div> : null
       }
         </Form.Group>
-        
 
-        <Form.Group as={Col} md="3" controlId="validationCustom04" controlId="formBasicPassword">
+
+        <Form.Group as={Col} md="3" controlId="validationCustom04">
     <Form.Label>Password</Form.Label>
     <Form.Control type="password" placeholder="Password" required />
 
         </Form.Group>
-        <Form.Group as={Col} md="3" controlId="validationCustom04" controlId="formBasicPassword">
+        <Form.Group as={Col} md="3" controlId="validationCustom05">
     <Form.Label>Password Confirmation</Form.Label>
     <Form.Control type="password" placeholder="Password" required />
 
