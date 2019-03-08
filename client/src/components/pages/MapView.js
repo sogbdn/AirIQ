@@ -18,7 +18,7 @@ export class MapView extends Component {
     ]
   };
 
-  
+
   // <Marker onClick={this.onMarkerClick}
   //         name={'Current location'}
   //         position={{lat: 45.496338, lng: -73.570732}} //first to say this is javascript the second to say this is an object
@@ -72,8 +72,7 @@ export class MapView extends Component {
             <div>
               <p>{this.state.selectedPlace.marker.airiq}</p>
             </div>
-        </InfoWindow> 
-       
+        </InfoWindow>
         </Map>
         </div>
       //);
