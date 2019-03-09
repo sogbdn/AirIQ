@@ -5,7 +5,6 @@ import Container from 'react-bootstrap/Container';
 import Col from 'react-bootstrap/Col'
 import Row from 'react-bootstrap/Row'
 import Collapse from 'react-bootstrap/Collapse'
-import Button from 'react-bootstrap/Button'
 import AirRatingRecom  from './_AirRatingRecom'
 import Image from 'react-bootstrap/Image'
 //import Tooltip from 'react-bootstrap/Tooltip'
@@ -118,7 +117,6 @@ export default class AirCard extends Component {
 
   render() {
     var today = new Date();
-    var date = `${today.getDate()}`;
     var fullDate = today.getFullYear()+'-'+(today.getMonth()+1)+'-'+today.getDate();
     const { open } = this.state;
 
@@ -156,8 +154,8 @@ export default class AirCard extends Component {
     <Row>
     <Geosuggest placeholder="Submit Another Location" onSuggestSelect={this.onSuggestSelect}/>
     </Row>
-    
-    
+
+
     </Card.Body>
   </Card>
   <Card>

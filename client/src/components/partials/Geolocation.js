@@ -3,7 +3,6 @@ import { geolocated } from 'react-geolocated';
 import AQIretrieve from './AQIretrieve';
 import Card from 'react-bootstrap/Card'
 import Container from 'react-bootstrap/Container';
-import Col from 'react-bootstrap/Col'
 import Row from 'react-bootstrap/Row'
 
 // import Card from 'react-bootstrap/Card'
@@ -21,8 +20,7 @@ class Geolocation extends Component {
 			</div>;
 		} else if (this.props.coords) {
 			return (
-
-						<AQIretrieve lat={this.props.coords.latitude} lng={this.props.coords.longitude} />
+				<AQIretrieve lat={this.props.coords.latitude} lng={this.props.coords.longitude} />
 			);
 		} else {
 			return <div><Container><Card ><Card.Body><Row>Getting Geolaction Data . . .</Row></Card.Body></Card></Container>

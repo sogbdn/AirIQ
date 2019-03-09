@@ -21,7 +21,7 @@ export default class AirCard extends Component {
   extractrating(rating){
     if (rating === "alert1"){
       return this.airRatingStrings.AQI1
-    } 
+    }
     else if (rating === "alert2"){
       return this.airRatingStrings.AQI2
     }
@@ -38,7 +38,7 @@ export default class AirCard extends Component {
       return this.airRatingStrings.AQI_null
     }
   }
-  
+
 //separate file create and object with and object
   //export const airstrings = {"AQ1": "something"}
   //airSTrings and try to access the object    AQ + props
@@ -48,9 +48,9 @@ export default class AirCard extends Component {
     // const currentUser = localStorage.getItem('token');
     // if (currentUser) {
     return (
-    <div>
-        {this.extractrating(this.props.airRating)}
-    </div>
+    <>
+      {this.extractrating(this.props.airRating)}
+    </>
 
     );
   }

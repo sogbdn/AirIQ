@@ -1,9 +1,7 @@
 import React, { Component } from 'react';
 import NavBar from './NavBar';
 import './App.css';
-import withAuth from './components/withAuth';
-import AQIretrieve from './components/partials/AQIretrieve';
-import { BrowserRouter as Router, Switch, Route, Link } from 'react-router-dom';
+import { BrowserRouter as Router, Switch, Route } from 'react-router-dom';
 import Registration from './components/pages/Registration';
 import Login from './components/pages/Login';
 import UserProfile from './components/pages/UserProfile';
@@ -21,7 +19,7 @@ class App extends Component {
 	render() {
 		return (
 			<Router>
-				<div>
+				<>
 					<div className="Menu">
 						<NavBar />
 					</div>
@@ -35,7 +33,7 @@ class App extends Component {
 						<Route path="/registrationcomplete" component={RegistrationComp} />
 						<Route path="/map" component={ () => <MapView  displaymap='true'/> } />
 					</Switch>
-				</div>
+				</>
 			</Router>
 		);
 	}
