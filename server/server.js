@@ -11,6 +11,8 @@ const app = express();
 const session = require('express-session');
 const jsonWebToken = require('jsonwebtoken');
 
+const schedule = require('node-schedule');
+
 require('dotenv').config();
 
 const myJWTSecretKey = process.env.secret;
@@ -111,4 +113,5 @@ app.post('/logout', (req, res) => {
 	res.redirect('/');
 });
 
-// Post for sending json object with AQI, geoloc, user to db
+// Updated db each hour with new aqui for registered locations
+var j = schedule.scheduleJob('42 * * * *', function() {});
