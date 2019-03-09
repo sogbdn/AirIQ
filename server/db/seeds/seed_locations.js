@@ -18,9 +18,9 @@ exports.seed = function(knex, Promise) {
 						country: 'India'
 					},
 					{
-						city: 'Seoul',
-						state: 'Seoul',
-						country: 'Korea'
+						city: 'New York',
+						state: 'New York',
+						country: 'USA'
 					}
 				]);
 			})

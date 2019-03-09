@@ -17,7 +17,7 @@ exports.seed = function(knex, Promise) {
 						password: 'abc123',
 						profile_type: 'life_style',
 						sms_good_days: 'yes',
-						sms_bad_days: 'no',
+						sms_bad_days: 'yes',
 						location_id: 1
 					},
 					{
@@ -38,8 +38,8 @@ exports.seed = function(knex, Promise) {
 						phone_number: '+15144633838',
 						password: 'abc123',
 						profile_type: 'general',
-						sms_good_days: 'no',
-						sms_bad_days: 'no',
+						sms_good_days: 'yes',
+						sms_bad_days: 'yes',
 						location_id: 3
 					}
 				]);
