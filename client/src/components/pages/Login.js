@@ -1,7 +1,6 @@
 import React, { Component } from "react";
 import Form from 'react-bootstrap/Form';
 import Button from 'react-bootstrap/Button';
-import InputGroup from 'react-bootstrap/InputGroup'
 import Container from 'react-bootstrap/Container'
 import axios from 'axios';
 
@@ -50,7 +49,7 @@ export default class Login extends Component {
     event.preventDefault();
     const { email, password } = this.state;
 
-    axios.post('/login', { email: email.value, password: password.value })
+    axios.post('http://localhost:3001/login', { email: email.value, password: password.value })
       .then((result) => {
         localStorage.setItem('token', result.data.token)
         console.log('server responded');

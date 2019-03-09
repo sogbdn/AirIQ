@@ -60,20 +60,21 @@ app.get('/verify/:token', (req, res) => {
 // POST routes
 app.post('/register', (req, res) => {
 	knex('users')
-		.returning('id')
+		.returning('*')
 		.insert({
 			first_name: req.body.first_name,
 			last_name: req.body.last_name,
 			email: req.body.email,
 			phone_number: req.body.phone_number,
 			password: req.body.password,
-			profile_type: req.body.profile_type,
-			sms_good_days: req.body.sms_good_days,
-			sms_bad_days: req.body.sms_bad_days
+			profile_type: req.body.concern_type,
+			sms_good_days: req.body.good_days,
+			sms_bad_days: req.body.bad_days
 		})
-		.then(([ id ]) => {
-			//	req.session.cookie.user_id = results[0];
-			const token = jsonWebToken.sign(id, myJWTSecretKey);
+		.then(([ user ]) => {
+			console.log(user);
+
+			const token = jsonWebToken.sign(user, myJWTSecretKey);
 			res.json({
 				token: token
 			});
@@ -122,7 +123,7 @@ app.post('/login', (req, res) => {
 		.where({ email: loginEmail, password: loginPassword })
 		.then((results) => {
 			if (results.length !== 0) {
-				//	req.session.cookie.user_id = results[0].id;
+					console.log(results);
 				const token = jsonWebToken.sign(results[0], myJWTSecretKey);
 				res.json({
 					token: token
@@ -141,9 +142,6 @@ app.post('/login', (req, res) => {
 	// redirect with react
 });
 
-app.post('/logout', (req, res) => {
-	req.session = null;
-});
 
 app.get('/airqualityAPI', (req, res) =>{
 	let vars = {

@@ -1,12 +1,10 @@
 import React, { Component } from "react";
-import Container from 'react-bootstrap/Container'
+
 import axios from 'axios';
 
 import Form from 'react-bootstrap/Form';
 import Button from 'react-bootstrap/Button';
 import Col from 'react-bootstrap/Col';
-import InputGroup from 'react-bootstrap/InputGroup'
-import { BrowserRouter as Router, Switch, Route, Link } from 'react-router-dom';
 
 //page not actually defined yet
 export default class UserProfile extends Component {
@@ -26,20 +24,22 @@ export default class UserProfile extends Component {
 
   componentDidMount() {
     const currentUser = localStorage.getItem('token');
+    if (currentUser !== null) {
     axios
     .get(`http://localhost:3001/verifyUser?currentUser=${currentUser}`)
     .then((res) => {
-      let decodedUser = res.data;
-      this.setState( {
-        first_name: decodedUser.first_name,
-        last_name: decodedUser.last_name,
-        email: decodedUser.email,
-        phone_number: decodedUser.phone_number,
-        concern_type: decodedUser.profile_type,
-        bad_days: decodedUser.sms_bad_days,
-        good_days: decodedUser.sms_good_days
-      })
+        let decodedUser = res.data;
+        this.setState( {
+          first_name: decodedUser.first_name,
+          last_name: decodedUser.last_name,
+          email: decodedUser.email,
+          phone_number: decodedUser.phone_number,
+          concern_type: decodedUser.profile_type,
+          bad_days: decodedUser.sms_bad_days,
+          good_days: decodedUser.sms_good_days
+        })
     });
+  }
     console.log("UserProfile Mounted");
 
   }
@@ -55,10 +55,10 @@ export default class UserProfile extends Component {
     const last_name = this.state.last_name;
     const email = this.state.email;
     const phone_number = this.state.phone_number;
-    axios.post('/changeNumber', { first_name: first_name, last_name: last_name, email: email, phone_number:phone_number })
+    axios.post('http://localhost:3001/changeNumber', { first_name: first_name, last_name: last_name, email: email, phone_number:phone_number })
       .then((result) => {
-        localStorage.setItem('token', result.data.token);
-        console.log('server responded', result)
+          localStorage.setItem('token', result.data.token);
+          console.log('server responded', result)
       });
   };
 
