@@ -46,13 +46,16 @@ export default class AQIretrieve extends Component {
 	render() {
 		const { newAqius } = this.state;
 		return (
-			<table>
-				<tbody>
-					<tr>
-	      		<AirCard airQuality={newAqius} city={this.state.city}onLocationUpdate={this.onLocationUpdate}/>
-					</tr>
+
+<table>
+<tbody>
+	<tr>
+      <AirCard airQuality={newAqius} city={this.state.city}onLocationUpdate={this.onLocationUpdate}/>
+      <MapView airQuality={newAqius} displaymap= {this.props.displaymap} lat={this.state.lat} lng={this.state.lng}/>
+			</tr>
 				</tbody>
 			</table>
+
 		)
 	}
 }

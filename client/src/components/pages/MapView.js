@@ -28,7 +28,9 @@ export class MapView extends Component {
       this.setState({
         selectedPlace: props,
         activeMarker: marker,
-        showingInfoWindow: true
+        showingInfoWindow: true,
+        updatelat: this.props.lat,
+        updatelng: this.props.lng
       });
     }
 
