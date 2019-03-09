@@ -8,6 +8,7 @@ import Collapse from 'react-bootstrap/Collapse'
 import Button from 'react-bootstrap/Button'
 import AirRatingRecom  from './_AirRatingRecom'
 import Image from 'react-bootstrap/Image'
+//import Tooltip from 'react-bootstrap/Tooltip'
 import Geosuggest from 'react-geosuggest';
 import Moment from 'react-moment';
 
@@ -22,7 +23,7 @@ export default class AirCard extends Component {
   }
 
   onSuggestSelect = (suggest) => {
-    if(suggest != undefined){
+    if(suggest !== undefined){
       this.props.onLocationUpdate(suggest.location)
     }
   }
@@ -43,6 +44,9 @@ export default class AirCard extends Component {
     else if (airquality > 200 && airquality <300){
       return "alert5"
     }
+    else if (airquality > 300){
+      return "alert6"
+    }
     else if (airquality === 'undefined'){
       return "unavailable"
     }
@@ -51,12 +55,50 @@ export default class AirCard extends Component {
     }
   }
 
+
+  qualityIcon(airquality){
+    if (airquality > 0 && airquality < 50){
+      return "forest.svg"
+    }
+    else if (airquality > 50 && airquality < 100){
+      return "bench.svg"
+    }
+    else if (airquality < 150 && airquality > 100){
+      return "bonsai.svg"
+    }
+    else if (airquality > 150 && airquality < 200){
+      return "whistle.svg"
+    }
+    else if (airquality > 200 && airquality <300){
+      return "roadblock.svg"
+    }
+    else if (airquality > 300){
+      return "saviour.svg"
+    }
+    else if (airquality === 'undefined'){
+      return ""
+    }
+    else {
+      return ""
+    }
+  }
+
+
   qualitytext(airquality){
     if (airquality > 50 && airquality < 200){
       return "aqiheadlinedark"
     }
     else {
       return "aqiheadline"
+    }
+  }
+
+  qualityiconcolor(airquality){
+    if (airquality > 50 && airquality < 150){
+      return "icon_black.svg"
+    }
+    else {
+      return "icon_white.svg"
     }
   }
 
@@ -87,14 +129,21 @@ export default class AirCard extends Component {
       <Card bg={this.qualityColor(this.props.airQuality)} className="cardcustom">
         <Card.Body>
         <Row>
-          <Col lg={2} md= {3} sm={4} xs={6}><Card.Img variant="top" src="icon_black.png" className ="avatar" bsPrefix/></Col>
+          <Col lg={2} md= {3} sm={4} xs={6}><Card.Img variant="top" src={this.qualityiconcolor(this.props.airQuality)} className ="avatar" bsPrefix/></Col>
           <Col lg={10} md= {9} sm={8} xs={6}>
-          <Card.Subtitle className="mb-2"><Card.Link href="/airQuality">Air Quality Index:  {this.props.airQuality} </Card.Link>- for {this.props.city} - <Moment format="MMMM Do YYYY">{fullDate}</Moment></Card.Subtitle>
+         
           <div className="Aqi_num">
           <p className={this.qualitytext(this.props.airQuality)}><AirRatingRecom airRating = {this.qualityColor(this.props.airQuality)}/></p>
           </div>
+          <p className="aqinum">{this.props.airQuality}</p>
+
+        
+
+
+          
+          <Card.Subtitle className="mb-2">Air Quality for {this.props.city} - <Moment format="MMMM Do YYYY">{fullDate}</Moment></Card.Subtitle>
           <div align="right">
-    <div className="cardicons" align="right"><Image name='cardicon' src="forest.svg"/></div>
+    <div className="cardicons" align="right"><Image name='cardicon' src={this.qualityIcon(this.props.airQuality)}/></div>
     </div>
     </Col>
   </Row>

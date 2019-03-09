@@ -1,6 +1,10 @@
 import React, { Component } from 'react';
 import { geolocated } from 'react-geolocated';
 import AQIretrieve from './AQIretrieve';
+import Card from 'react-bootstrap/Card'
+import Container from 'react-bootstrap/Container';
+import Col from 'react-bootstrap/Col'
+import Row from 'react-bootstrap/Row'
 
 // import Card from 'react-bootstrap/Card'
 // import Container from 'react-bootstrap/Container';
@@ -10,16 +14,19 @@ import AQIretrieve from './AQIretrieve';
 class Geolocation extends Component {
 	render() {
 		if (!this.props.isGeolocationAvailable) {
-			return <div> Your browser does not support Geolocation </div>;
+			return <div><Container><Card><Card.Body><Row>Please enable Geolcation to use this App</Row></Card.Body></Card></Container>
+		</div>;
 		} else if (!this.props.isGeolocationEnabled) {
-			return <div> Geolocation is not enabled </div>;
+			return <div><Container><Card ><Card.Body><Row>Geolaction Not Enabled. Please Check your preferences to view Live Data reading for your location.</Row></Card.Body></Card></Container>
+			</div>;
 		} else if (this.props.coords) {
 			return (
 
 						<AQIretrieve lat={this.props.coords.latitude} lng={this.props.coords.longitude} />
 			);
 		} else {
-			return <div>Getting the location data&hellip; </div>;
+			return <div><Container><Card ><Card.Body><Row>Getting Geolaction Data . . .</Row></Card.Body></Card></Container>
+			</div>;
 		}
 	}
 }

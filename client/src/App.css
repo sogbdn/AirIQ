@@ -197,13 +197,13 @@ p.white {
 }
 
 .aqiheadline {
-  font-size: 1.8em;
+  font-size: 1.3em;
   font-weight: lighter;
   color: white;
 }
 
 .aqiheadlinedark {
-  font-size: 1.8em;
+  font-size: 1.3em;
   font-weight: lighter;
   color: black;
 }
@@ -237,6 +237,10 @@ background-color:#31c060;
 .bg-alert5 {
 
   background-color: #860f30;
+}
+
+.bg-alert6 {
+  background-color: #360412;
 }
 
 
