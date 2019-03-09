@@ -12,6 +12,8 @@ const session = require('express-session');
 const jsonWebToken = require('jsonwebtoken');
 const fetch = require('node-fetch');
 
+const schedule = require('node-schedule');
+
 require('dotenv').config();
 
 const myJWTSecretKey = process.env.secret;
@@ -27,11 +29,10 @@ app.use(
 );
 
 app.use(function(req, res, next) {
-  res.header("Access-Control-Allow-Origin", "*");
-  res.header("Access-Control-Allow-Headers", "Origin, X-Requested-With, Content-Type, Accept");
-  next();
+	res.header('Access-Control-Allow-Origin', '*');
+	res.header('Access-Control-Allow-Headers', 'Origin, X-Requested-With, Content-Type, Accept');
+	next();
 });
-
 
 const server = app.listen(process.env.PORT || 3001, () => {
 	console.log('Listening on port ' + server.address().port);
@@ -91,8 +92,8 @@ app.post('/changeNumber', (req, res) => {
 	knex
 		.select('*')
 		.from('users')
-		.where({ email: email, first_name:first_name, last_name:last_name })
-		.update({ phone_number: new_number})
+		.where({ email: email, first_name: first_name, last_name: last_name })
+		.update({ phone_number: new_number })
 		.returning('*')
 		.then((results) => {
 			if (results.length !== 0) {
@@ -107,7 +108,7 @@ app.post('/changeNumber', (req, res) => {
 		.catch((error) => {
 			res.json({ success: false, message: 'login was unsuccessful' });
 		});
-})
+});
 
 app.post('/checkEmail', (req, res) => {
 	knex
@@ -155,23 +156,22 @@ app.post('/login', (req, res) => {
 	// redirect with react
 });
 
-
-app.get('/airqualityAPI', (req, res) =>{
+app.get('/airqualityAPI', (req, res) => {
 	let vars = {
 		lat: req.query.lat,
 		long: req.query.long,
 		airVisKey: process.env.airVisKey
-	}
+	};
 	fetch(`https://api.airvisual.com/v2/nearest_city?lat=${vars.lat}&lon=${vars.long}&key=${vars.airVisKey}`)
-	.then(function(response) {
-		return response.json();
-	})
-	.then(function(myJson) {
-		res.json(myJson);
-	});
-})
+		.then(function(response) {
+			return response.json();
+		})
+		.then(function(myJson) {
+			res.json(myJson);
+		});
+});
 
 app.get('/verifyUser', (req, res) => {
 	bob = jsonWebToken.verify(req.query.currentUser, 'blablabla');
-	res.json(bob)
-})
+	res.json(bob);
+});
