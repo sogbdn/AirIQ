@@ -45,6 +45,7 @@ export class MapView extends Component {
 
     componentDidMount() {
       console.log("Map Mounted");
+      this.props.updatestateAQI(this.props.lat, this.props.lng)
     }
     render() {
       const {updatelat = 45.496338, updatelng = -73.570732} = this.props
@@ -56,7 +57,7 @@ export class MapView extends Component {
         onClick={this.onMapClicked}
         initialCenter={{lat: updatelat, lng: updatelng}}
         >
-        {this.state.points.map(p => <Marker marker={{'airiq': p.airiq}} key={p.id} onClick={this.onMarkerClick} position={{lat: p.lat, lng: p.lng}} icon={{url:p.icon}} />)}
+        {this.state.points.map(p => <Marker marker={{'airiq': this.props.aqi4map}} key={p.id} onClick={this.onMarkerClick} position={{lat: updatelat, lng: updatelng}} />)}
         <InfoWindow visible={this.state.showingInfoWindow} marker={this.state.activeMarker}>
             <div>
               <p>{this.state.selectedPlace.marker.airiq}</p>

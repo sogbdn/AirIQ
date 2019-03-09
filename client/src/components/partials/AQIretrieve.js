@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import axios from 'axios';
 
 import AirCard from './_AirCard';
-import {MapView} from '../pages/MapView';
+//import {MapView} from '../pages/MapView';
 
 export default class AQIretrieve extends Component {
 	constructor(props) {
@@ -57,7 +57,6 @@ export default class AQIretrieve extends Component {
 <tbody>
 	<tr>
       <AirCard airQuality={newAqius} city={this.state.city} onLocationUpdate={this.onLocationUpdate}/>
-      {/* <MapView airQuality={newAqius} displaymap= {this.props.displaymap} lat={this.state.lat} lng={this.state.lng}/> */}
 			</tr>
 				</tbody>
 			</table>
