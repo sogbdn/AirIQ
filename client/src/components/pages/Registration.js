@@ -84,7 +84,6 @@ export default class Registration extends Component {
         validation = false
       }
     }
-
     // else if (e.target.name === "last_number") {
     //   var validentries3 =/[A-Z]/g; // there is a sneaky space being allowed in the valid characters
     //   if (e.target.value.match(validentries3)&& (e.target.value.length <= 15 && e.target.value.length >2)) {
@@ -105,37 +104,59 @@ export default class Registration extends Component {
     this.setState({ [e.target.name]: {value: e.target.value, validation}});
   }
 
+  uniqueEmail = (email) =>{
+    return(axios.post('http://localhost:3001/checkEmail', { email: email})
+      .then((result) => {
+        return result.data.uniqueness;
+      }))
+  }
+
+  passwordMatch = (pass, pass_conf) => {
+    if (pass === pass_conf) {
+      return true;
+    } else {
+      return false;
+    }
+  }
+
   handleSubmit = (event) => {
-  event.preventDefault()
-  console.log(this.state);
-  let { first_name, last_name, email, phone_number, concern_type, good_days, bad_days, password, password_conf } = this.state;
-  let good = "";
-  let bad = "";
-  if (good_days === true) {
+    event.preventDefault();
+    let emailCheck = (this.uniqueEmail(this.state.email.value))
+    let passMatch = this.passwordMatch(this.state.password.value, this.state.password_conf.value)
+    emailCheck.then(function(value){
+      if(value && passMatch){
+        let { first_name, last_name, email, phone_number, concern_type, good_days, bad_days, password, password_conf } = this.state;
+        let good = "";
+        let bad = "";
+        if (good_days) {
+            good = "yes"
+        } else {
+            good = "no"
+        }
+        if (bad_days) {
+            bad = "yes"
+        } else {
+            bad = "no"
+        }
 
-      good = "yes"
+        axios.post('http://localhost:3001/register', {first_name: first_name.value, last_name: last_name.value, email: email.value, phone_number: phone_number.value, concern_type: concern_type.value, good_days: good, bad_days: bad, password: password.value })
+          .then((result) => {
+            localStorage.setItem('token', result.data.token)
+            //access the results here....
+            this.props.history.push('/');
+            console.log('server responded', result)
+        });
+      } else if (value) {
+        alert("Passwords do not match");
 
-  } else {
-
-      good = "no"
-
-  }
-  if (bad_days === true) {
-
-      bad = "yes"
-
-  } else {
-
-      bad = "no"
-
-  }
-
-  axios.post('http://localhost:3001/register', {first_name: first_name.value, last_name: last_name.value, email: email.value, phone_number: phone_number.value, concern_type: concern_type.value, good_days: good, bad_days: bad, password: password.value, password_conf: password_conf.value})
-    .then((result) => {
-      localStorage.setItem('token', result.data.token)
-      //access the results here....
-      console.log('server responded', result)
-    });
+      }
+      else if (passMatch) {
+        alert("Email");
+      } else {
+        alert("Multiple form errors")
+      }
+    }
+    )
   }
 
   validationClass = (isValid) => {
@@ -163,8 +184,8 @@ export default class Registration extends Component {
       <Form
       // noValidate
       // validated={'validated'}
-      onSubmit={e => this.handleSubmit(e)}
-    >
+        onSubmit={e => this.handleSubmit(e)}
+      >
       <Form.Row>
         <Form.Group as={Col} md="4" controlId="validationCustom01">
           <Form.Label></Form.Label>
@@ -188,9 +209,8 @@ export default class Registration extends Component {
             name="last_name"
             value={last_name.value}
             onChange={this.onChange}
-
-      className={this.validationClass(last_name.validation)}
-        placeholder="First Name"
+            className={this.validationClass(last_name.validation)}
+            placeholder="Last Name"
           />
           <Form.Control.Feedback>Looks good!</Form.Control.Feedback>
         </Form.Group>
@@ -213,7 +233,7 @@ export default class Registration extends Component {
         </Form.Group>
       </Form.Row>
       <Form.Row>
-      <Form.Group as={Col} md="4" controlId="validationCustom03">
+        <Form.Group as={Col} md="4" controlId="validationCustom03">
     <Form.Label>Health Concern Teir*</Form.Label>
     <Form.Control as="select"
     name="concern_type"
@@ -225,9 +245,9 @@ export default class Registration extends Component {
       <option value="medical_concern">Medical Concern</option>
       <option value="lifestyle">Lifestyle/Sports Concern</option>
     </Form.Control>
-    </Form.Group>
+        </Form.Group>
 
-    <Form.Group as={Col} md="4" controlId="validationCustom05">
+        <Form.Group as={Col} md="4" controlId="validationCustom05">
     <Form.Label>Phone Number*</Form.Label>
       <Form.Control type="num"
       placeholder="Phone Number"
@@ -258,7 +278,6 @@ export default class Registration extends Component {
       }
         </Form.Group>
 
-
         <Form.Group as={Col} md="3" controlId="validationCustom04">
     <Form.Label>Password</Form.Label>
     <Form.Control type="password" placeholder="Password" required
@@ -268,18 +287,16 @@ export default class Registration extends Component {
     />
 
         </Form.Group>
-        <Form.Group as={Col} md="3" controlId="validationCustom06">
-    <Form.Label>Password Confirmation</Form.Label>
-    <Form.Control type="password" placeholder="Password" required
-      name="password_conf"
-      value={password_conf.value}
-      onChange={this.onChange}
-    />
 
+        <Form.Group as={Col} md="3" controlId="validationCustom06">
+          <Form.Label>Password Confirmation</Form.Label>
+          <Form.Control type="password" placeholder="Password" required
+            name="password_conf"
+            value={password_conf.value}
+            onChange={this.onChange}
+          />
         </Form.Group>
       </Form.Row>
-      <Form.Group>
-      </Form.Group>
       <Button type="submit">Submit form</Button>
     </Form>
     </Container>
