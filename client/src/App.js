@@ -35,9 +35,11 @@ class App extends Component {
 			<Router>
 				<>
 					<div className="Menu">
+					<Route render={()=>
+						<>
 						<NavBar />
-					</div>
-					<Switch>
+
+						<Switch>
 						<Route exact path="/" component={ () => <Geolocation displaymap = 'false' updateLatAndLng={this.updateLatAndLng} /> } />
 						<Route exact path="/features" component={About} />
 						<Route path="/airQindex" component={AirIndex} />
@@ -46,7 +48,11 @@ class App extends Component {
 						<Route exact path="/register" component={Registration} />
 						<Route path="/registrationcomplete" component={RegistrationComp} />
 						<Route path="/map" component={ () => <MapView  displaymap='true' updatelat={this.state.lat} updatelng={this.state.lng} /> } />
-					</Switch>
+						</Switch>
+						</>
+					} />
+
+					</div>
 				</>
 			</Router>
 		);
