@@ -35,13 +35,9 @@ class NavBar extends Component {
           <Navbar.Toggle aria-controls="responsive-navbar-nav" />
           <Navbar.Collapse id="responsive-navbar-nav">
             <Nav className="mr-auto">
-
                 <Link to={'/features'}>Services</Link>
-
                 <Link to={'/airQindex'}>About Air Quality Index</Link>
-
                 <Link to={'/map'}>Map View</Link>
-
               <NavDropdown title="User Area" id="collasible-nav-dropdown">
                   <Link to={'/about'} className="dropdown-item">Other Resources</Link>
                   <Link to={'/user'} className="dropdown-item">User Profile</Link>
@@ -67,13 +63,9 @@ class NavBar extends Component {
           <Navbar.Toggle aria-controls="responsive-navbar-nav" />
           <Navbar.Collapse id="responsive-navbar-nav">
             <Nav className="mr-auto">
-
                 <Link to={'/features'}>Services</Link>
-
                 <Link to={'/airQindex'}>About Air Quality Index</Link>
-
                 <Link to={'/map'}>Map View</Link>
-
               <NavDropdown title="User Area" id="collasible-nav-dropdown">
                 <Link to={'/about'} className="dropdown-item">Other Resources</Link>
                 <Link to={'/login'} className="dropdown-item">Login</Link>
