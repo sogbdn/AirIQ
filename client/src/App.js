@@ -1,9 +1,7 @@
 import React, { Component } from 'react';
 import NavBar from './NavBar';
 import './App.css';
-import withAuth from './components/withAuth';
-import AQIretrieve from './components/partials/AQIretrieve';
-import { BrowserRouter as Router, Switch, Route, Link } from 'react-router-dom';
+import { BrowserRouter as Router, Switch, Route } from 'react-router-dom';
 import Registration from './components/pages/Registration';
 import Login from './components/pages/Login';
 import UserProfile from './components/pages/UserProfile';
@@ -21,21 +19,21 @@ class App extends Component {
 	render() {
 		return (
 			<Router>
-				<div>
+				<>
 					<div className="Menu">
 						<NavBar />
 					</div>
 					<Switch>
 						<Route exact path="/" component={ () => <Geolocation displaymap = 'false'/> } />
-						<Route exact path="/concerns" component={About} />
-						<Route path="/airQuality" component={AirIndex} />
+						<Route exact path="/features" component={About} />
+						<Route path="/airQindex" component={AirIndex} />
 						<Route path="/login" component={Login} />
 						<Route path="/user" component={UserProfile} />
 						<Route exact path="/register" component={Registration} />
 						<Route path="/registrationcomplete" component={RegistrationComp} />
 						<Route path="/map" component={ () => <MapView  displaymap='true'/> } />
 					</Switch>
-				</div>
+				</>
 			</Router>
 		);
 	}

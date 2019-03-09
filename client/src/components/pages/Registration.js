@@ -6,13 +6,9 @@ import Col from 'react-bootstrap/Col';
 import InputGroup from 'react-bootstrap/InputGroup'
 import Container from 'react-bootstrap/Container'
 import axios from 'axios';
-import { BrowserRouter as Router, Switch, Route, Link } from 'react-router-dom';
 
 export default class Registration extends Component {
 
-  componentDidMount() {
-    console.log("Registration Mounted");
-  }
 
   constructor() {
     super();
@@ -39,15 +35,33 @@ export default class Registration extends Component {
         validation: null
       },
       good_days: {
-        value: '',
+        value: false,
         validation: null
       },
       bad_days: {
+        value: false,
+        validation: null
+      },
+      password: {
+        value: '',
+        validation: null
+      },
+      password_conf: {
         value: '',
         validation: null
       }
       //validated: false  ///set validation in the state
     };
+  }
+
+  onInput = (event) => {
+    const target = event.target;
+    const value = target.type === 'checkbox' ? target.checked : target.value;
+    const name = target.name;
+    console.log(value);
+    this.setState({
+      [name]: value
+    })
   }
 
   onChange = (e) => {
@@ -93,9 +107,30 @@ export default class Registration extends Component {
 
   handleSubmit = (event) => {
   event.preventDefault()
-  const { first_name, last_name, email, phone_number, concern_type, good_days, bad_days } = this.state;
+  console.log(this.state);
+  let { first_name, last_name, email, phone_number, concern_type, good_days, bad_days, password, password_conf } = this.state;
+  let good = "";
+  let bad = "";
+  if (good_days === true) {
 
-  axios.post('/register', {first_name: first_name.value, last_name: last_name.value, email: email.value, phone_number: phone_number.value, concern_type: concern_type.value, good_days: good_days.value, bad_days: bad_days.value})
+      good = "yes"
+
+  } else {
+
+      good = "no"
+
+  }
+  if (bad_days === true) {
+
+      bad = "yes"
+
+  } else {
+
+      bad = "no"
+
+  }
+
+  axios.post('http://localhost:3001/register', {first_name: first_name.value, last_name: last_name.value, email: email.value, phone_number: phone_number.value, concern_type: concern_type.value, good_days: good, bad_days: bad, password: password.value, password_conf: password_conf.value})
     .then((result) => {
       localStorage.setItem('token', result.data.token)
       //access the results here....
@@ -121,7 +156,7 @@ export default class Registration extends Component {
   }
   render() {
 
-    const {first_name, last_name, email, phone_number, good_days, bad_days, concern_type} = this.state;
+    const {first_name, last_name, email, phone_number, concern_type, password, password_conf, good_days, bad_days} = this.state;
 
     return (
       <Container>
@@ -205,26 +240,41 @@ export default class Registration extends Component {
         { phone_number.validation ?
     <div key={`inline-checkbox`} className="mb-1">
       <Form.Check inline label="Best AirQ days"
-      type='checkbox'
-      id={`inline-checkbox-1 inline-checkbox-2`} />
+        name="good_days"
+        type='checkbox'
+        id={`inline-checkbox-1 inline-checkbox-2`}
+        value={this.state.good_days}
+        onChange={this.onInput}
+      />
       <Form.Check inline label="Poor AirQ days"
-      type='checkbox'
-      id={`inline-checkbox-2`}
-      //onChange={this.onChange}
+        name="bad_days"
+        type='checkbox'
+        id={`inline-checkbox-2`}
+        value={this.state.bad_days}
+        onChange={this.onInput}
+        //onChange={this.onChange}
       />
     </div> : null
       }
         </Form.Group>
-        
 
-        <Form.Group as={Col} md="3" controlId="validationCustom04" controlId="formBasicPassword">
+
+        <Form.Group as={Col} md="3" controlId="validationCustom04">
     <Form.Label>Password</Form.Label>
-    <Form.Control type="password" placeholder="Password" required />
+    <Form.Control type="password" placeholder="Password" required
+      name="password"
+      value={password.value}
+      onChange={this.onChange}
+    />
 
         </Form.Group>
-        <Form.Group as={Col} md="3" controlId="validationCustom04" controlId="formBasicPassword">
+        <Form.Group as={Col} md="3" controlId="validationCustom06">
     <Form.Label>Password Confirmation</Form.Label>
-    <Form.Control type="password" placeholder="Password" required />
+    <Form.Control type="password" placeholder="Password" required
+      name="password_conf"
+      value={password_conf.value}
+      onChange={this.onChange}
+    />
 
         </Form.Group>
       </Form.Row>

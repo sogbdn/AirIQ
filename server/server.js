@@ -10,6 +10,7 @@ const knex = require('knex')(knexConfig[env]);
 const app = express();
 const session = require('express-session');
 const jsonWebToken = require('jsonwebtoken');
+const fetch = require('node-fetch');
 
 const schedule = require('node-schedule');
 
@@ -22,10 +23,16 @@ app.use(bodyParser.urlencoded({ extended: false }));
 app.use(require('method-override')());
 app.use(
 	session({
-		secret: 'qsd1213',
+		secret: process.env.SESSION,
 		cookie: { maxAge: 60000 }
 	})
 );
+
+app.use(function(req, res, next) {
+	res.header('Access-Control-Allow-Origin', '*');
+	res.header('Access-Control-Allow-Headers', 'Origin, X-Requested-With, Content-Type, Accept');
+	next();
+});
 
 const server = app.listen(process.env.PORT || 3001, () => {
 	console.log('Listening on port ' + server.address().port);
@@ -54,20 +61,21 @@ app.get('/verify/:token', (req, res) => {
 // POST routes
 app.post('/register', (req, res) => {
 	knex('users')
-		.returning('id')
+		.returning('*')
 		.insert({
 			first_name: req.body.first_name,
 			last_name: req.body.last_name,
 			email: req.body.email,
 			phone_number: req.body.phone_number,
 			password: req.body.password,
-			profile_type: req.body.profile_type,
-			sms_good_days: req.body.sms_good_days,
-			sms_bad_days: req.body.sms_bad_days
+			profile_type: req.body.concern_type,
+			sms_good_days: req.body.good_days,
+			sms_bad_days: req.body.bad_days
 		})
-		.then(([ id ]) => {
-			//	req.session.cookie.user_id = results[0];
-			const token = jsonWebToken.sign(id, myJWTSecretKey);
+		.then(([ user ]) => {
+			console.log(user);
+
+			const token = jsonWebToken.sign(user, myJWTSecretKey);
 			res.json({
 				token: token
 			});
@@ -77,6 +85,33 @@ app.post('/register', (req, res) => {
 			//});
 		});
 	//res.redirect('/') for react
+});
+
+app.post('/changeNumber', (req, res) => {
+	const email = req.body.email;
+	const first_name = req.body.first_name;
+	const last_name = req.body.last_name;
+	const new_number = req.body.phone_number;
+
+	knex
+		.select('*')
+		.from('users')
+		.where({ email: email, first_name: first_name, last_name: last_name })
+		.update({ phone_number: new_number })
+		.returning('*')
+		.then((results) => {
+			if (results.length !== 0) {
+				const token = jsonWebToken.sign(results[0], myJWTSecretKey);
+				res.json({
+					token: token
+				});
+			} else {
+				res.json({ success: false, message: 'login was unsuccessful' });
+			}
+		})
+		.catch((error) => {
+			res.json({ success: false, message: 'login was unsuccessful' });
+		});
 });
 
 app.post('/login', (req, res) => {
@@ -89,7 +124,7 @@ app.post('/login', (req, res) => {
 		.where({ email: loginEmail, password: loginPassword })
 		.then((results) => {
 			if (results.length !== 0) {
-				//	req.session.cookie.user_id = results[0].id;
+				console.log(results);
 				const token = jsonWebToken.sign(results[0], myJWTSecretKey);
 				res.json({
 					token: token
@@ -108,10 +143,22 @@ app.post('/login', (req, res) => {
 	// redirect with react
 });
 
-app.post('/logout', (req, res) => {
-	req.session = null;
-	res.redirect('/');
+app.get('/airqualityAPI', (req, res) => {
+	let vars = {
+		lat: req.query.lat,
+		long: req.query.long,
+		airVisKey: process.env.airVisKey
+	};
+	fetch(`https://api.airvisual.com/v2/nearest_city?lat=${vars.lat}&lon=${vars.long}&key=${vars.airVisKey}`)
+		.then(function(response) {
+			return response.json();
+		})
+		.then(function(myJson) {
+			res.json(myJson);
+		});
 });
 
-// Updated db each hour with new aqui for registered locations
-var j = schedule.scheduleJob('42 * * * *', function() {});
+app.get('/verifyUser', (req, res) => {
+	bob = jsonWebToken.verify(req.query.currentUser, 'blablabla');
+	res.json(bob);
+});
