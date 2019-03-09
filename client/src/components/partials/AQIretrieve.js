@@ -53,7 +53,7 @@ export default class AQIretrieve extends Component {
 <tbody>
 	<tr>
       <AirCard airQuality={newAqius} city={this.state.city}onLocationUpdate={this.onLocationUpdate}/>
-      <MapView airQuality={newAqius} displaymap= {this.props.displaymap} lat={this.state.lat} lng={this.state.lng}/>
+      {/* <MapView airQuality={newAqius} displaymap= {this.props.displaymap} lat={this.state.lat} lng={this.state.lng}/> */}
 			</tr>
 				</tbody>
 			</table>
