@@ -2,61 +2,63 @@ import React, { Component } from 'react';
 import axios from 'axios';
 
 import AirCard from './_AirCard';
-import MapView from '../pages/MapView';
+import {MapView} from '../pages/MapView';
 
 export default class AQIretrieve extends Component {
 	constructor(props) {
 		super(props);
 		this.state = {
 			newAqius: '',
-			lat: props.lat,
-			lng: props.lng
+			// lat: props.lat,
+			// lng: props.lng
+			city: ''
 		};
 	}
 
-	updateAQIus() {
-		axios.get(`http://localhost:3001/airqualityAPI?lat=${this.state.lat}&long=${this.state.lng}`).then((res) => {
-			console.log('AirVisual response', res);
+	updateAQIus(lat, lng) {
+		console.log( lat, lng)
+		axios
+			.get(
+				`http://localhost:3001/airqualityAPI?lat=${lat}&long=${lng}`
+			)
+			.then((res) => {
+				console.log('AirVisual response', res);
 
-			// temporary error handler for when no_nearest_city
-			if (res.data.status === 'fail') {
-				this.setState({ newAqius: 'undefined' });
-				return res.data.data.message;
-			}
-
-			console.log('aqius', res.data.data.current.pollution.aqius);
-			this.setState({ newAqius: res.data.data.current.pollution.aqius });
-			// post request to send data in a json object (geoloc, AQI, user id?) to back end
-		});
+				// temporary error handler for when no_nearest_city
+				if (res.data.status === "fail") {
+					this.setState({ newAqius: 'undefined' })
+					return res.data.data.message
+				}
+				console.log('aqius', res.data.data.current.pollution.aqius);
+				this.setState({ newAqius: res.data.data.current.pollution.aqius });
+			});
 	}
 	componentDidMount() {
-		this.updateAQIus();
+		this.updateAQIus(43.716005, -79.393509)
 	}
 
 	onLocationUpdate = (location) => {
-		this.setState(
-			{
-				lat: location.lat,
-				lng: location.lng,
-				city: document.querySelector('.geosuggest__input').value
-			},
-			this.updateAQIus
-		);
-	};
+		const city = document.querySelector('.geosuggest__input').value
+		console.log('set: ', city)
+		this.props.updateLatAndLng(location.lat, location.lng)
+		this.setState({
+			// lat: location.lat,
+			// lng: location.lng,
+			city: city
+		})
+		this.updateAQIus(location.lat, location.lng)
+	}
 
 	render() {
 		const { newAqius } = this.state;
 		return (
-			<table>
-				<tbody>
-					<tr>
-						<AirCard
-							airQuality={newAqius}
-							city={this.state.city}
-							onLocationUpdate={this.onLocationUpdate}
-						/>
-						{/* <MapView airQuality={newAqius} displaymap= {this.props.displaymap} lat={this.state.lat} lng={this.state.lng}/> */}
-					</tr>
+
+<table>
+<tbody>
+	<tr>
+      <AirCard airQuality={newAqius} city={this.state.city} onLocationUpdate={this.onLocationUpdate}/>
+      {/* <MapView airQuality={newAqius} displaymap= {this.props.displaymap} lat={this.state.lat} lng={this.state.lng}/> */}
+			</tr>
 				</tbody>
 			</table>
 		);
