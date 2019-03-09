@@ -13,9 +13,23 @@ import RegistrationComp from './components/pages/Registrationcomplete';
 import Geolocation from './components/partials/Geolocation.js';
 
 class App extends Component {
+	constructor(props) {
+		super(props);
+		this.state = {
+			lat: props.lat,
+			lng: props.lng
+		};
+		this.updateLatAndLng = this.updateLatAndLng.bind(this)
+	}
 	componentDidMount() {
 		console.log('Components Mounted!');
 	}
+	updateLatAndLng(lat,lng){
+		console.log('asd ',lat)
+		this.state.lat = lat
+		this.state.lng= lng
+	}
+
 	render() {
 		return (
 			<Router>
@@ -24,14 +38,14 @@ class App extends Component {
 						<NavBar />
 					</div>
 					<Switch>
-						<Route exact path="/" component={ () => <Geolocation displaymap = 'false'/> } />
+						<Route exact path="/" component={ () => <Geolocation displaymap = 'false' updateLatAndLng={this.updateLatAndLng} /> } />
 						<Route exact path="/features" component={About} />
 						<Route path="/airQindex" component={AirIndex} />
 						<Route path="/login" component={Login} />
 						<Route path="/user" component={UserProfile} />
 						<Route exact path="/register" component={Registration} />
 						<Route path="/registrationcomplete" component={RegistrationComp} />
-						<Route path="/map" component={ () => <MapView  displaymap='true'/> } />
+						<Route path="/map" component={ () => <MapView  displaymap='true' updatelat={this.state.lat} updatelng={this.state.lng} /> } />
 					</Switch>
 				</>
 			</Router>
