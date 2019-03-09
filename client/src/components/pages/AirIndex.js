@@ -111,7 +111,7 @@ export default class AirIndex extends Component {
     <Col lg={10} md= {9} sm={8} xs={6}>
     <Card.Subtitle className="mb-2" className="aqiwhitenum">Air Quality Index: 201-300</Card.Subtitle>
     <div className="Aqi_num">
-    <p className="aqiheadline">Significant health risk present. Take care and stay indoors</p>
+    <p className="aqiheadline">Hazardous. Serious Serious lung and heart effects present. Take care and stay indoors</p>
     </div>
     <div align="right">
     <div className="cardicons" align="right"><Image src="roadblock.svg"/></div>
@@ -127,9 +127,9 @@ export default class AirIndex extends Component {
   <Row>
     <Col lg={2} md= {3} sm={4} xs={6}><Card.Img variant="top" src="icon_white.png" className ="avatar" bsPrefix/><Card.Subtitle className="mb-2"><b></b></Card.Subtitle></Col>
     <Col lg={10} md= {9} sm={8} xs={6}>
-    <Card.Subtitle className="mb-2" className="aqiwhitenum">Air Quality Index: 201-300</Card.Subtitle>
+    <Card.Subtitle className="mb-2" className="aqiwhitenum">Air Quality Index: 300+</Card.Subtitle>
     <div className="Aqi_num">
-    <p className="aqiheadline">Hazardous. Serious lung and heart aggravation. Everyone should avoid all outdoor exertion</p>
+    <p className="aqiheadline">Lethal Conditions. Serious lung and heart effects that can effect mortality. Everyone should avoid all outdoor exertions.</p>
     </div>
     <div align="right">
     <div className="cardicons" align="right"><Image src="saviour.svg"/></div>
