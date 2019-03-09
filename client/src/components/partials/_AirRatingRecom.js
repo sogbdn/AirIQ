@@ -1,6 +1,11 @@
 import React, { Component } from 'react';
 
 export default class AirCard extends Component {
+// const currentUser = localStorage.getItem('token');
+//     if (currentUser) {
+
+
+  
   componentDidMount() {
     console.log("AirCard Mounted");
   }
@@ -11,7 +16,7 @@ export default class AirCard extends Component {
     AQI4: "Take it easy and take shelter. Limit outdoor time or heavy exersions, where possible",
     AQI5: "Significant health risks. Avoid prolonged exposure outside",
     AQI6: "Hazardous. Serious lung and heart aggravation. Everyone should avoid all outdoor exertion",
-    AQI_null: "Air Quality Service tower for this location unavailable"
+    AQI_null: "Service tower unavailable for this area"
   }
   extractrating(rating){
     if (rating === "alert1"){
@@ -39,6 +44,9 @@ export default class AirCard extends Component {
   //airSTrings and try to access the object    AQ + props
 
   render() {
+
+    // const currentUser = localStorage.getItem('token');
+    // if (currentUser) {
     return (
     <div>
         {this.extractrating(this.props.airRating)}
