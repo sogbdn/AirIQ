@@ -2,6 +2,8 @@ import React, { Component } from 'react';
 import axios from 'axios';
 
 import AirCard from './_AirCard';
+import MapView from '../pages/MapView';
+
 
 export default class AQIretrieve extends Component {
 	constructor(props) {
