@@ -1,4 +1,3 @@
-/* make sure to rollback before migrating or making changes */
 exports.up = function(knex, Promise) {
 	return knex.schema.createTable('users', function(table) {
 		table.increments('id').primary();
@@ -7,10 +6,11 @@ exports.up = function(knex, Promise) {
 		table.string('email');
 		table.string('phone_number');
 		table.string('password');
-		table.string('password_conf');
 		table.string('profile_type');
 		table.string('sms_good_days');
 		table.string('sms_bad_days');
+		table.integer('location_id').unsigned();
+		table.foreign('location_id').references('id').inTable('locations');
 	});
 };
 

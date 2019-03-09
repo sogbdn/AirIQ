@@ -4,7 +4,6 @@ import axios from 'axios';
 import AirCard from './_AirCard';
 import {MapView} from '../pages/MapView';
 
-
 export default class AQIretrieve extends Component {
 	constructor(props) {
 		super(props);
@@ -17,13 +16,13 @@ export default class AQIretrieve extends Component {
 	}
 
 	updateAQIus(lat, lng) {
-		console.log('jim ', lat, lng)
+		console.log( lat, lng)
 		axios
 			.get(
 				`http://localhost:3001/airqualityAPI?lat=${lat}&long=${lng}`
 			)
 			.then((res) => {
-				console.log('AirVisual response 1', res);
+				console.log('AirVisual response', res);
 
 				// temporary error handler for when no_nearest_city
 				if (res.data.status === "fail") {
@@ -62,7 +61,6 @@ export default class AQIretrieve extends Component {
 			</tr>
 				</tbody>
 			</table>
-
-		)
+		);
 	}
 }
