@@ -3,7 +3,6 @@ import { geolocated } from 'react-geolocated';
 import AQIretrieve from './AQIretrieve';
 import Card from 'react-bootstrap/Card'
 import Container from 'react-bootstrap/Container';
-import Col from 'react-bootstrap/Col'
 import Row from 'react-bootstrap/Row'
 
 // import Card from 'react-bootstrap/Card'

@@ -27,7 +27,7 @@ class NavBar extends Component {
 
   if (currentUser) {
     return (
-      <div>
+      <>
         <Navbar collapseOnSelect expand="md" className="navbar-custom" variant="dark">
           <Navbar.Brand>
             <Link to={'/'}> AirIQ </Link>
@@ -43,30 +43,23 @@ class NavBar extends Component {
                 <Link to={'/map'}>Map View</Link>
 
               <NavDropdown title="User Area" id="collasible-nav-dropdown">
-                <NavDropdown.Item>
-                <Nav.Link>
-                <Link to={'/about'}>Other Resources</Link>
-              </Nav.Link>
-
-                </NavDropdown.Item>
-                <NavDropdown.Item>
-                  <Link to={'/user'}>User Profile</Link>
-                </NavDropdown.Item>
-                <NavDropdown.Item>
-                 <Link
-                  to={'/login'}
-                  onClick={e => this.handleSubmit(e)}
-                 >Logout</Link>
-                 </NavDropdown.Item>
+                  <Link to={'/about'} className="dropdown-item">Other Resources</Link>
+                  <Link to={'/user'} className="dropdown-item">User Profile</Link>
+                  <Link
+                    to={'/login'}
+                    onClick={e => this.handleSubmit(e)}
+                    className="dropdown-item"
+                    >Logout
+                  </Link>
               </NavDropdown>
             </Nav>
           </Navbar.Collapse>
         </Navbar>
-      </div>
+      </>
     )
   } else {
     return (
-    <div>
+    <>
         <Navbar collapseOnSelect expand="md" className="navbar-custom" variant="dark">
           <Navbar.Brand>
             <Link to={'/'}> AirIQ </Link>
@@ -74,30 +67,22 @@ class NavBar extends Component {
           <Navbar.Toggle aria-controls="responsive-navbar-nav" />
           <Navbar.Collapse id="responsive-navbar-nav">
             <Nav className="mr-auto">
-            <Nav.Link>
+
                 <Link to={'/features'}>Services</Link>
-              </Nav.Link>
-              <Nav.Link>
+
                 <Link to={'/airQindex'}>About Air Quality Index</Link>
-              </Nav.Link>
-              <Nav.Link>
+
                 <Link to={'/map'}>Map View</Link>
-              </Nav.Link>
+
               <NavDropdown title="User Area" id="collasible-nav-dropdown">
-                <NavDropdown.Item>
-                <Nav.Link>
-                <Link to={'/about'}>Other Resources</Link>
-              </Nav.Link>
-                  <Link to={'/login'}>Login</Link>
-                </NavDropdown.Item>
-                <NavDropdown.Item>
-                  <Link to={'/register'}>Register</Link>
-                </NavDropdown.Item>
+                <Link to={'/about'} className="dropdown-item">Other Resources</Link>
+                <Link to={'/login'} className="dropdown-item">Login</Link>
+                <Link to={'/register'} className="dropdown-item">Register</Link>
               </NavDropdown>
             </Nav>
           </Navbar.Collapse>
         </Navbar>
-      </div>
+      </>
     )
   }
 }
