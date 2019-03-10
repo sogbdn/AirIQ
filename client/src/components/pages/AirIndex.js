@@ -15,7 +15,7 @@ export default class AirIndex extends Component {
   render() {
     return (
 <Container>
-<Card className="introcard">
+<Card className="introcard" className="mx-auto">
   <Card.Body>
   <Row>
     <Col>

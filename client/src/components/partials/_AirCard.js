@@ -126,36 +126,43 @@ export default class AirCard extends Component {
 
 
     return (
-      <div>
-      <Container>
+      <div >
+      <Container class="mx-auto">
         
       <Card bg={this.qualityColor(this.props.airQuality)} className="cardcustom">
         <Card.Body>
           <Row><div className="Aqicontainer">
-          <p className={this.qualitytext(this.props.airQuality)}><AirRatingRecom airRating = {this.qualityColor(this.props.airQuality)}/></p><div className = "gradient"></div>
-          </div></Row>
-          <Row><Col lg={2} md= {3} sm={4} xs={6}><Card.Img variant="top" src={this.qualityiconcolor(this.props.airQuality)} className ="avatar" bsPrefix/></Col>
-          <Col lg={10} md= {9} sm={8} xs={6}><p>Air Quality for {this.props.city} - <Moment format="MMMM Do YYYY">{fullDate}</Moment></p>
-          <Col md={6}><p className="aqinum">{this.props.airQuality} </p></Col><Col md={6}>
-          <div className="cardicons"><Image name='cardicon' src={this.qualityIcon(this.props.airQuality)}/>
-          </div>
-          </Col></Col>
+            <p className={this.qualitytext(this.props.airQuality)}><AirRatingRecom airRating = {this.qualityColor(this.props.airQuality)}/></p><div className = "gradient"></div>
+            </div>
+          </Row>
+          <Row><Col lg={2} md= {3} sm={4} xs={6}>
+          <Card.Img variant="top" src={this.qualityiconcolor(this.props.airQuality)} className ="avatar" bsPrefix/>
+          </Col>
+          <Col lg={10} md= {9} sm={8} xs={6}>
+             <p>Air Quality for {this.props.city} - <Moment format="MMMM Do YYYY">{fullDate}</Moment></p>
+            <Col md={6}><p className="aqinum">{this.props.airQuality} </p>
+            </Col>
+            <Col md={6}>
+              <div className="cardicons"><Image name='cardicon' src={this.qualityIcon(this.props.airQuality)}/>
+              </div>
+            </Col>
+          </Col>
         </Row>
-        
-        </Card.Body>
+      </Card.Body>
   
 </Card>
 </Container>
 <Container>
-  <Card>
+  <Card class="submitlocation">
     <Card.Body>
     <Row>
-    <Geosuggest placeholder="Submit Another Location" onSuggestSelect={this.onSuggestSelect}/>
+    <Geosuggest placeholder="Check Another Location's Air Quality" onSuggestSelect={this.onSuggestSelect}/>
     </Row>
 
 
     </Card.Body>
   </Card>
+  
   <Card>
     <Card.Body>
     <Row>
@@ -168,10 +175,18 @@ export default class AirCard extends Component {
       <div className="rainbowred"></div>
       <div className="rainbowmaroon"></div>
       <div className="rainbow"></div>
-      <p><Image src="plus.svg" /> About Air Quality Index&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</p>
+      <p><Image src="plus.svg" /></p>
     </div>
         <Collapse in={this.state.open}>
-          <div id="example-collapse-text">
+          
+          <div id="introcard" background-color="blue">
+          <p className="white">Think of the AQI as a yardstick that runs from 0 to 500. The higher the AQI value, the greater the level of air pollution and the greater the health concern. For example, an AQI value of 50 represents good air quality with little potential to affect public health, while an AQI value over 300 represents hazardous air quality.</p>
+          
+    <div align="right">
+    <div className="cardicons"><Image src="kite.svg" className="kite"/></div>
+    
+    </div>
+
           The Air Quality Index (AQI) is used for reporting daily air quality. It tells you how clean or polluted your air is, and what associated health effects might be a concern for you. The AQI focuses on health effects you may experience within a few hours or days after breathing polluted air. EPA calculates the AQI for five major air pollutants regulated by the Clean Air Act: ground-level ozone, particle pollution (also known as particulate matter), carbon monoxide, sulfur dioxide, and nitrogen dioxide. For each of these pollutants, EPA has established national air quality standards to protect public health .Ground-level ozone and airborne particles are the two pollutants that pose the greatest threat to human health in this country.
           </div>
         </Collapse></Col></Row>
@@ -185,3 +200,5 @@ export default class AirCard extends Component {
     );
   }
 }
+
+

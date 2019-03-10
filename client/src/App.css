@@ -3,6 +3,7 @@ body {
   font-family: 'Open Sans', sans-serif;
   font-size: 1.1em;
   color: #333;
+  -ms-grid-column-align: center
 }
 
 .kite {
@@ -18,9 +19,13 @@ a.card-link{
 }
 
 .cardcustom {
-  margin-top: 1em;
+  margin-top: 0.5em;
   min-height: 240px; 
+  margin: auto;
+  
 }
+
+
 
 .introcard {
   background-color: #20b7ed;
@@ -35,50 +40,77 @@ p.white {
 
 .alert1 {
   background-color: #31c060;
+  -webkit-transition: background-color 1000ms linear;
+    -ms-transition: background-color 1000ms linear;
+    transition: background-color 1000ms linear;
   margin-top: 1em;
   min-height: 240px; 
 }
 
 .alert2 {
   background-color: #fff110;
+  -webkit-transition: background-color 1000ms linear;
+    -ms-transition: background-color 1000ms linear;
+    transition: background-color 1000ms linear;
   margin-top: 1em;
   min-height: 240px; 
 }
 
 .alert3 {
   background-color: #ffa810;
+  -webkit-transition: background-color 1000ms linear;
+    -ms-transition: background-color 1000ms linear;
+    transition: background-color 1000ms linear;
   margin-top: 1em;
   min-height: 240px; 
 }
 
 .alert4 {
-  background-color: #d80404;;
+  background-color: #d80404;
+  -webkit-transition: background-color 1000ms linear;
+    -ms-transition: background-color 1000ms linear;
+    transition: background-color 1000ms linear;
   margin-top: 1em;
   min-height: 240px; 
 }
 
 .alert5 {
   background-color: #530303;
+  -webkit-transition: background-color 1000ms linear;
+    -ms-transition: background-color 1000ms linear;
+    transition: background-color 1000ms linear;
   margin-top: 1em;
   min-height: 240px; 
 }
 
 .alert6 {
   background-color: #1e0101;
+  -webkit-transition: background-color 1000ms linear;
+    -ms-transition: background-color 1000ms linear;
+    transition: background-color 1000ms linear;
   margin-top: 1em;
   min-height: 240px; 
 }
 
 .navbar-custom {
+  
   /* background-color: #1b8fb9;  */
 }
 
 .navbar-dark .navbar-toggler {
   color: rgba(6, 6, 6, 0.8);
-  border-color: rgba(49, 48, 48, 0.9);
+  /* border-color: rgba(49, 48, 48, 0.9); */
+  background-color: rgb(197, 197, 197);
 }
 
 .navbar-dark .navbar-nav .nav-link {
+  color: rgba(37, 35, 35, 0.5);
+}
+.navbar-dark .navbar-nav .nav-link:hover{
+  color: rgba(37, 35, 35, 0.5);
+}
+
+.navbar-dark .navbar-nav .nav-link:focus{
   color: rgba(37, 35, 35, 0.5);
 }
 
@@ -86,6 +118,9 @@ p.white {
   max-width: 30%;
   
   
+}
+.submitlocation{
+  background-color: #999;
 }
 
 .navbar-icon {
@@ -298,15 +333,16 @@ float:left;
 }
 
 .navbar-custom a {
-  color: #999
-}
+  color: #999;
+  padding: 0.5em;
+  }
 
 .dropdown-item a {
   color: teal
 }
 
 .container {
-  margin-top: 1em;
+  margin-top: 0.5em;
 }
 
 
