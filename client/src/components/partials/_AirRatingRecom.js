@@ -1,13 +1,45 @@
 import React, { Component } from 'react';
+import axios from 'axios';
 
 export default class AirCard extends Component {
 // const currentUser = localStorage.getItem('token');
 //     if (currentUser) {
 
+  constructor() {
+    super();
+    this.state = {
+      first_name: '',
+      last_name: '',
+      email: '',
+      phone_number: '',
+      concern_type: '',
+      bad_days: '',
+      good_days: ''
+    }
+  }
 
-  
   componentDidMount() {
-    console.log("AirCard Mounted");
+    const currentUser = localStorage.getItem('token');
+    if (currentUser !== null){
+    axios
+    .get(`http://localhost:3001/verifyUser?currentUser=${currentUser}`)
+    .then((res) => {
+      let decodedUser = res.data;
+      console.log(decodedUser.profile_type);
+      console.log('----------->>>>')
+      this.setState({
+        first_name: decodedUser.first_name,
+        last_name: decodedUser.last_name,
+        email: decodedUser.email,
+        phone_number: decodedUser.phone_number,
+        concern_type: decodedUser.profile_type,
+        bad_days: decodedUser.sms_bad_days,
+        good_days: decodedUser.sms_good_days
+      })
+    });
+    console.log(this.state);
+  }
+    
   }
   airRatingStrings = {
     AQI1 : "Breath deep and travel far and wide.",
