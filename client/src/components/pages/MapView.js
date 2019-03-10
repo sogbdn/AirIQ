@@ -56,7 +56,7 @@ export class MapView extends Component {
         onClick={this.onMapClicked}
         initialCenter={{lat: updatelat, lng: updatelng}}
         >
-        {this.state.points.map(p => <Marker marker={{'airiq': p.airiq}} key={p.id} onClick={this.onMarkerClick} position={{lat: p.lat, lng: p.lng}} icon={{url:p.icon}} />)}
+        {this.state.points.map(p => <Marker marker={{'airiq': p.airiq}} key={p.id} onClick={this.onMarkerClick} position={{lat: updatelat, lng: updatelng}}  />)}
         <InfoWindow visible={this.state.showingInfoWindow} marker={this.state.activeMarker}>
             <div>
               <p>{this.state.selectedPlace.marker.airiq}</p>
