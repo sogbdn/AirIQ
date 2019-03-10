@@ -161,7 +161,7 @@ export default class Registration extends Component {
 
       }
       else if (passMatch) {
-        alert("Email");
+        alert("Email is in use");
       } else {
         alert("Multiple form errors")
       }
