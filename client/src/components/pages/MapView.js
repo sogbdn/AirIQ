@@ -55,6 +55,7 @@ export class MapView extends Component {
         <Map google={this.props.google} zoom={14}
         onClick={this.onMapClicked}
         initialCenter={{lat: updatelat, lng: updatelng}}
+        style={{width: '100%', height: '90%', position: 'relative'}}
         >
         {this.state.points.map(p => <Marker marker={{'airiq': p.airiq}} key={p.id} onClick={this.onMarkerClick} position={{lat: updatelat, lng: updatelng}}  />)}
         <InfoWindow visible={this.state.showingInfoWindow} marker={this.state.activeMarker}>

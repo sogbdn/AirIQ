@@ -143,12 +143,9 @@ app.post('/login', (req, res) => {
 			if (results.length !== 0) {
 				const token = jsonWebToken.sign(results[0], myJWTSecretKey);
 				res.json({
+					success: true,
 					token: token
 				});
-				//	return res.json({
-				//		success: true,
-				//		message: 'new user login successful'
-				//	});
 			} else {
 				res.json({ success: false, message: 'login was unsuccessful' });
 			}
