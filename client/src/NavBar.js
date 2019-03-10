@@ -21,7 +21,7 @@ class NavBar extends Component {
     console.log("NavBar Mounted");
   }
   render() {
-    console.log('jjjj')
+    
       /*Router only takes one child element, hence the div */
       const currentUser = localStorage.getItem('token');
   if (currentUser) {

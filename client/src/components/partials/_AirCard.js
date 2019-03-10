@@ -93,7 +93,7 @@ export default class AirCard extends Component {
   }
 
   qualityiconcolor(airquality){
-    if (airquality > 50 && airquality < 150){
+    if (airquality >= 0 && airquality < 150){
       return "icon_black.svg"
     }
     else {
@@ -104,6 +104,10 @@ export default class AirCard extends Component {
 //separate file create and object with and object
   //export const airstrings = {"AQ1": "something"}
   //airSTrings and try to access the object    AQ + props
+
+
+  // <Col lg={2} md= {3} sm={4} xs={6}><Card.Img variant="top" src={this.qualityiconcolor(this.props.airQuality)} className ="avatar" bsPrefix/></Col>
+  // <Col lg={10} md= {9} sm={8} xs={6}>
 
   constructor(props, context) {
     super(props, context);
@@ -124,28 +128,22 @@ export default class AirCard extends Component {
     return (
       <div>
       <Container>
+        
       <Card bg={this.qualityColor(this.props.airQuality)} className="cardcustom">
         <Card.Body>
-        <Row>
-          <Col lg={2} md= {3} sm={4} xs={6}><Card.Img variant="top" src={this.qualityiconcolor(this.props.airQuality)} className ="avatar" bsPrefix/></Col>
-          <Col lg={10} md= {9} sm={8} xs={6}>
-         
-          <div className="Aqi_num">
-          <p className={this.qualitytext(this.props.airQuality)}><AirRatingRecom airRating = {this.qualityColor(this.props.airQuality)}/></p>
+          <Row><div className="Aqicontainer">
+          <p className={this.qualitytext(this.props.airQuality)}><AirRatingRecom airRating = {this.qualityColor(this.props.airQuality)}/></p><div className = "gradient"></div>
+          </div></Row>
+          <Row><Col lg={2} md= {3} sm={4} xs={6}><Card.Img variant="top" src={this.qualityiconcolor(this.props.airQuality)} className ="avatar" bsPrefix/></Col>
+          <Col lg={10} md= {9} sm={8} xs={6}><p>Air Quality for {this.props.city} - <Moment format="MMMM Do YYYY">{fullDate}</Moment></p>
+          <Col md={6}><p className="aqinum">{this.props.airQuality} </p></Col><Col md={6}>
+          <div className="cardicons"><Image name='cardicon' src={this.qualityIcon(this.props.airQuality)}/>
           </div>
-          <p className="aqinum">{this.props.airQuality}</p>
-
+          </Col></Col>
+        </Row>
         
-
-
-          
-          <Card.Subtitle className="mb-2">Air Quality for {this.props.city} - <Moment format="MMMM Do YYYY">{fullDate}</Moment></Card.Subtitle>
-          <div align="right">
-    <div className="cardicons" align="right"><Image name='cardicon' src={this.qualityIcon(this.props.airQuality)}/></div>
-    </div>
-    </Col>
-  </Row>
-  </Card.Body>
+        </Card.Body>
+  
 </Card>
 </Container>
 <Container>
