@@ -1,27 +1,3 @@
-.App {
-  text-align: center;
-}
-
-.App-logo {
-  animation: App-logo-spin infinite 20s linear;
-  height: 40vmin;
-  pointer-events: none;
-}
-
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
-}
-
-.App-link {
-  color: #61dafb;
-}
 
 body {
   font-family: 'Open Sans', sans-serif;
@@ -94,7 +70,16 @@ p.white {
 }
 
 .navbar-custom {
-  background-color: #1b8fb9;
+  /* background-color: #1b8fb9;  */
+}
+
+.navbar-dark .navbar-toggler {
+  color: rgba(6, 6, 6, 0.8);
+  border-color: rgba(49, 48, 48, 0.9);
+}
+
+.navbar-dark .navbar-nav .nav-link {
+  color: rgba(37, 35, 35, 0.5);
 }
 
 .cardicons{
@@ -208,8 +193,6 @@ p.white {
   color: black;
 }
 
-
-
 .bg-unavailable{
   background-color: gray;
 }
@@ -309,7 +292,7 @@ float:left;
 }
 
 .navbar-custom a {
-  color: white
+  color: #999
 }
 
 .dropdown-item a {
@@ -319,4 +302,24 @@ float:left;
 .container {
   margin-top: 1em;
 }
+
+
+
+.gradient {
+margin-top: 0.8em;
+  height: 10px;
+  width:100%; 
+  background-color: red;
+    background-image:
+      linear-gradient(
+        to right, 
+        green, 
+        #fff110, 
+        #ffa810,
+        #d80404, 
+        #860f30,
+        #360412
+      );
+  }
+
 
