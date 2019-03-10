@@ -105,9 +105,6 @@ export default class Login extends Component {
           onChange={this.onChange}
         />
       </Form.Group>
-      <Form.Group controlId="formBasicChecbox">
-        <Form.Check type="checkbox" label="Check me out" />
-      </Form.Group>
       <Button variant="primary" type="submit">
         Submit
       </Button>
