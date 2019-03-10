@@ -4,8 +4,6 @@ export default class AirCard extends Component {
 // const currentUser = localStorage.getItem('token');
 //     if (currentUser) {
 
-
-  
   componentDidMount() {
     console.log("AirCard Mounted");
   }

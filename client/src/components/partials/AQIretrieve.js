@@ -11,7 +11,7 @@ export default class AQIretrieve extends Component {
 			newAqius: '',
 			// lat: props.lat,
 			// lng: props.lng
-			city: ''
+			city: 'Montreal'
 		};
 	}
 
