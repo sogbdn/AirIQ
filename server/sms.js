@@ -21,21 +21,6 @@ const authToken = process.env.SMSAUTH;
 // require the Twilio module and create a REST client
 const client = require('twilio')(accountSid, authToken);
 
-const setSMSbody = (aqius, profile, sms_bad_days, sms_good_days) => {
-	if (aqius < 50 && sms_good_days === 'yes') {
-		return `AIR QUALITY in ${user.city} is ${aqius} EXCELLENT CONDITIONS: Breath deep and travel far. This is a great day to enjoy the outdoors.`;
-	} else if (
-		aqius > 100 &&
-		aqius < 150 &&
-		sms_bad_days === 'true' &&
-		(profile === 'life_style' || profile === 'medical')
-	) {
-		return `AIR QUALITY in ${user.city} is ${aqius}: ALERT (MODERATE RISK). Sensitive groups should avoid prolonged exposure, where possible.`;
-	} else if (aqius >= 150 && sms_bad_days === 'true') {
-		return `AIR QUALITY in ${user.city} is ${aqius}:ALERT (HIGH RISK) Serious risks from Air Pollution Today. Avoid extended periods outside or use filtration masks where possible  `;
-	}
-};
-
 knex.from('users').innerJoin('locations', 'users.location_id', 'locations.id').then((users) => {
 	users.forEach((user) => {
 		axios
@@ -55,7 +40,7 @@ knex.from('users').innerJoin('locations', 'users.location_id', 'locations.id').t
 					newAqius >= 100 &&
 					newAqius < 150 &&
 					user.sms_bad_days === 'true' &&
-					(user.profile === 'life_style' || user.profile === 'medical')
+					(user.profile_type === 'life_style' || user.profile_type === 'medical')
 				) {
 					messagebody = `AIR QUALITY in ${user.city} is ${newAqius}: ALERT (MODERATE RISK). Sensitive groups should avoid prolonged exposure, where possible.`;
 				}
