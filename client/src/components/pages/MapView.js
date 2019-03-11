@@ -9,13 +9,12 @@ export class MapView extends Component {
     activeMarker: {},
     selectedPlace: {marker: {}},
     points: [
-      { id: 1, lat: 45.495338, lng: -73.570732, airiq: this.props.airQuality, icon: "/marker_2.png" },
-      { id: 2, lat: 45.494338, lng: -73.670732, airiq: 73, icon: "/marker_2.png" },
-      { id: 3, lat: 45.484338, lng: -73.560932, airiq: 33, icon: "/marker_1.png" },
-      { id: 4, lat: 45.496338, lng: -73.550732, airiq: 45, icon: "/marker_4.png" }
+      { id: 1, lat: 45.494338, lng: -73.670732, airiq: 73, icon: "/marker_2.png" },
+      { id: 2, lat: 45.484338, lng: -73.560932, airiq: 33, icon: "/marker_1.png" },
+      { id: 3, lat: 45.496338, lng: -73.550732, airiq: 45, icon: "/marker_4.png" }
     ]
   };
-
+//updatelat
 
   // <Marker onClick={this.onMarkerClick}
   //         name={'Current location'}
@@ -48,7 +47,7 @@ export class MapView extends Component {
       ////this.props.updatestateAQI(this.props.lat, this.props.lng)
     }
     render() {
-      const {updatelat = 45.496338, updatelng = -73.570732} = this.props
+      const {updatelat = 45.496338, updatelng = -73.570732, aqi4map = 11} = this.props
       console.log('imrendering: ',this.props.displaymap)
       return (!this.props.displaymap ? null :
        <div>
@@ -57,15 +56,29 @@ export class MapView extends Component {
         onClick={this.onMapClicked}
         initialCenter={{lat: updatelat, lng: updatelng}}
         styles= {
-          [{ stylers: [{ 'saturation': -90 }, { 'gamma': 0.8 }, { 'lightness': 10 }] }] 
+          [{ stylers: [{ 'saturation': -90 }, { 'gamma': 0.8 }] }] 
         }
         style={{width: '100%', height: '90%', position: 'relative'}}
         >
-        {this.state.points.map(p => <Marker marker={{'airiq': this.props.aqi4map}} key={p.id} onClick={this.onMarkerClick} position={{lat: updatelat, lng: updatelng}} icon= "/marker_2.png"/>)}
+         <Marker 
+        marker={{'airiq': aqi4map || ''}} 
+        onClick={this.onMarkerClick} 
+        position={{lat: updatelat, lng: updatelng}} 
+        icon= "/marker_3.png"
+        />
+
+        {this.state.points.map(p => 
+        <Marker 
+        marker={{'airiq': p.airiq}} 
+        key={p.id} onClick={this.onMarkerClick} 
+        position={{lat: p.lat, lng: p.lng}} 
+        icon= "/marker_3.png"
+        />)}
+        
         <InfoWindow visible={this.state.showingInfoWindow} marker={this.state.activeMarker}>
-            <div>
-              <p>{this.state.selectedPlace.marker.airiq}</p>
-            </div>
+          <div>
+            <p>{this.state.selectedPlace.marker.airiq}</p>
+          </div>
         </InfoWindow>
         </Map>
         </div>
