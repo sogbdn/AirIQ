@@ -54,13 +54,8 @@ export default class AQIretrieve extends Component {
 
 		return (
 
-<table>
-<tbody>
-	<tr>
       <AirCard airQuality={aqi} city={this.state.city} onLocationUpdate={this.onLocationUpdate}/>
-			</tr>
-				</tbody>
-			</table>
+		
 		);
 	}
 }
