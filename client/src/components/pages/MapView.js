@@ -45,7 +45,7 @@ export class MapView extends Component {
 
     componentDidMount() {
       console.log("Map Mounted");
-      this.props.updatestateAQI(this.props.lat, this.props.lng)
+      ////this.props.updatestateAQI(this.props.lat, this.props.lng)
     }
     render() {
       const {updatelat = 45.496338, updatelng = -73.570732} = this.props

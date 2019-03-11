@@ -47,16 +47,19 @@ export default class AQIretrieve extends Component {
 			city: city
 		})
 		this.updateAQIus(location.lat, location.lng)
+		this.props.updatestateAQI(location.lat, location.lng)
 	}
 
 	render() {
-		const { newAqius } = this.state;
+		// const { newAqius } = this.state;
+		const aqi = this.props.aqi 
+
 		return (
 
 <table>
 <tbody>
 	<tr>
-      <AirCard airQuality={newAqius} city={this.state.city} onLocationUpdate={this.onLocationUpdate}/>
+      <AirCard airQuality={aqi} city={this.state.city} onLocationUpdate={this.onLocationUpdate}/>
 			</tr>
 				</tbody>
 			</table>

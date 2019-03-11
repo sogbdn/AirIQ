@@ -20,7 +20,8 @@ class Geolocation extends Component {
 			</div>;
 		} else if (this.props.coords) {
 			return (
-				<AQIretrieve updateLatAndLng={this.props.updateLatAndLng} lat={this.props.coords.latitude} lng={this.props.coords.longitude} />
+				<AQIretrieve updateLatAndLng={this.props.updateLatAndLng} lat={this.props.coords.latitude} lng={this.props.coords.longitude} 
+				updatestateAQI={this.props.updatestateAQI} aqi={this.props.aqi}/>
 			);
 		} else {
 			return <div><Container><Card ><Card.Body><Row>Getting Geolaction Data . . .</Row></Card.Body></Card></Container>

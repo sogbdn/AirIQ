@@ -29,8 +29,10 @@ class App extends Component {
 	}
 	updateLatAndLng(lat,lng){
 		
-		this.state.lat = lat
-		this.state.lng= lng	
+		this.setState({
+			lat: lat,
+			lng: lng
+		})
 	}
 
 	updatestateAQI(lat,lng){
@@ -47,7 +49,9 @@ class App extends Component {
 						return res.data.data.message
 					}
 					console.log('aqius', res.data.data.current.pollution.aqius);
-					this.state.aqi = res.data.data.current.pollution.aqius;
+					this.setState ({
+						aqi:res.data.data.current.pollution.aqius
+					})
 				});
 	}
 
@@ -60,7 +64,7 @@ class App extends Component {
 						<NavBar />
 					</div>
 					<Switch>
-						<Route exact path="/" component={ () => <Geolocation displaymap = 'false' updateLatAndLng={this.updateLatAndLng} updatestateAQI={this.updatestateAQI}/> } />
+						<Route exact path="/" component={ () => <Geolocation displaymap = 'false' updateLatAndLng={this.updateLatAndLng} updatestateAQI={this.updatestateAQI} aqi={this.state.aqi}/> } />
 						<Route exact path="/features" component={About} />
 						<Route path="/airQindex" component={AirIndex} />
 						<Route path="/login" component={Login} />
