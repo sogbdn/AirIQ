@@ -103,7 +103,7 @@ export default class AirIndex extends Component {
     <p className="aqiheadlinedark">Take it easy and take shelter. Limit outdoor time or heavy exersions, where possible</p>
     </div>
     <div align="right">
-    <div className="cardicons" align="right"><Image src="whistle.svg"/></div>
+    <div className="cardicons" align="right"><Image src="factory2.svg"/></div>
     </div>
     </Col>
     </Row>
@@ -120,7 +120,7 @@ export default class AirIndex extends Component {
     <p className="aqiheadline">Hazardous. Serious Serious lung and heart effects present. Take care and stay indoors</p>
     </div>
     <div align="right">
-    <div className="cardicons" align="right"><Image src="roadblock.svg"/></div>
+    <div className="cardicons" align="right"><Image src="factory3.svg"/></div>
     </div>
     </Col>
     </Row>
@@ -138,7 +138,7 @@ export default class AirIndex extends Component {
     <p className="aqiheadline">Lethal Conditions. Serious lung and heart effects that can effect mortality. Everyone should avoid all outdoor exertions.</p>
     </div>
     <div align="right">
-    <div className="cardicons" align="right"><Image src="saviour.svg"/></div>
+    <div className="cardicons" align="right"><Image src="factory1.svg"/></div>
     </div>
     </Col>
     </Row>
