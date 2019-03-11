@@ -70,8 +70,8 @@ export default class UserProfile extends Component {
     if (currentUser) {
       return (
         <div>
-          <Container><Card ><Card.Body>
-         
+          <Container><Card><Card.Body>
+         <h5>User Profile :</h5>
             <Table striped bordered>
           <tbody>
     <tr>

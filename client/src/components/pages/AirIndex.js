@@ -15,14 +15,21 @@ export default class AirIndex extends Component {
   render() {
     return (
 <Container>
-<Card className="introcard" className="mx-auto">
+<Card >
   <Card.Body>
+    <Row><Col>
+    <div className = "gradient"></div>
+   
+      </Col></Row>
   <Row>
     <Col>
-    <p className="white">Think of the AQI as a yardstick that runs from 0 to 500. The higher the AQI value, the greater the level of air pollution and the greater the health concern. For example, an AQI value of 50 represents good air quality with little potential to affect public health, while an AQI value over 300 represents hazardous air quality.</p>
-    <div align="right">
-    <div className="cardicons"><Image src="kite.svg" className="kite"/></div>
-    </div>
+    <p>Think of the Air Quality Index as a yardstick that runs from 0 to 500. The higher the AQI value, the greater the level of air pollution and the greater the health concern. For example, an AQI value of 50 represents good air quality with little potential to affect public health, while an AQI value over 300 represents hazardous air quality.</p>
+    <div className="rainbowgreen"><p></p></div>
+      <div className="rainbowyellow"></div>
+      <div className="rainboworange"></div>
+      <div className="rainbowred"></div>
+      <div className="rainbowmaroon"></div>
+      <div className="rainbow"></div>
     </Col>
     </Row>
   </Card.Body>

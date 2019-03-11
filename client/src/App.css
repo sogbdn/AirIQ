@@ -18,15 +18,6 @@ a.card-link{
   color:white;
 }
 
-.cardcustom {
-  margin-top: 0.5em;
-  min-height: 240px; 
-  /* margin: auto; */
-  margin: 0 auto; /* Added */
-        float: none; /* Added */
-        margin-bottom: 10px;
-  
-}
 
 
 
@@ -135,7 +126,21 @@ a.dropdown-toggle.nav-link{
   
 }
 .submitlocation{
-  background-color: #999;
+  
+  width:100%;
+margin-bottom: 1em;
+padding: 0;
+  background-color: red;
+    background-image:
+      linear-gradient(
+        to right, 
+        green, 
+        #fff110, 
+        #ffa810,
+        #d80404, 
+        #860f30,
+        #360412
+      );
 }
 
 .navbar-icon {
@@ -343,6 +348,15 @@ float:left;
   height: 40px;
   float:left;
 }
+
+.rainbowdark {
+  background-color: #360412;
+  width: 20%;
+  height: 40px;
+  float:left;
+}
+
+
 
 @keyframes App-logo-spin {
   from {

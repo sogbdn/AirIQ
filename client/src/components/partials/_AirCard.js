@@ -69,7 +69,7 @@ export default class AirCard extends Component {
       return "whistle.svg"
     }
     else if (airquality >= 200 && airquality <300){
-      return "roadblock.svg"
+      return "factory1.svg"
     }
     else if (airquality >= 300){
       return "saviour.svg"
@@ -127,12 +127,11 @@ export default class AirCard extends Component {
 
     return (
       <div >
-      <Container class="mx-auto">
-        
-      <Card bg={this.qualityColor(this.props.airQuality)} className="cardcustom">
+      <Container>
+      <Card bg={this.qualityColor(this.props.airQuality)} className="alert1">
         <Card.Body>
           <Row><div className="Aqicontainer">
-            <p className={this.qualitytext(this.props.airQuality)}><AirRatingRecom airRating = {this.qualityColor(this.props.airQuality)}/></p><div className = "gradient"></div>
+            <p className={this.qualitytext(this.props.airQuality)}><AirRatingRecom airRating = {this.qualityColor(this.props.airQuality)}/></p><hr/>
             </div>
           </Row>
           <Row><Col lg={2} md= {3} sm={4} xs={6}>
@@ -153,7 +152,7 @@ export default class AirCard extends Component {
 </Card>
 </Container>
 <Container>
-  <Card class="submitlocation">
+  <Card class="submitlocation" className = "gradient">
     <Card.Body>
     <Row>
     <Geosuggest placeholder="Check Another Location's Air Quality" onSuggestSelect={this.onSuggestSelect}/>
@@ -169,7 +168,7 @@ export default class AirCard extends Component {
     <Col sm>
       <div className="rainbow"  onClick={() => this.setState({ open: !open })}
     aria-expanded={open}>
-      <div className="rainbowgreen"><p>0 - 50</p></div>
+      <div className="rainbowgreen"><p></p></div>
       <div className="rainbowyellow"></div>
       <div className="rainboworange"></div>
       <div className="rainbowred"></div>
@@ -177,19 +176,13 @@ export default class AirCard extends Component {
       <div className="rainbow"></div>
       <p><Image src="plus.svg" /></p>
     </div>
-        <Collapse in={this.state.open}>
-          
-          <div id="introcard" background-color="blue">
-          <p className="white">Think of the AQI as a yardstick that runs from 0 to 500. The higher the AQI value, the greater the level of air pollution and the greater the health concern. For example, an AQI value of 50 represents good air quality with little potential to affect public health, while an AQI value over 300 represents hazardous air quality.</p>
-          
-    <div align="right">
-    <div className="cardicons"><Image src="kite.svg" className="kite"/></div>
-    
-    </div>
-
-          The Air Quality Index (AQI) is used for reporting daily air quality. It tells you how clean or polluted your air is, and what associated health effects might be a concern for you. The AQI focuses on health effects you may experience within a few hours or days after breathing polluted air. EPA calculates the AQI for five major air pollutants regulated by the Clean Air Act: ground-level ozone, particle pollution (also known as particulate matter), carbon monoxide, sulfur dioxide, and nitrogen dioxide. For each of these pollutants, EPA has established national air quality standards to protect public health .Ground-level ozone and airborne particles are the two pollutants that pose the greatest threat to human health in this country.
-          </div>
-        </Collapse></Col></Row>
+    <Collapse in={this.state.open}>
+      <div>
+      The Air Quality Index (AQI) is used for reporting daily air quality. It tells you how clean or polluted your air is, and what associated health effects might be a concern for you. The AQI focuses on health effects you may experience within a few hours or days after breathing polluted air. EPA calculates the AQI for five major air pollutants regulated by the Clean Air Act: ground-level ozone, particle pollution (also known as particulate matter), carbon monoxide, sulfur dioxide, and nitrogen dioxide. For each of these pollutants, EPA has established national air quality standards to protect public health .Ground-level ozone and airborne particles are the two pollutants that pose the greatest threat to human health in this country.
+      </div>
+    </Collapse>
+    </Col>
+    </Row>
     </Card.Body>
   </Card>
 </Container>
