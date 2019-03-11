@@ -19,7 +19,6 @@ export default class AirIndex extends Component {
   <Card.Body>
     <Row><Col>
     <div className = "gradient"></div>
-   
       </Col></Row>
   <Row>
     <Col>
@@ -145,6 +144,21 @@ export default class AirIndex extends Component {
     </Row>
   </Card.Body>
 </Card>
+
+<Card >
+  <Card.Body>
+    <Row><Col>
+    <div className = "gradient"></div>
+      </Col></Row>
+  <Row>
+    <Col>
+    <p>The Air Quality Index (AQI) is used for reporting daily air quality. It tells you how clean or polluted your air is, and what associated health effects might be a concern for you. The AQI focuses on health effects you may experience within a few hours or days after breathing polluted air. EPA calculates the AQI for five major air pollutants regulated by the Clean Air Act: ground-level ozone, particle pollution (also known as particulate matter), carbon monoxide, sulfur dioxide, and nitrogen dioxide. For each of these pollutants, EPA has established national air quality standards to protect public health .Ground-level ozone and airborne particles are the two pollutants that pose the greatest threat to human health in this country.</p>
+    
+    </Col>
+    </Row>
+  </Card.Body>
+</Card>
+
 
  </Container>
     );

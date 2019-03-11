@@ -157,36 +157,8 @@ export default class AirCard extends Component {
     <Row>
     <Geosuggest placeholder="Check Another Location's Air Quality" onSuggestSelect={this.onSuggestSelect}/>
     </Row>
-
-
     </Card.Body>
   </Card>
-  
-  <Card>
-    <Card.Body>
-    <Row>
-    <Col sm>
-      <div className="rainbow"  onClick={() => this.setState({ open: !open })}
-    aria-expanded={open}>
-      <div className="rainbowgreen"><p></p></div>
-      <div className="rainbowyellow"></div>
-      <div className="rainboworange"></div>
-      <div className="rainbowred"></div>
-      <div className="rainbowmaroon"></div>
-      <div className="rainbow"></div>
-      <p><Image src="plus.svg" /></p>
-    </div>
-    <Collapse in={this.state.open}>
-      <div>
-      The Air Quality Index (AQI) is used for reporting daily air quality. It tells you how clean or polluted your air is, and what associated health effects might be a concern for you. The AQI focuses on health effects you may experience within a few hours or days after breathing polluted air. EPA calculates the AQI for five major air pollutants regulated by the Clean Air Act: ground-level ozone, particle pollution (also known as particulate matter), carbon monoxide, sulfur dioxide, and nitrogen dioxide. For each of these pollutants, EPA has established national air quality standards to protect public health .Ground-level ozone and airborne particles are the two pollutants that pose the greatest threat to human health in this country.
-      </div>
-    </Collapse>
-    </Col>
-    </Row>
-    </Card.Body>
-  </Card>
-</Container>
-<Container>
 </Container>
 </div>
 

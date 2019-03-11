@@ -257,13 +257,31 @@ export default class Registration extends Component {
                 required
                 >
                   <option value="general_concern">General Health Interest</option>
-                  <option value="medical_concern">Medical Concern</option>
-                  <option value="lifestyle">Lifestyle/Sports Concern</option>
+                  <option value="medical_concern">Medical Concern: Asthma, Immune deficiencies, Respitory or Heart Conditions, seniors or children.</option>
+                  <option value="lifestyle">Lifestyle/Sports Concern: work or athletic training with extended exposure to potential toxins.</option>
                 </Form.Control>
               </Form.Group>
+              <Form.Group as={Col} md="4" controlId="validationCustom04">
+                <Form.Label></Form.Label>
+                <Form.Control type="password" placeholder="Password" required
+                  name="password"
+                  value={password.value}
+                  onChange={this.onChange}
+                />
+              </Form.Group>
 
+              <Form.Group as={Col} md="4" controlId="validationCustom06">
+                <Form.Label></Form.Label>
+                <Form.Control type="password" placeholder="Password Confirmation" required
+                  name="password_conf"
+                  value={password_conf.value}
+                  onChange={this.onChange}
+                />
+              </Form.Group>
+              </Form.Row>
+<Form.Row>
               <Form.Group as={Col} md="4" controlId="validationCustom05">
-                <Form.Label>Phone Number*</Form.Label>
+                <Form.Label>Phone Number (optional for sms alerts)</Form.Label>
                 <Form.Control type="num"
                   placeholder="Phone Number"
                   name="phone_number"
@@ -273,14 +291,14 @@ export default class Registration extends Component {
                 />
                   { phone_number.validation ?
                     <div key={`inline-checkbox`} className="mb-1">
-                      <Form.Check inline label="Best AirQ days"
+                      <Form.Check inline label="Receive sms on Excellent AirQuality days"
                         name="good_days"
                         type='checkbox'
                         id={`inline-checkbox-1 inline-checkbox-2`}
                         value={this.state.good_days}
                         onChange={this.onInput}
                       />
-                      <Form.Check inline label="Poor AirQ days"
+                      <Form.Check inline label="Receive sms on Poorest AirQuality days"
                         name="bad_days"
                         type='checkbox'
                         id={`inline-checkbox-2`}
@@ -291,27 +309,18 @@ export default class Registration extends Component {
                 }
               </Form.Group>
 
-              <Form.Group as={Col} md="3" controlId="validationCustom04">
-                <Form.Label>Password</Form.Label>
-                <Form.Control type="password" placeholder="Password" required
-                  name="password"
-                  value={password.value}
-                  onChange={this.onChange}
-                />
-              </Form.Group>
-
-              <Form.Group as={Col} md="3" controlId="validationCustom06">
-                <Form.Label>Password Confirmation</Form.Label>
-                <Form.Control type="password" placeholder="Password" required
-                  name="password_conf"
-                  value={password_conf.value}
-                  onChange={this.onChange}
-                />
-              </Form.Group>
+             
             </Form.Row>
             <Button type="submit">Submit form</Button>
           </Form>
+<p></p>
+<Form.Text className="text-muted">
+*By selecting a tier we are better able to customize the air quality recommendations we send to you. 
+              We'll never share your personal details, email or phone number with 3rd parties.
+              </Form.Text>
+         
         </Container>
+       
       );
     };
   }
