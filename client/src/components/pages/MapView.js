@@ -22,6 +22,15 @@ export class MapView extends Component {
   //         position={{lat: 45.496338, lng: -73.570732}} //first to say this is javascript the second to say this is an object
   //         />
 
+  // createMapOptions = (maps)  => {
+  //   return {
+  //     // panControl: false,
+  //     // mapTypeControl: false,
+  //     // scrollwheel: false,
+  //     styles: [{ stylers: [{ 'saturation': -100 }, { 'gamma': 0.8 }, { 'lightness': 4 }, { 'visibility': 'on' }] }]
+  //   }
+  // }
+
 
     onMarkerClick = (props, marker, e) => {
       console.log(props)
@@ -54,6 +63,9 @@ export class MapView extends Component {
         <div>{this.props.airQuality}</div>
         <Map google={this.props.google} zoom={14}
         onClick={this.onMapClicked}
+        styles= {
+          [{ stylers: [{ 'saturation': -80 }, { 'gamma': 0.8 }, { 'lightness': 10 }] }] 
+        }
         initialCenter={{lat: updatelat, lng: updatelng}}
         style={{width: '100%', height: '90%', position: 'relative'}}
         >

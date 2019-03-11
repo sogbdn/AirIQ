@@ -40,7 +40,7 @@ export default class AirIndex extends Component {
     <Col lg={2} md= {3} sm={4} xs={6}><Card.Img variant="top" src="icon_black.png" className ="avatar" bsPrefix/><Card.Subtitle className="mb-2"><b></b></Card.Subtitle></Col>
     <Col lg={10} md= {9} sm={8} xs={6}>
     <Card.Subtitle className="mb-2">Air Quality Index: 0-50</Card.Subtitle>
-    <div className="Aqi_num"><p className="aqiheadline">Breath deep and travel far and wide.</p></div>
+    <div className="Aqi_num"><p className="aqiheadline">Breath deep and travel far and wide. Air quality is excellent</p></div>
     <div align="right">
     <div className="cardicons" align="right"><Image src="forest.svg"/></div>
     </div>
@@ -67,7 +67,7 @@ export default class AirIndex extends Component {
     <Col lg={10} md= {9} sm={8} xs={6}>
     <Card.Subtitle className="mb-2">Air Quality Index: 51-100</Card.Subtitle>
     <div className="Aqi_num">
-    <p className="aqiheadlinedark">An okay day for short excursions, but maybe delay the marathon</p> </div>
+    <p className="aqiheadlinedark">Air quality is not ideal, but no need to modify outdoor activities. Sensitive individuals should take it easy if they experience symptoms</p></div>
     <div align="right">
     <div className="cardicons" align="right"><Image src="bench.svg"/></div>
     </div>
@@ -83,7 +83,7 @@ export default class AirIndex extends Component {
     <Col lg={10} md= {9} sm={8} xs={6}>
     <Card.Subtitle className="mb-2">Air Quality Index: 101-150</Card.Subtitle>
     <div className="Aqi_num">
-    <p className="aqiheadlinedark">...Might be a good day for indoor activities. It's a tough day outside, for the lungs and heart.</p>
+    <p className="aqiheadlinedark">Mid-range pollutants present. A good day for indoor activities and limiting outdoor exposure.</p>
     </div>
     <div align="right">
     <div className="cardicons" align="right"><Image src="bonsai.svg"/></div>
@@ -100,7 +100,7 @@ export default class AirIndex extends Component {
     <Col lg={10} md= {9} sm={8} xs={6}>
     <Card.Subtitle className="mb-2">Air Quality Index: 151-200</Card.Subtitle>
     <div className="Aqi_num">
-    <p className="aqiheadlinedark">Take it easy and take shelter. Limit outdoor time or heavy exersions, where possible</p>
+    <p className="aqiheadlinedark">Take it easy and take shelter. Limit outdoor time or heavy exersions, where possible.</p>
     </div>
     <div align="right">
     <div className="cardicons" align="right"><Image src="factory4.svg"/></div>
@@ -117,7 +117,7 @@ export default class AirIndex extends Component {
     <Col lg={10} md= {9} sm={8} xs={6}>
     <Card.Subtitle className="mb-2" className="aqiwhitenum">Air Quality Index: 201-300</Card.Subtitle>
     <div className="Aqi_num">
-    <p className="aqiheadline">Hazardous. Serious Serious lung and heart effects present. Take care and stay indoors</p>
+    <p className="aqiheadline">Significant health risks. Avoid prolonged exposure outside and reschedule if you are experiencing symptoms such as coughing and throat irritation</p>
     </div>
     <div align="right">
     <div className="cardicons" align="right"><Image src="factory3.svg"/></div>
@@ -127,7 +127,6 @@ export default class AirIndex extends Component {
   </Card.Body>
 </Card>
 
-
 <Card className="alert6">
   <Card.Body>
   <Row>
@@ -135,7 +134,7 @@ export default class AirIndex extends Component {
     <Col lg={10} md= {9} sm={8} xs={6}>
     <Card.Subtitle className="mb-2" className="aqiwhitenum">Air Quality Index: 300+</Card.Subtitle>
     <div className="Aqi_num">
-    <p className="aqiheadline">Lethal Conditions. Serious lung and heart effects that can effect mortality. Everyone should avoid all outdoor exertions.</p>
+    <p className="aqiheadline">Hazardous. Serious pollutant levels that will aggravate lung and heart. Reduce or reschedule activities, especially if you are experiencing symptoms. Everyone should avoid all outdoor exertion.</p>
     </div>
     <div align="right">
     <div className="cardicons" align="right"><Image src="factory1.svg"/></div>

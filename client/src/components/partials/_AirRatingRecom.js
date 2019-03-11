@@ -44,7 +44,7 @@ export default class AirCard extends Component {
     AQI1 : "Breath deep and travel far and wide. Air quality is excellent",
     AQI2 : "Air quality is not ideal, but no need to modify outdoor activities. Sensitive individuals should take it easy if they experience symptoms",
     AQI3: "Mid-range pollutants present. A good day for indoor activities and limiting outdoor exposure",
-    AQI4: "Take it easy and take shelter. Limit outdoor time or heavy exertions,in favor of indoor playtime",
+    AQI4: "Take it easy and take shelter. Limit outdoor time or heavy exertions,where possible.",
     AQI5: "Significant health risks. Avoid prolonged exposure outside and reschedule if you are experiencing symptoms such as coughing and throat irritation",
     AQI6: "Hazardous. Serious pollutant levels that will aggravate lung and heart. Reduce or reschedule activities, especially if you are experiencing symptoms. Everyone should avoid all outdoor exertion",
     AQI_null: "Rating unavailable",
