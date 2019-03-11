@@ -28,22 +28,22 @@ export default class AirCard extends Component {
   }
 
   qualityColor(airquality){
-    if (airquality > 0 && airquality < 50){
+    if (airquality >= 0 && airquality < 50){
       return "alert1"
     }
-    else if (airquality > 50 && airquality < 100){
+    else if (airquality >= 50 && airquality < 100){
       return "alert2"
     }
-    else if (airquality < 150 && airquality > 100){
+    else if (airquality < 150 && airquality >= 100){
       return "alert3"
     }
-    else if (airquality > 150 && airquality < 200){
+    else if (airquality >= 150 && airquality < 200){
       return "alert4"
     }
-    else if (airquality > 200 && airquality <300){
+    else if (airquality >= 200 && airquality <300){
       return "alert5"
     }
-    else if (airquality > 300){
+    else if (airquality >= 300){
       return "alert6"
     }
     else if (airquality === 'undefined'){
