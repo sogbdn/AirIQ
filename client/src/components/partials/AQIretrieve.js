@@ -9,8 +9,6 @@ export default class AQIretrieve extends Component {
 		super(props);
 		this.state = {
 			newAqius: '',
-			// lat: props.lat,
-			// lng: props.lng
 			city: ''
 		};
 	}

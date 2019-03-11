@@ -21,10 +21,9 @@ class NavBar extends Component {
     console.log("NavBar Mounted");
   }
   render() {
-
+    
       /*Router only takes one child element, hence the div */
-      const currentUser = localStorage.getItem('token')
-
+      const currentUser = localStorage.getItem('token');
   if (currentUser) {
     return (
       <>
@@ -35,12 +34,11 @@ class NavBar extends Component {
           <Navbar.Toggle aria-controls="responsive-navbar-nav" />
           <Navbar.Collapse id="responsive-navbar-nav">
             <Nav className="mr-auto">
-                <Link to={'/features'}>Services</Link>
-                <Link to={'/airQindex'}>About Air Quality Index</Link>
+                <Link to={'/features'}>Features</Link>
+                <Link to={'/airQindex'}>AirIQ Index</Link>
                 <Link to={'/map'}>Map View</Link>
-              <NavDropdown title="User Area" id="collasible-nav-dropdown">
-                  <Link to={'/about'} className="dropdown-item">Other Resources</Link>
-                  <Link to={'/user'} className="dropdown-item">User Profile</Link>
+              <NavDropdown title="Profile" id="collasible-nav-dropdown">
+                  <Link to={'/user'} className="dropdown-item">Update Profile</Link>
                   <Link
                     to={'/login'}
                     onClick={e => this.handleSubmit(e)}
@@ -63,11 +61,11 @@ class NavBar extends Component {
           <Navbar.Toggle aria-controls="responsive-navbar-nav" />
           <Navbar.Collapse id="responsive-navbar-nav">
             <Nav className="mr-auto">
-                <Link to={'/features'}>Services</Link>
-                <Link to={'/airQindex'}>About Air Quality Index</Link>
+                <Link to={'/features'}>Features</Link>
+                <Link to={'/airQindex'}>AirIQ Index</Link>
                 <Link to={'/map'}>Map View</Link>
-              <NavDropdown title="User Area" id="collasible-nav-dropdown">
-                <Link to={'/about'} className="dropdown-item">Other Resources</Link>
+              <NavDropdown title="Login/Register" id="collasible-nav-dropdown">
+                
                 <Link to={'/login'} className="dropdown-item">Login</Link>
                 <Link to={'/register'} className="dropdown-item">Register</Link>
               </NavDropdown>

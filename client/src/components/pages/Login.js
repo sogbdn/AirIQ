@@ -3,6 +3,7 @@ import Form from 'react-bootstrap/Form';
 import Button from 'react-bootstrap/Button';
 import Container from 'react-bootstrap/Container'
 import axios from 'axios';
+import { Redirect } from 'react-router-dom';
 
 //page not actually defined yet
 export default class Login extends Component {
@@ -17,7 +18,8 @@ export default class Login extends Component {
       password: {
         value: '',
         validation: null
-      }
+      },
+      redirect: false
     }
   }
 
@@ -45,14 +47,27 @@ export default class Login extends Component {
     this.setState({ [e.target.name]: {value: e.target.value, validation}});
   }
 
+  redirection = () => {
+    this.setState({
+      redirect:true
+    })
+  }
+
   handleSubmit = (event) => {
     event.preventDefault();
+    const that = this;
     const { email, password } = this.state;
 
     axios.post('http://localhost:3001/login', { email: email.value, password: password.value })
       .then((result) => {
-        localStorage.setItem('token', result.data.token)
-        console.log('server responded');
+        if (result.data.success) {
+          localStorage.setItem('token', result.data.token);
+          console.log('server responded');
+
+          that.redirection()
+        } else {
+          alert("login unsuccessful")
+        }
       })
   }
 
@@ -74,45 +89,46 @@ export default class Login extends Component {
   }
   render() {
 
-    const { email, password } = this.state;
+    const { redirect, email, password } = this.state;
 
-    return (
-      <Container>
-      <Form
-        onSubmit={e => this.handleSubmit(e)}
-      >
-      <Form.Group controlId="formBasicEmail">
-        <Form.Label>Email address</Form.Label>
-        <Form.Control
-          type="email"
-          name="email"
-          placeholder="Enter email"
-          value={email.value}
-          onChange={this.onChange}
-        />
-        <Form.Text className="text-muted">
-          We'll never share your email with anyone else.
-        </Form.Text>
-      </Form.Group>
+    if (redirect) {
+      return (
+        <Redirect to='/'/>
+      )
+    } else {
+      return (
+        <Container>
+          <Form
+            onSubmit={e => this.handleSubmit(e)}
+          >
+            <Form.Group controlId="formBasicEmail">
+              <Form.Label></Form.Label>
+              <Form.Control
+                type="email"
+                name="email"
+                placeholder="Enter email"
+                value={email.value}
+                onChange={this.onChange}
+              />
+              
+            </Form.Group>
 
-      <Form.Group controlId="formBasicPassword">
-        <Form.Label>Password</Form.Label>
-        <Form.Control
-          type="password"
-          name="password"
-          placeholder="Password"
-          value={password.value}
-          onChange={this.onChange}
-        />
-      </Form.Group>
-      <Form.Group controlId="formBasicChecbox">
-        <Form.Check type="checkbox" label="Check me out" />
-      </Form.Group>
-      <Button variant="primary" type="submit">
-        Submit
-      </Button>
-    </Form>
-    </Container>
-    );
+            <Form.Group controlId="formBasicPassword">
+              <Form.Label></Form.Label>
+              <Form.Control
+                type="password"
+                name="password"
+                placeholder="Password"
+                value={password.value}
+                onChange={this.onChange}
+              />
+            </Form.Group>
+            <Button variant="primary" type="submit">
+              Submit
+            </Button>
+          </Form>
+        </Container>
+      );
+    }
   }
 }
