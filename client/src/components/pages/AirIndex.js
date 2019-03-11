@@ -14,15 +14,22 @@ export default class AirIndex extends Component {
   }
   render() {
     return (
+      <div>
 <Container>
-<Card className="introcard">
+<Card >
   <Card.Body>
+    <Row><Col>
+    <div className = "gradient"></div>
+      </Col></Row>
   <Row>
     <Col>
-    <p className="white">Think of the AQI as a yardstick that runs from 0 to 500. The higher the AQI value, the greater the level of air pollution and the greater the health concern. For example, an AQI value of 50 represents good air quality with little potential to affect public health, while an AQI value over 300 represents hazardous air quality.</p>
-    <div align="right">
-    <div className="cardicons"><Image src="kite.svg" className="kite"/></div>
-    </div>
+    <p>Think of the Air Quality Index as a yardstick that runs from 0 to 500. The higher the AQI value, the greater the level of air pollution and the greater the health concern. For example, an AQI value of 50 represents good air quality with little potential to affect public health, while an AQI value over 300 represents hazardous air quality.</p>
+    <div className="rainbowgreen"><p></p></div>
+      <div className="rainbowyellow"></div>
+      <div className="rainboworange"></div>
+      <div className="rainbowred"></div>
+      <div className="rainbowmaroon"></div>
+      <div className="rainbow"></div>
     </Col>
     </Row>
   </Card.Body>
@@ -97,7 +104,7 @@ export default class AirIndex extends Component {
     <p className="aqiheadlinedark">Take it easy and take shelter. Limit outdoor time or heavy exersions, where possible</p>
     </div>
     <div align="right">
-    <div className="cardicons" align="right"><Image src="whistle.svg"/></div>
+    <div className="cardicons" align="right"><Image src="factory4.svg"/></div>
     </div>
     </Col>
     </Row>
@@ -114,7 +121,7 @@ export default class AirIndex extends Component {
     <p className="aqiheadline">Hazardous. Serious Serious lung and heart effects present. Take care and stay indoors</p>
     </div>
     <div align="right">
-    <div className="cardicons" align="right"><Image src="roadblock.svg"/></div>
+    <div className="cardicons" align="right"><Image src="factory3.svg"/></div>
     </div>
     </Col>
     </Row>
@@ -132,14 +139,30 @@ export default class AirIndex extends Component {
     <p className="aqiheadline">Lethal Conditions. Serious lung and heart effects that can effect mortality. Everyone should avoid all outdoor exertions.</p>
     </div>
     <div align="right">
-    <div className="cardicons" align="right"><Image src="saviour.svg"/></div>
+    <div className="cardicons" align="right"><Image src="factory1.svg"/></div>
     </div>
     </Col>
     </Row>
   </Card.Body>
 </Card>
 
+<Card >
+  <Card.Body>
+    <Row><Col>
+    <div className = "gradient"></div>
+      </Col></Row>
+  <Row>
+    <Col>
+    <p>The Air Quality Index (AQI) is used for reporting daily air quality. It tells you how clean or polluted your air is, and what associated health effects might be a concern for you. The AQI focuses on health effects you may experience within a few hours or days after breathing polluted air. EPA calculates the AQI for five major air pollutants regulated by the Clean Air Act: ground-level ozone, particle pollution (also known as particulate matter), carbon monoxide, sulfur dioxide, and nitrogen dioxide. For each of these pollutants, EPA has established national air quality standards to protect public health .Ground-level ozone and airborne particles are the two pollutants that pose the greatest threat to human health in this country.</p>
+    
+    </Col>
+    </Row>
+  </Card.Body>
+</Card>
+
+
  </Container>
+ </div>
     );
   }
 }

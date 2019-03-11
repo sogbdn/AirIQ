@@ -8,7 +8,4 @@ require('./stylesheets/contact.scss');
 require('./stylesheets/airindex.scss');
 require('./stylesheets/forms.scss');
 require('./stylesheets/googleapi.scss');
-ReactDom.render(
-  <Router history={browserHistory} routes={routes} />,
-  document.querySelector('#app')
-);
+ReactDom.render(<Router history={browserHistory} routes={routes} />, document.querySelector('#app'));

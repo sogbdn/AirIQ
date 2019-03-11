@@ -45,17 +45,23 @@ export class MapView extends Component {
 
     componentDidMount() {
       console.log("Map Mounted");
+      ////this.props.updatestateAQI(this.props.lat, this.props.lng)
     }
     render() {
-
+      const {updatelat = 45.496338, updatelng = -73.570732} = this.props
+      console.log('imrendering: ',this.props.displaymap)
       return (!this.props.displaymap ? null :
        <div>
         <div>{this.props.airQuality}</div>
         <Map google={this.props.google} zoom={14}
         onClick={this.onMapClicked}
-        initialCenter={{lat: 45.496338, lng: -73.570732}}
+        initialCenter={{lat: updatelat, lng: updatelng}}
+        styles= {
+          [{ stylers: [{ 'saturation': -90 }, { 'gamma': 0.8 }, { 'lightness': 10 }] }] 
+        }
+        style={{width: '100%', height: '90%', position: 'relative'}}
         >
-        {this.state.points.map(p => <Marker marker={{'airiq': p.airiq}} key={p.id} onClick={this.onMarkerClick} position={{lat: p.lat, lng: p.lng}} icon={{url:p.icon}} />)}
+        {this.state.points.map(p => <Marker marker={{'airiq': this.props.aqi4map}} key={p.id} onClick={this.onMarkerClick} position={{lat: updatelat, lng: updatelng}} icon= "/marker_2.png"/>)}
         <InfoWindow visible={this.state.showingInfoWindow} marker={this.state.activeMarker}>
             <div>
               <p>{this.state.selectedPlace.marker.airiq}</p>
