@@ -79,12 +79,8 @@ app.post('/register', (req, res) => {
 			res.json({
 				token: token
 			});
-			//return res.json({
-			//success: true,
-			//	message: 'new user registered in database'
-			//});
 		});
-	//res.redirect('/') for react
+
 });
 
 app.post('/changeNumber', (req, res) => {
@@ -114,6 +110,27 @@ app.post('/changeNumber', (req, res) => {
 		});
 });
 
+
+
+
+app.post('/checkEmail', (req, res) => {
+	knex
+		.select('*')
+		.from('users')
+		.where({ email:req.body.email })
+		.then((results) => {
+			if (results.length === 0) {
+				res.json({
+					uniqueness: true
+				})
+			} else {
+				res.json({
+					uniqueness: false
+				})
+			}
+		})
+})
+
 app.post('/login', (req, res) => {
 	const loginEmail = req.body.email;
 	const loginPassword = req.body.password;
@@ -124,15 +141,11 @@ app.post('/login', (req, res) => {
 		.where({ email: loginEmail, password: loginPassword })
 		.then((results) => {
 			if (results.length !== 0) {
-				console.log(results);
 				const token = jsonWebToken.sign(results[0], myJWTSecretKey);
 				res.json({
+					success: true,
 					token: token
 				});
-				//	return res.json({
-				//		success: true,
-				//		message: 'new user login successful'
-				//	});
 			} else {
 				res.json({ success: false, message: 'login was unsuccessful' });
 			}
@@ -159,6 +172,6 @@ app.get('/airqualityAPI', (req, res) => {
 });
 
 app.get('/verifyUser', (req, res) => {
-	bob = jsonWebToken.verify(req.query.currentUser, 'blablabla');
-	res.json(bob);
+	userprof = jsonWebToken.verify(req.query.currentUser, 'blablabla');
+	res.json(userprof);
 });
