@@ -11,24 +11,53 @@ import AirIndex from './components/pages/AirIndex';
 import About from './components/pages/About';
 import RegistrationComp from './components/pages/Registrationcomplete';
 import Geolocation from './components/partials/Geolocation.js';
+import axios from 'axios';
 
 class App extends Component {
 	constructor(props) {
 		super(props);
 		this.state = {
 			lat: props.lat,
-			lng: props.lng
+			lng: props.lng,
+			aqi: ''
 		};
 		this.updateLatAndLng = this.updateLatAndLng.bind(this)
+		this.updatestateAQI = this.updatestateAQI.bind(this)
 	}
 	componentDidMount() {
 		console.log('Components Mounted!');
+		this.updatestateAQI(45.297756, -73.382723)
 	}
 	updateLatAndLng(lat,lng){
-		console.log('asd ',lat)
-		this.state.lat = lat
-		this.state.lng= lng
+		
+		this.setState({
+			lat: lat,
+			lng: lng,
+			aqi:''
+
+		})
 	}
+
+	updatestateAQI(lat,lng){
+			axios
+				.get(
+					`http://localhost:3001/airqualityAPI?lat=${lat}&long=${lng}`
+				)
+				.then((res) => {
+					console.log('AirVisual response', res);
+	
+					// temporary error handler for when no_nearest_city
+					if (res.data.status === "fail") {
+						this.state.aqi = ('undefined' )
+						return res.data.data.message
+					}
+					console.log('aqius', res.data.data.current.pollution.aqius);
+					this.setState ({
+						aqi:res.data.data.current.pollution.aqius
+					})
+				});
+	}
+
 
 	render() {
 		return (
@@ -38,23 +67,23 @@ class App extends Component {
 					<Route render={()=>
 						<>
 						<NavBar />
-
-						<Switch>
-						<Route exact path="/" component={ () => <Geolocation displaymap = 'false' updateLatAndLng={this.updateLatAndLng} /> } />
+					<Switch>
+						<Route exact path="/" render={ () => <Geolocation displaymap = 'false' updateLatAndLng={this.updateLatAndLng} updatestateAQI={this.updatestateAQI} aqi={this.state.aqi}/> } />
 						<Route exact path="/features" component={About} />
 						<Route path="/airQindex" component={AirIndex} />
 						<Route path="/login" component={Login} />
 						<Route path="/user" component={UserProfile} />
 						<Route exact path="/register" component={Registration} />
 						<Route path="/registrationcomplete" component={RegistrationComp} />
-						<Route path="/map" component={ () => <MapView  displaymap='true' updatelat={this.state.lat} updatelng={this.state.lng} /> } />
-						</Switch>
-						</>
+						<Route path="/map" render={ () => <MapView  updatestateAQI={this.updatestateAQI} displaymap='true' updatelat={this.state.lat} updatelng={this.state.lng} aqi4map={this.state.aqi}/> } />
+					</Switch>
+					</>
 					} />
-
+					
 					</div>
-				</>
+					</>
 			</Router>
+		
 		);
 	}
 }

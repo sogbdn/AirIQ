@@ -2,15 +2,12 @@ import React, { Component } from 'react';
 import axios from 'axios';
 
 import AirCard from './_AirCard';
-import {MapView} from '../pages/MapView';
+//import {MapView} from '../pages/MapView';
 
 export default class AQIretrieve extends Component {
 	constructor(props) {
 		super(props);
 		this.state = {
-			newAqius: '',
-			// lat: props.lat,
-			// lng: props.lng
 			city: 'Montreal'
 		};
 	}
@@ -34,7 +31,7 @@ export default class AQIretrieve extends Component {
 			});
 	}
 	componentDidMount() {
-		this.updateAQIus(43.716005, -79.393509)
+		//this.updateAQIus(43.716005, -79.393509)
 		//this.updateAQIus(this.props.lat, this.props.lng); ---> this doesn't work anymore.... it always yields a 0 for what should be montreal... which is why it's now hard coded.
 	}
 
@@ -47,17 +44,20 @@ export default class AQIretrieve extends Component {
 			// lng: location.lng,
 			city: city
 		})
-		this.updateAQIus(location.lat, location.lng)
+		//this.updateAQIus(location.lat, location.lng)
+		this.props.updatestateAQI(location.lat, location.lng)
 	}
 
 	render() {
 		const { newAqius } = this.state;
+		const aqi = this.props.aqi 
+
 		return (
 
 <table>
 <tbody>
 	<tr>
-      <AirCard airQuality={newAqius} city={this.state.city} onLocationUpdate={this.onLocationUpdate}/>
+      <AirCard airQuality={aqi} city={this.state.city} onLocationUpdate={this.onLocationUpdate}/>
 			</tr>
 				</tbody>
 			</table>
