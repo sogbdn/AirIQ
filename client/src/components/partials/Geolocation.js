@@ -22,8 +22,11 @@ class Geolocation extends Component {
 		// 	</div>;
 		// } else if (this.props.coords) {
 			return (
-				<AQIretrieve updateLatAndLng={this.props.updateLatAndLng} lat={43.716005} lng={-79.393509} 
-				updatestateAQI={this.props.updatestateAQI} aqi={this.props.aqi}/>
+				<AQIretrieve 
+					updateLatAndLng={this.props.updateLatAndLng} 
+					updatestateAQI={this.props.updatestateAQI} 
+					aqi={this.props.aqi}
+				/>
 			);
 		// } else {
 		// 	return <div><Container><Card bg="unavailable"><Card.Body><Row><div className="Aqicontainer"><p className="aqiheadline">Getting Geolaction Data . . .</p><hr/></div></Row></Card.Body></Card></Container>

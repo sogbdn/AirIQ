@@ -8,9 +8,6 @@ export default class AQIretrieve extends Component {
 	constructor(props) {
 		super(props);
 		this.state = {
-			newAqius: '',
-			// lat: props.lat,
-			// lng: props.lng
 			city: 'Montreal'
 		};
 	}
@@ -34,7 +31,7 @@ export default class AQIretrieve extends Component {
 			});
 	}
 	componentDidMount() {
-		this.updateAQIus(43.716005, -79.393509)
+		//this.updateAQIus(43.716005, -79.393509)
 		//this.updateAQIus(this.props.lat, this.props.lng); ---> this doesn't work anymore.... it always yields a 0 for what should be montreal... which is why it's now hard coded.
 	}
 

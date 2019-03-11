@@ -19,19 +19,22 @@ class App extends Component {
 		this.state = {
 			lat: props.lat,
 			lng: props.lng,
-			aqi: '77'
+			aqi: ''
 		};
 		this.updateLatAndLng = this.updateLatAndLng.bind(this)
 		this.updatestateAQI = this.updatestateAQI.bind(this)
 	}
 	componentDidMount() {
 		console.log('Components Mounted!');
+		this.updatestateAQI(45.297756, -73.382723)
 	}
 	updateLatAndLng(lat,lng){
 		
 		this.setState({
 			lat: lat,
-			lng: lng
+			lng: lng,
+			aqi:''
+
 		})
 	}
 
