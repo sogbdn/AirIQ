@@ -103,7 +103,7 @@ export default class AirIndex extends Component {
     <p className="aqiheadlinedark">Take it easy and take shelter. Limit outdoor time or heavy exersions, where possible</p>
     </div>
     <div align="right">
-    <div className="cardicons" align="right"><Image src="factory2.svg"/></div>
+    <div className="cardicons" align="right"><Image src="factory4.svg"/></div>
     </div>
     </Col>
     </Row>

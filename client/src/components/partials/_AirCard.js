@@ -66,7 +66,7 @@ export default class AirCard extends Component {
       return "bonsai.svg"
     }
     else if (airquality >= 150 && airquality < 200){
-      return "factory2.svg"
+      return "factory4.svg"
     }
     else if (airquality >= 200 && airquality <300){
       return "factory3.svg"
