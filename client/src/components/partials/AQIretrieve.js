@@ -41,13 +41,13 @@ export default class AQIretrieve extends Component {
 	onLocationUpdate = (location) => {
 		const city = document.querySelector('.geosuggest__input').value
 		console.log('set: ', city)
-		// this.props.updateLatAndLng(location.lat, location.lng)
+		this.props.updateLatAndLng(location.lat, location.lng)
 		this.setState({
 			// lat: location.lat,
 			// lng: location.lng,
 			city: city
 		})
-		this.updateAQIus(location.lat, location.lng)
+		//this.updateAQIus(location.lat, location.lng)
 		this.props.updatestateAQI(location.lat, location.lng)
 	}
 
@@ -60,7 +60,7 @@ export default class AQIretrieve extends Component {
 <table>
 <tbody>
 	<tr>
-      <AirCard airQuality={newAqius} city={this.state.city} onLocationUpdate={this.onLocationUpdate}/>
+      <AirCard airQuality={aqi} city={this.state.city} onLocationUpdate={this.onLocationUpdate}/>
 			</tr>
 				</tbody>
 			</table>
