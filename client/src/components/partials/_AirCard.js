@@ -134,17 +134,20 @@ export default class AirCard extends Component {
             <p className={this.qualitytext(this.props.airQuality)}><AirRatingRecom airRating = {this.qualityColor(this.props.airQuality)}/></p><hr/>
             </div>
           </Row>
-          <Row><Col lg={2} md= {3} sm={4} xs={6}>
-          <Card.Img variant="top" src={this.qualityiconcolor(this.props.airQuality)} className ="avatar" bsPrefix/>
-          </Col>
-          <Col lg={10} md= {9} sm={8} xs={6}>
-             <p>Air Quality for {this.props.city} - <Moment format="MMMM Do YYYY">{fullDate}</Moment></p>
-            <Col md={6}><p className="aqinum">{this.props.airQuality} </p>
+          <Row>
+            <Col lg={2} md= {3} sm={4} xs={6}>
+             <Card.Img variant="top" src={this.qualityiconcolor(this.props.airQuality)} className ="avatar" bsPrefix/>
             </Col>
-            <Col md={6}>
+          <Col lg={10} md= {9} sm={8} xs={6}>
+            <p>Air Quality for {this.props.city} - <Moment format="MMMM Do YYYY">{fullDate}</Moment></p>
+            <Row>
+            <Col xs={7} ><p className="aqinum">{this.props.airQuality} </p>
+            </Col>
+            <Col xs={5}>
               <div className="cardicons"><Image name='cardicon' src={this.qualityIcon(this.props.airQuality)}/>
               </div>
             </Col>
+            </Row>
           </Col>
         </Row>
       </Card.Body>

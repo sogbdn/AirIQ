@@ -14,6 +14,7 @@ export default class AirIndex extends Component {
   }
   render() {
     return (
+      <div>
 <Container>
 <Card >
   <Card.Body>
@@ -161,6 +162,7 @@ export default class AirIndex extends Component {
 
 
  </Container>
+ </div>
     );
   }
 }

@@ -19,7 +19,7 @@ a.card-link {
 
 .introcard {
 	background-color: #20b7ed;
-	margin-top: 1em;
+	/* margin-top: 1em; */
 	min-height: 240px;
 }
 
@@ -31,8 +31,8 @@ p.white {
 	background-color: #31c060;
 	-webkit-transition: background-color 1000ms linear;
 	-ms-transition: background-color 1000ms linear;
-	transition: background-color 1000ms linear;
-	margin-top: 1em;
+	transition: background-color 1000ms linear, height 1s linear ;
+	
 	min-height: 240px;
 }
 
@@ -40,44 +40,44 @@ p.white {
 	background-color: #fff110;
 	-webkit-transition: background-color 1000ms linear;
 	-ms-transition: background-color 1000ms linear;
-	transition: background-color 1000ms linear;
-	margin-top: 1em;
+	transition: background-color 1000ms linear, height 1s linear ;
+	
 	min-height: 240px;
 }
 
 .alert3 {
 	background-color: #ffa810;
-	-webkit-transition: background-color 1000ms linear;
-	-ms-transition: background-color 1000ms linear;
-	transition: background-color 1000ms linear;
-	margin-top: 1em;
+	/* -webkit-transition: background-color 1000ms linear;
+	-ms-transition: background-color 1000ms linear; */
+	transition: background-color 1000ms linear, height 1s linear ;
+	
 	min-height: 240px;
 }
 
 .alert4 {
 	background-color: #d80404;
-	-webkit-transition: background-color 1000ms linear;
-	-ms-transition: background-color 1000ms linear;
-	transition: background-color 1000ms linear;
-	margin-top: 1em;
+	/* -webkit-transition: background-color 1000ms linear;
+	-ms-transition: background-color 1000ms linear; */
+	transition: background-color 1000ms linear, height 1s linear ;
+	
 	min-height: 240px;
 }
 
 .alert5 {
 	background-color: #530303;
-	-webkit-transition: background-color 1000ms linear;
-	-ms-transition: background-color 1000ms linear;
-	transition: background-color 1000ms linear;
-	margin-top: 1em;
+	/* -webkit-transition: background-color 1000ms linear;
+	-ms-transition: background-color 1000ms linear; */
+	transition: background-color 1000ms linear, height 1s linear ;
+	
 	min-height: 240px;
 }
 
 .alert6 {
 	background-color: #1e0101;
-	-webkit-transition: background-color 1000ms linear;
-	-ms-transition: background-color 1000ms linear;
-	transition: background-color 1000ms linear;
-	margin-top: 1em;
+	/* -webkit-transition: background-color 1000ms linear;
+	-ms-transition: background-color 1000ms linear; */
+	transition: background-color 1000ms linear, height 1s linear ;
+
 	min-height: 240px;
 }
 
@@ -117,7 +117,12 @@ a.dropdown-toggle.nav-link {
 }
 
 .cardicons {
-	max-width: 30%;
+	max-width: 80px;
+
+	max-width: 100px;
+    margin-left: auto;
+    padding-right: 10px;
+    margin-top: 20px;
 }
 .submitlocation {
 	width: 100%;
@@ -244,6 +249,7 @@ a {
 	font-size: 1.3em;
 	font-weight: lighter;
 	color: white;
+	height: 80px;
 }
 
 .aqiheadlinedark {
@@ -381,9 +387,10 @@ label.form-label {
 	margin-bottom: 10px;
 }
 
-@media (min-width: 576px) .container {
+@media (min-width: 576px) {.container {
 	max-width: 955px;
 	/* max-width: 540px; */
+}
 }
 
 .gradient {

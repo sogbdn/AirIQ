@@ -56,9 +56,12 @@ export class MapView extends Component {
         <Map google={this.props.google} zoom={14}
         onClick={this.onMapClicked}
         initialCenter={{lat: updatelat, lng: updatelng}}
+        styles= {
+          [{ stylers: [{ 'saturation': -90 }, { 'gamma': 0.8 }, { 'lightness': 10 }] }] 
+        }
         style={{width: '100%', height: '90%', position: 'relative'}}
         >
-        {this.state.points.map(p => <Marker marker={{'airiq': this.props.aqi4map}} key={p.id} onClick={this.onMarkerClick} position={{lat: updatelat, lng: updatelng}} />)}
+        {this.state.points.map(p => <Marker marker={{'airiq': this.props.aqi4map}} key={p.id} onClick={this.onMarkerClick} position={{lat: updatelat, lng: updatelng}} icon= "/marker_2.png"/>)}
         <InfoWindow visible={this.state.showingInfoWindow} marker={this.state.activeMarker}>
             <div>
               <p>{this.state.selectedPlace.marker.airiq}</p>
