@@ -56,22 +56,22 @@ export default class AirCard extends Component {
 
 
   qualityIcon(airquality){
-    if (airquality > 0 && airquality < 50){
+    if (airquality >= 0 && airquality < 50){
       return "forest.svg"
     }
-    else if (airquality > 50 && airquality < 100){
+    else if (airquality >= 50 && airquality < 100){
       return "bench.svg"
     }
-    else if (airquality < 150 && airquality > 100){
+    else if (airquality < 150 && airquality >= 100){
       return "bonsai.svg"
     }
-    else if (airquality > 150 && airquality < 200){
+    else if (airquality >= 150 && airquality < 200){
       return "whistle.svg"
     }
-    else if (airquality > 200 && airquality <300){
+    else if (airquality >= 200 && airquality <300){
       return "roadblock.svg"
     }
-    else if (airquality > 300){
+    else if (airquality >= 300){
       return "saviour.svg"
     }
     else if (airquality === 'undefined'){
@@ -169,7 +169,7 @@ export default class AirCard extends Component {
     <Col sm>
       <div className="rainbow"  onClick={() => this.setState({ open: !open })}
     aria-expanded={open}>
-      <div className="rainbowgreen"></div>
+      <div className="rainbowgreen"><p>0 - 50</p></div>
       <div className="rainbowyellow"></div>
       <div className="rainboworange"></div>
       <div className="rainbowred"></div>

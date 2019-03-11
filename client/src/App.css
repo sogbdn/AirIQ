@@ -21,7 +21,10 @@ a.card-link{
 .cardcustom {
   margin-top: 0.5em;
   min-height: 240px; 
-  margin: auto;
+  /* margin: auto; */
+  margin: 0 auto; /* Added */
+        float: none; /* Added */
+        margin-bottom: 10px;
   
 }
 
@@ -92,6 +95,14 @@ p.white {
   min-height: 240px; 
 }
 
+.userprofileindex{
+  color:#999;
+}
+
+.userprofileform{
+  width:150px
+}
+
 .navbar-custom {
   
   /* background-color: #1b8fb9;  */
@@ -101,6 +112,10 @@ p.white {
   color: rgba(6, 6, 6, 0.8);
   /* border-color: rgba(49, 48, 48, 0.9); */
   background-color: rgb(197, 197, 197);
+}
+
+a.dropdown-toggle.nav-link{
+  color: #666;
 }
 
 .navbar-dark .navbar-nav .nav-link {
@@ -204,6 +219,24 @@ p.white {
 .avatar{
   margin-left: 0.2em;
   /* margin-bottom: 0.7em; */
+}
+
+a{
+  color: #666;
+  
+}
+
+.navbar-brand a {
+  color: #007bff;
+}
+
+.navbar-brand a:hover {
+  color: #064e9a;
+  text-decoration: none;
+}
+
+.navbar-dark .navbar-nav .nav-link:hover {
+  color: #064e9a;
 }
 
 .aqinum {
@@ -333,18 +366,36 @@ float:left;
 }
 
 .navbar-custom a {
-  color: #999;
+  /* color: #999; */
   padding: 0.5em;
-  }
+}
+
+.navbar-custom a:hover {
+  color: #064e9a;
+  text-decoration: none;
+  padding: 0.5em;
+}
 
 .dropdown-item a {
   color: teal
 }
 
-.container {
-  margin-top: 0.5em;
+.show>.nav-link {
+  color: #333;
 }
 
+.container {
+  width: 100%;
+  margin: 0 auto; /* Added */
+        float: none; /* Added */
+        margin-bottom: 10px;
+}
+
+@media (min-width: 576px)
+.container {
+  max-width:955px;
+    /* max-width: 540px; */
+}
 
 
 .gradient {

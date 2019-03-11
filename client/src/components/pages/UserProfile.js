@@ -1,10 +1,13 @@
 import React, { Component } from "react";
 
 import axios from 'axios';
-
+import Container from 'react-bootstrap/Container';
+import Row from 'react-bootstrap/Row';
+import Card from 'react-bootstrap/Card';
 import Form from 'react-bootstrap/Form';
 import Button from 'react-bootstrap/Button';
 import Col from 'react-bootstrap/Col';
+import Table from 'react-bootstrap/Table';
 
 //page not actually defined yet
 export default class UserProfile extends Component {
@@ -67,43 +70,70 @@ export default class UserProfile extends Component {
     if (currentUser) {
       return (
         <div>
-          <div>
-            {this.state.first_name}
-          </div>
-          <div>
-            {this.state.last_name}
-          </div>
-          <div>
-            {this.state.email}
-          </div>
-          <Form onSubmit={e => this.handleSubmit(e)}>
-            <Form.Group as={Col} md="4" controlId="validationCustom05">
-              <Form.Label>Phone Number</Form.Label>
+          <Container><Card ><Card.Body>
+         
+            <Table striped bordered>
+          <tbody>
+    <tr>
+      <td><div className= 'userprofileindex'>Name:</div></td>
+      <td><p>{this.state.first_name} {this.state.last_name}</p></td>
+    </tr>
+    <tr>
+      <td><div className= 'userprofileindex'>Email:</div></td>
+      <td><p>{this.state.email}</p></td>
+    </tr>
+    <tr>
+      <td><Form.Label>Phone Number</Form.Label></td>
+      <td> <Form onSubmit={e => this.handleSubmit(e)}>
+            <Form.Group as={Col} md="1" lg="3" controlId="validationCustom05">
               <Form.Control type="num"
                 placeholder="Phone Number"
                 name="phone_number"
                 value={this.state.phone_number}
                 onChange={this.onChange}
+                className="userprofileform"
               />
+              
             </Form.Group>
             <Button type="submit">Change Phone Number</Button>
           </Form>
-          <div>
-            {this.state.good_days}
+      </td>
+    </tr>
+    <tr><td><div className= 'userprofileindex'>
+           Receiving Texts on Good Air Quality Days 
+           </div>
+           </td><td> {this.state.good_days}
+           </td>
+           </tr><tr>
+           <td>
+          <div className= 'userprofileindex'>
+          Receiving Texts on Bad Air Quality Days
           </div>
-          <div>
+          </td><td>
+            <div>
             {this.state.bad_days}
           </div>
-          <div>
-            {this.state.concern_type}
-          </div>
+          </td>
+          </tr><tr>
+          <td>
+          <div className= 'userprofileindex'>
+          Health Concern Tier</div> </td><td>
+            {this.state.concern_type}</td></tr>
+    </tbody>
+    </Table>
+    
+          </Card.Body>
+          </Card>
+          </Container>
         </div>
 
       )
     } else {
       return (
         <div>
+          <Card>
           You are not logged in
+          </Card>
         </div>
       )
     }
