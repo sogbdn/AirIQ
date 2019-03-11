@@ -110,6 +110,9 @@ app.post('/changeNumber', (req, res) => {
 		});
 });
 
+
+
+
 app.post('/checkEmail', (req, res) => {
 	knex
 		.select('*')
@@ -169,6 +172,6 @@ app.get('/airqualityAPI', (req, res) => {
 });
 
 app.get('/verifyUser', (req, res) => {
-	bob = jsonWebToken.verify(req.query.currentUser, 'blablabla');
-	res.json(bob);
+	userprof = jsonWebToken.verify(req.query.currentUser, 'blablabla');
+	res.json(userprof);
 });

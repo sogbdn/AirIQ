@@ -102,7 +102,7 @@ export default class Login extends Component {
             onSubmit={e => this.handleSubmit(e)}
           >
             <Form.Group controlId="formBasicEmail">
-              <Form.Label>Email address</Form.Label>
+              <Form.Label></Form.Label>
               <Form.Control
                 type="email"
                 name="email"
@@ -110,13 +110,11 @@ export default class Login extends Component {
                 value={email.value}
                 onChange={this.onChange}
               />
-              <Form.Text className="text-muted">
-              We'll never share your email with anyone else.
-              </Form.Text>
+              
             </Form.Group>
 
             <Form.Group controlId="formBasicPassword">
-              <Form.Label>Password</Form.Label>
+              <Form.Label></Form.Label>
               <Form.Control
                 type="password"
                 name="password"

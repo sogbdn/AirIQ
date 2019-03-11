@@ -37,9 +37,8 @@ class NavBar extends Component {
                 <Link to={'/features'}>Features</Link>
                 <Link to={'/airQindex'}>AirIQ Index</Link>
                 <Link to={'/map'}>Map View</Link>
-              <NavDropdown title="User Area" id="collasible-nav-dropdown">
-                  <Link to={'/about'} className="dropdown-item">Other Resources</Link>
-                  <Link to={'/user'} className="dropdown-item">User Profile</Link>
+              <NavDropdown title="Profile" id="collasible-nav-dropdown">
+                  <Link to={'/user'} className="dropdown-item">Update Profile</Link>
                   <Link
                     to={'/login'}
                     onClick={e => this.handleSubmit(e)}
