@@ -5,7 +5,7 @@ import {Map, InfoWindow, Marker, GoogleApiWrapper} from 'google-maps-react';
 
 export class MapView extends Component {
   state = {
-    showingInfoWindow: false,
+    showingInfoWindow: true,
     activeMarker: {},
     selectedPlace: {marker: {}},
     points: [
@@ -48,6 +48,7 @@ export class MapView extends Component {
       ////this.props.updatestateAQI(this.props.lat, this.props.lng)
     }
     render() {
+      
       const {updatelat = 45.496338, updatelng = -73.570732} = this.props
       console.log('imrendering: ',this.props.displaymap)
       return (!this.props.displaymap ? null :
@@ -64,7 +65,7 @@ export class MapView extends Component {
         {this.state.points.map(p => <Marker marker={{'airiq': this.props.aqi4map}} key={p.id} onClick={this.onMarkerClick} position={{lat: updatelat, lng: updatelng}} icon= "/marker_2.png"/>)}
         <InfoWindow visible={this.state.showingInfoWindow} marker={this.state.activeMarker}>
             <div>
-              <p>{this.state.selectedPlace.marker.airiq}</p>
+              <h2>AQI level:{this.state.selectedPlace.marker.airiq}</h2>
             </div>
         </InfoWindow>
         </Map>

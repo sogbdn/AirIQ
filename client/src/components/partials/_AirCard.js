@@ -84,7 +84,7 @@ export default class AirCard extends Component {
 
 
   qualitytext(airquality){
-    if (airquality > 50 && airquality < 200){
+    if (airquality >= 50 && airquality < 200){
       return "aqiheadlinedark"
     }
     else {
