@@ -38,7 +38,7 @@ export default class AirCard extends Component {
       })
       console.log(this.state);
       });
-    }     
+    }
   }
   airRatingStrings = {
     AQI1 : "Breath deep and travel far and wide. The air quality is excellent.",
@@ -62,7 +62,7 @@ export default class AirCard extends Component {
 
   cardResponse(rating){
   const currentUser = localStorage.getItem('token');
-    if (currentUser !== null){
+    if (currentUser !== null && this.state.concern_type !== "general"){
       if (rating === "alert1"){
         if(this.state.concern_type === "medical"){
         return this.airRatingStrings.AQI1_medical
