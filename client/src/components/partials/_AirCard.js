@@ -84,7 +84,7 @@ export default class AirCard extends Component {
 
 
   qualitytext(airquality){
-    if (airquality > 50 && airquality < 200){
+    if (airquality >= 50 && airquality < 200){
       return "aqiheadlinedark"
     }
     else {
@@ -139,7 +139,7 @@ export default class AirCard extends Component {
              <Card.Img variant="top" src={this.qualityiconcolor(this.props.airQuality)} className ="avatar" bsPrefix/>
             </Col>
           <Col lg={10} md= {9} sm={8} xs={6}>
-            <p>Air Quality for {this.props.city} - <Moment format="MMMM Do YYYY">{fullDate}</Moment></p>
+            <p>Air Quality for <b>{this.props.city}</b> - <Moment format="MMMM Do YYYY">{fullDate}</Moment></p>
             <Row>
             <Col xs={7} ><p className="aqinum">{this.props.airQuality} </p>
             </Col>
@@ -151,17 +151,31 @@ export default class AirCard extends Component {
           </Col>
         </Row>
       </Card.Body>
-  
 </Card>
 </Container>
 <Container>
-  <Card class="submitlocation" className = "gradient">
-    <Card.Body>
+  <Card className="submitlocation">
+    
     <Row>
-    <Geosuggest placeholder="Check Another Location's Air Quality" onSuggestSelect={this.onSuggestSelect}/>
+    <Geosuggest placeholder="Enter Location to Check Air Quality" onSuggestSelect={this.onSuggestSelect}/>
     </Row>
-    </Card.Body>
+    
   </Card>
+</Container>
+<Container>
+<Card >
+  <Card.Body>
+    <Row><Col>
+    <div className = "gradient"></div>
+      </Col></Row>
+  <Row>
+    <Col>
+    <p>The Air Quality Index (AQI) is used for reporting daily air quality. It tells you how clean or polluted your air is, and what associated health effects might be a concern for you. The AQI focuses on health effects you may experience within a few hours or days after breathing polluted air. EPA calculates the AQI for five major air pollutants regulated by the Clean Air Act: ground-level ozone, particle pollution (also known as particulate matter), carbon monoxide, sulfur dioxide, and nitrogen dioxide. For each of these pollutants, EPA has established national air quality standards to protect public health .Ground-level ozone and airborne particles are the two pollutants that pose the greatest threat to human health in this country.</p>
+    
+    </Col>
+    </Row>
+  </Card.Body>
+</Card>
 </Container>
 </div>
 
