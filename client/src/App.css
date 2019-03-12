@@ -115,6 +115,9 @@ a.dropdown-toggle.nav-link {
 	color: rgba(37, 35, 35, 0.5);
 	/*background-color: lightgreen;*/
 }
+a.dropdown-toggle.nav-link{
+	color: #333;
+}
 
 .cardicons {
 	max-width: 80px;

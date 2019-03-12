@@ -19,7 +19,8 @@ class App extends Component {
 		this.state = {
 			lat: props.lat,
 			lng: props.lng,
-			aqi: ''
+			aqi: '',
+			city: 'Montreal'
 		};
 		this.updateLatAndLng = this.updateLatAndLng.bind(this)
 		this.updatestateAQI = this.updatestateAQI.bind(this)
@@ -28,15 +29,23 @@ class App extends Component {
 		console.log('Components Mounted!');
 		this.updatestateAQI(45.297756, -73.382723)
 	}
-	updateLatAndLng(lat,lng){
-		
+	updateLatAndLng(lat,lng,city){
 		this.setState({
 			lat: lat,
 			lng: lng,
-			aqi:''
+			aqi:'',
+			city: city  //it can just be city in the new ES
 
 		})
 	}
+
+	// updateCity(city){
+	// 	this.setState({
+	// 		city:city
+	// 	})
+	// }
+
+
 
 	updatestateAQI(lat,lng){
 			axios
@@ -68,14 +77,14 @@ class App extends Component {
 						<>
 						<NavBar />
 					<Switch>
-						<Route exact path="/" render={ () => <Geolocation displaymap = 'false' updateLatAndLng={this.updateLatAndLng} updatestateAQI={this.updatestateAQI} aqi={this.state.aqi}/> } />
+						<Route exact path="/" render={ () => <Geolocation displaymap = 'false' updateLatAndLng={this.updateLatAndLng} updatestateAQI={this.updatestateAQI} aqi={this.state.aqi} city={this.state.city}/> } />
 						<Route exact path="/features" component={About} />
 						<Route path="/airQindex" component={AirIndex} />
 						<Route path="/login" component={Login} />
 						<Route path="/user" component={UserProfile} />
 						<Route exact path="/register" component={Registration} />
 						<Route path="/registrationcomplete" component={RegistrationComp} />
-						<Route path="/map" render={ () => <MapView  updatestateAQI={this.updatestateAQI} displaymap='true' updatelat={this.state.lat} updatelng={this.state.lng} aqi4map={this.state.aqi}/> } />
+						<Route path="/map" render={ () => <MapView  updatestateAQI={this.updatestateAQI} displaymap='true' updatelat={this.state.lat} updatelng={this.state.lng} aqi4map={this.state.aqi} /> } />
 					</Switch>
 					</>
 					} />
