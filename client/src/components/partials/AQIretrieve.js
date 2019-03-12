@@ -5,57 +5,32 @@ import AirCard from './_AirCard';
 //import {MapView} from '../pages/MapView';
 
 export default class AQIretrieve extends Component {
-	constructor(props) {
-		super(props);
-		this.state = {
-			city: 'Montreal'
-		};
-	}
+	// constructor(props) {
+	// 	super(props);
+	// 	this.state = {
+	// 		city: 'Montreal' 
+	// 	};
+	// }
 
-	updateAQIus(lat, lng) {
-		console.log( lat, lng)
-		axios
-			.get(
-				`http://localhost:3001/airqualityAPI?lat=${lat}&long=${lng}`
-			)
-			.then((res) => {
-				console.log('AirVisual response', res);
 
-				// temporary error handler for when no_nearest_city
-				if (res.data.status === "fail") {
-					this.setState({ newAqius: 'undefined' })
-					return res.data.data.message
-				}
-				console.log('aqius', res.data.data.current.pollution.aqius);
-				this.setState({ newAqius: res.data.data.current.pollution.aqius });
-			});
-	}
 	componentDidMount() {
-		//this.updateAQIus(43.716005, -79.393509)
-		//this.updateAQIus(this.props.lat, this.props.lng); ---> this doesn't work anymore.... it always yields a 0 for what should be montreal... which is why it's now hard coded.
+	
 	}
 
 	onLocationUpdate = (location) => {
 		const city = document.querySelector('.geosuggest__input').value
 		console.log('set: ', city)
-		this.props.updateLatAndLng(location.lat, location.lng)
-		this.setState({
-			// lat: location.lat,
-			// lng: location.lng,
-			city: city
-		})
-		//this.updateAQIus(location.lat, location.lng)
+		this.props.updateLatAndLng(location.lat, location.lng, city)
+		///this.props.updateCity(city)
+		
+		
 		this.props.updatestateAQI(location.lat, location.lng)
 	}
 
-	render() {
-		const { newAqius } = this.state;
-		const aqi = this.props.aqi 
-
+	render() {			
+		const {aqi, city} = this.props; //destructoring
 		return (
-
-      <AirCard airQuality={aqi} city={this.state.city} onLocationUpdate={this.onLocationUpdate}/>
-		
+      <AirCard airQuality={aqi} city={city} onLocationUpdate={this.onLocationUpdate}/>
 		);
 	}
 }

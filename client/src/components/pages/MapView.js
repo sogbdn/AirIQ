@@ -14,13 +14,31 @@ export class MapView extends Component {
       { id: 3, lat: 45.496338, lng: -73.550732, airiq: 45, icon: "/marker_4.png" }
     ]
   };
-//updatelat
 
-  // <Marker onClick={this.onMarkerClick}
-  //         name={'Current location'}
-  //         position={{lat: 45.496338, lng: -73.570732}} //first to say this is javascript the second to say this is an object
-  //         />
-
+  markerSelect = (airquality) => {
+    if (airquality >= 0 && airquality < 50){
+      return "/marker_1.png"
+    }
+    else if (airquality >= 50 && airquality < 100){
+      return "/marker_2.png"
+    }
+    else if (airquality < 150 && airquality >= 100){
+      return "/marker_3.png"
+    }
+    else if (airquality >= 150 && airquality < 200){
+      return "/marker_4.png"
+    }
+    else if (airquality >= 200 && airquality <300){
+      return "/marker_5.png"
+    }
+    else if (airquality >= 300){
+      return "/marker_5.png"
+    }
+    else {
+      return ""
+    }
+  }
+  
 
     onMarkerClick = (props, marker, e) => {
       console.log(props)
@@ -56,15 +74,15 @@ export class MapView extends Component {
         onClick={this.onMapClicked}
         initialCenter={{lat: updatelat, lng: updatelng}}
         styles= {
-          [{ stylers: [{ 'saturation': -90 }, { 'gamma': 0.8 }] }] 
+          [{ stylers: [{ 'saturation': 0 }, { 'gamma': 0.8 }] }] 
         }
         style={{width: '100%', height: '90%', position: 'relative'}}
         >
          <Marker 
-        marker={{'airiq': aqi4map || ''}} 
+        marker={{'airiq': aqi4map}} 
         onClick={this.onMarkerClick} 
         position={{lat: updatelat, lng: updatelng}} 
-        icon= "/marker_3.png"
+        icon= {this.markerSelect(this.props.aqi4map)}
         />
 
         {this.state.points.map(p => 

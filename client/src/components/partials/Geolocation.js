@@ -25,7 +25,8 @@ class Geolocation extends Component {
 				<AQIretrieve 
 					updateLatAndLng={this.props.updateLatAndLng} 
 					updatestateAQI={this.props.updatestateAQI} 
-					aqi={this.props.aqi}
+					aqi={this.props.aqi} 
+					city={this.props.city} //this is how you pass down the 
 				/>
 			);
 		// } else {
