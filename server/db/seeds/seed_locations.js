@@ -8,19 +8,19 @@ exports.seed = function(knex, Promise) {
 				return knex('locations').insert([
 					/* add actual values to test the database */
 					{
-						city: 'Kanpur',
-						state: 'Uttar Pradesh',
-						country: 'India'
-					},
-					{
-						city: 'Kanpur',
-						state: 'Uttar Pradesh',
-						country: 'India'
-					},
-					{
 						city: 'New York',
 						state: 'New York',
 						country: 'USA'
+					},
+					{
+						city: 'Bhiwadi',
+						state: 'Rajasthan',
+						country: 'India'
+					},
+					{
+						city: 'New Delhi',
+						state: 'Delhi',
+						country: 'India'
 					}
 				]);
 			})
