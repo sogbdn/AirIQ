@@ -83,7 +83,7 @@ export default class UserProfile extends Component {
       <td><p>{this.state.email}</p></td>
     </tr>
     <tr>
-      <td><Form.Label>Phone Number</Form.Label></td>
+      <td><div className= 'userprofileindex'>Phone Number</div></td>
       <td> <Form onSubmit={e => this.handleSubmit(e)}>
             <Form.Group as={Col} md="1" lg="3" controlId="validationCustom05">
               <Form.Control type="num"
