@@ -9,30 +9,30 @@ export class MapView extends Component {
     activeMarker: {},
     selectedPlace: {marker: {}},
     points: [
-      { id: 1, lat: 45.494338, lng: -73.670732, airiq: 73, icon: "/marker_2.png" },
-      { id: 2, lat: 45.484338, lng: -73.560932, airiq: 33, icon: "/marker_1.png" },
-      { id: 3, lat: 45.496338, lng: -73.550732, airiq: 45, icon: "/marker_4.png" }
+      { id: 1, lat: 45.494338, lng: -73.670732, airiq: 76  },
+      { id: 2, lat: 45.484338, lng: -73.560932, airiq: 33 },
+      { id: 3, lat: 45.496338, lng: -73.550732, airiq: 160 }
     ]
   };
 
   markerSelect = (airquality) => {
     if (airquality >= 0 && airquality < 50){
-      return "/marker_1.png"
+      return "/circle1.svg"
     }
     else if (airquality >= 50 && airquality < 100){
-      return "/marker_2.png"
+      return "/circle2.svg"
     }
     else if (airquality < 150 && airquality >= 100){
-      return "/marker_3.png"
+      return "/circle3.svg"
     }
     else if (airquality >= 150 && airquality < 200){
-      return "/marker_4.png"
+      return "/circle4.svg"
     }
     else if (airquality >= 200 && airquality <300){
-      return "/marker_5.png"
+      return "/circle5.svg"
     }
     else if (airquality >= 300){
-      return "/marker_5.png"
+      return "/circle5.svg"
     }
     else {
       return ""
@@ -90,7 +90,7 @@ export class MapView extends Component {
         marker={{'airiq': p.airiq}} 
         key={p.id} onClick={this.onMarkerClick} 
         position={{lat: p.lat, lng: p.lng}} 
-        icon= "/marker_3.png"
+        icon= {this.markerSelect(p.airiq)}
         />)}
         
         <InfoWindow visible={this.state.showingInfoWindow} marker={this.state.activeMarker}>

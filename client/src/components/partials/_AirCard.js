@@ -4,7 +4,7 @@ import Card from 'react-bootstrap/Card'
 import Container from 'react-bootstrap/Container';
 import Col from 'react-bootstrap/Col'
 import Row from 'react-bootstrap/Row'
-import Collapse from 'react-bootstrap/Collapse'
+//import Collapse from 'react-bootstrap/Collapse'
 import AirRatingRecom  from './_AirRatingRecom'
 import Image from 'react-bootstrap/Image'
 //import Tooltip from 'react-bootstrap/Tooltip'
