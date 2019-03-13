@@ -105,10 +105,6 @@ export default class AirCard extends Component {
   //export const airstrings = {"AQ1": "something"}
   //airSTrings and try to access the object    AQ + props
 
-
-  // <Col lg={2} md= {3} sm={4} xs={6}><Card.Img variant="top" src={this.qualityiconcolor(this.props.airQuality)} className ="avatar" bsPrefix/></Col>
-  // <Col lg={10} md= {9} sm={8} xs={6}>
-
   constructor(props, context) {
     super(props, context);
 
