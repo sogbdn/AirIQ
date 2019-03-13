@@ -70,69 +70,85 @@ export default class UserProfile extends Component {
     if (currentUser) {
       return (
         <div>
-          <Container><Card><Card.Body>
-         <h5>User Profile :</h5>
-            <Table striped bordered>
-          <tbody>
-    <tr>
-      <td><div className= 'userprofileindex'>Name:</div></td>
-      <td><p>{this.state.first_name} {this.state.last_name}</p></td>
-    </tr>
-    <tr>
-      <td><div className= 'userprofileindex'>Email:</div></td>
-      <td><p>{this.state.email}</p></td>
-    </tr>
-    <tr>
-      <td><div className= 'userprofileindex'>Phone Number</div></td>
-      <td> <Form onSubmit={e => this.handleSubmit(e)}>
-            <Form.Group as={Col} md="1" lg="3" controlId="validationCustom05">
-              <Form.Control type="num"
-                placeholder="Phone Number"
-                name="phone_number"
-                value={this.state.phone_number}
-                onChange={this.onChange}
-                className="userprofileform"
-              />
-              
-            </Form.Group>
-            <Button type="submit">Change Phone Number</Button>
-          </Form>
-      </td>
-    </tr>
-    <tr><td><div className= 'userprofileindex'>
-           Receiving Texts on Good Air Quality Days 
-           </div>
-           </td><td> {this.state.good_days}
-           </td>
-           </tr><tr>
-           <td>
-          <div className= 'userprofileindex'>
-          Receiving Texts on Bad Air Quality Days
-          </div>
-          </td><td>
-            <div>
-            {this.state.bad_days}
-          </div>
-          </td>
-          </tr><tr>
-          <td>
-          <div className= 'userprofileindex'>
-          Health Concern Tier</div> </td><td>
-            {this.state.concern_type}</td></tr>
-    </tbody>
-    </Table>
-    
-          </Card.Body>
-          </Card>
+
+
+          <Container>
+            <Card>
+              <Card.Body>
+                <h5>User Profile :</h5>
+                <Table striped bordered>
+                  <tbody>
+                    <tr>
+                      <td><div className= 'userprofileindex'>Name:</div></td>
+                      <td><p>{this.state.first_name} {this.state.last_name}</p></td>
+                    </tr>
+                    <tr>
+                      <td><div className= 'userprofileindex'>Email:</div></td>
+                      <td><p>{this.state.email}</p></td>
+                    </tr>
+                    <tr>
+                      <td>
+                        <div className= 'userprofileindex'>Phone Number</div>
+                      </td>
+                      <td>
+                        <Form onSubmit={e => this.handleSubmit(e)}>
+                          <Form.Group as={Col} md="1" lg="3" controlId="validationCustom05">
+                            <Form.Control type="num"
+                              placeholder="Phone Number"
+                              name="phone_number"
+                              value={this.state.phone_number}
+                              onChange={this.onChange}
+                              className="userprofileform"
+                            />
+                          </Form.Group>
+                          <Button type="submit">Change Phone Number</Button>
+                        </Form>
+                      </td>
+                    </tr>
+                    <tr>
+                      <td>
+                        <div className= 'userprofileindex'>
+                          Receive Texts on Good Air Quality Days
+                        </div>
+                      </td>
+                      <td>
+                        {this.state.good_days}
+                      </td>
+                    </tr>
+                    <tr>
+                      <td>
+                        <div className= 'userprofileindex'>
+                          Receive Texts on Bad Air Quality Days
+                        </div>
+                      </td>
+                      <td>
+                        <div>
+                          {this.state.bad_days}
+                        </div>
+                      </td>
+                    </tr>
+                    <tr>
+                      <td>
+                        <div className= 'userprofileindex'>
+                          Health Concern Tier
+                        </div>
+                      </td>
+                      <td>
+                        {this.state.concern_type}
+                      </td>
+                    </tr>
+                  </tbody>
+                </Table>
+              </Card.Body>
+            </Card>
           </Container>
         </div>
-
       )
     } else {
       return (
         <div>
           <Card>
-          You are not logged in
+            You are not logged in
           </Card>
         </div>
       )
