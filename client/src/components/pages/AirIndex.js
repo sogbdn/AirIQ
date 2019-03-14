@@ -41,7 +41,7 @@ export default class AirIndex extends Component {
     <Col lg={2} md= {3} sm={4} xs={6}><Card.Img variant="top" src="icon_black.png" className ="avatar" bsPrefix/><Card.Subtitle className="mb-2"><b></b></Card.Subtitle></Col>
     <Col lg={10} md= {9} sm={8} xs={6}>
     <Card.Subtitle className="mb-2">Air Quality Index: 0-50</Card.Subtitle>
-    <div className="Aqi_num"><p className="aqiheadline">Breathe deep and travel far and wide.</p></div>
+    <div className="Aqi_num"><p className="aqiheadline">Breathe deep and travel far and wide. This is a great day for outdoor adventure.</p></div>
     <div align="right">
     <div className="cardicons" align="right"><Image src="forest.svg"/></div>
     </div>
