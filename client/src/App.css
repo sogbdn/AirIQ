@@ -109,8 +109,15 @@ p.white {
 	background-color: rgb(197, 197, 197);
 }
 
-a.dropdown-toggle.nav-link {
+
+
+.nav-link--active{
 	color: #666;
+}
+
+ .nav-link.show,
+ {
+	color: #333;
 }
 
 .navbar-dark .navbar-nav .nav-link {
@@ -366,6 +373,11 @@ a {
 		transform: rotate(360deg);
 	}
 }
+
+.navbar-dark.navbar-nav.nav-link--active{
+	color: #333;
+}
+
 
 .form-control.valid:focus {
 	box-shadow: 0 0 0 0.2rem #1cb24940;

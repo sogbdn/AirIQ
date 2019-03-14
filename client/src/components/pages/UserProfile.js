@@ -70,6 +70,8 @@ export default class UserProfile extends Component {
     if (currentUser) {
       return (
         <div>
+
+
           <Container>
             <Card>
               <Card.Body>

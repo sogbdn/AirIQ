@@ -17,17 +17,19 @@ export default class About extends Component {
 						<Card.Body>
 							<Row>
 								<Col sm>
+
+								<p>By Registering with us you get access to:</p>
+								<div className="gradient"/>
+									<li>Quick and Visually Digestible info on Air Quality</li>
+
 									<li>
 										Quick and Visually Digestible info on Air Quality.
 									</li>
+
+									<li>Map View of Surrounding Air Quality Indexes, based on Geolocation</li>
 									<li>
-										Tailored Recommendations based on health concern, in relation to air quality.
-									</li>
-									<li>Map View of Surrounding Air Quality indexed based on Geolocation.</li>
-									<li>
-										Optional SMS alerts, for when Air Quality is paticularly bad, OR an SMS
-										suggesting that it's a great day for an adventure on days the air quality is very
-										good.
+										Optional SMS alerts, which can be sent on paticularly bad, OR particularly great days for enjoying outdoor air-filled adventures.
+										
 									</li>
 								</Col>
 							</Row>
