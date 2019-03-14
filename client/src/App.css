@@ -109,6 +109,10 @@ p.white {
 	background-color: rgb(197, 197, 197);
 }
 
+.navbar-dark .navbar-nav .show>.nav-link {
+	color: #333;
+}
+
 
 
 .nav-link--active{
