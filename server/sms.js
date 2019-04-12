@@ -40,12 +40,12 @@ knex.from('users').innerJoin('locations', 'users.location_id', 'locations.id').t
 				if (
 					newAqius >= 100 &&
 					newAqius < 150 &&
-					user.sms_bad_days === 'true' &&
+					user.sms_bad_days === 'yes' &&
 					(user.profile === 'life_style' || user.profile === 'medical')
 				) {
 					messagebody = `AIR QUALITY in ${user.city} is ${newAqius}: ALERT (MODERATE RISK). Sensitive groups should avoid prolonged exposure, where possible.`;
 				}
-				if (newAqius >= 150 && user.sms_bad_days === 'true') {
+				if (newAqius >= 150 && user.sms_bad_days === 'yes') {
 					messagebody = `AIR QUALITY in ${user.city} is ${newAqius}: ALERT (HIGH RISK) Serious risks from Air Pollution Today. Avoid extended periods outside or use filtration masks where possible.`;
 				}
 				// SMS sending
