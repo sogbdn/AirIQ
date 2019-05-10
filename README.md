@@ -2,7 +2,7 @@
 !["Screenshots of Front page"](https://github.com/sogbdn/AirIQ/blob/master/docs/AirIQ%20Front%20page.png)
 !["Screenshots of Recommendations based on profiles"](https://github.com/sogbdn/AirIQ/blob/master/docs/AirIQ%20Recommandations.png)
 !["Screenshots of Google map API and Twilio"](https://github.com/sogbdn/AirIQ/blob/master/docs/AirIQ%20API%20and%20TWILIO.png)
-
+!["Screenshots of SMS"](https://github.com/sogbdn/AirIQ/blob/master/docs/AirIQ%20SMS.png)
 
 ## INSTALL DEPENDENCIES
 
