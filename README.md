@@ -1,6 +1,6 @@
 ## SCREENSHOTS 
-![Screenshots Front page](docs/AirIQ Front page.png)
-![Screenshots Recommendations]()
+!["Screenshots of Front page"](docs/AirIQ Front page.png)
+!["Screenshots of Recommendations based on profiles"](docs/AirIQ Recommandations.png)
 
 
 ## INSTALL DEPENDENCIES
