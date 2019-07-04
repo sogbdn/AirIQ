@@ -1,9 +1,9 @@
 import React, { Component } from 'react';
-import { geolocated } from 'react-geolocated';
+// import { geolocated } from 'react-geolocated';
 import AQIretrieve from './AQIretrieve';
-import Card from 'react-bootstrap/Card'
-import Container from 'react-bootstrap/Container';
-import Row from 'react-bootstrap/Row'
+// import Card from 'react-bootstrap/Card'
+// import Container from 'react-bootstrap/Container';
+// import Row from 'react-bootstrap/Row'
 
 // import Card from 'react-bootstrap/Card'
 // import Container from 'react-bootstrap/Container';
@@ -11,9 +11,8 @@ import Row from 'react-bootstrap/Row'
 // import Row from 'react-bootstrap/Row'
 
 class Geolocation extends Component {
-
 	render() {
-		console.log('------->>>>>>', this.props.coords)
+		console.log('------->>>>>>', this.props.coords);
 		// if (!this.props.isGeolocationAvailable) {
 		// 	return <div><Container><Card bg="unavailable"><Card.Body><Row><div className="Aqicontainer"><p className="aqiheadline">Please enable Geoloction to use this App</p></div></Row></Card.Body></Card></Container>
 		// </div>;
@@ -21,14 +20,14 @@ class Geolocation extends Component {
 		// 	return <div><Container><Card bg="unavailable"><Card.Body><Row><div className="Aqicontainer"><p className="aqiheadline">Geoloction Not Enabled. Please Check your preferences to view Live Data reading for your location.</p></div></Row></Card.Body></Card></Container>
 		// 	</div>;
 		// } else if (this.props.coords) {
-			return (
-				<AQIretrieve 
-					updateLatAndLng={this.props.updateLatAndLng} 
-					updatestateAQI={this.props.updatestateAQI} 
-					aqi={this.props.aqi} 
-					city={this.props.city} //this is how you pass down the 
-				/>
-			);
+		return (
+			<AQIretrieve
+				updateLatAndLng={this.props.updateLatAndLng}
+				updatestateAQI={this.props.updatestateAQI}
+				aqi={this.props.aqi}
+				city={this.props.city} //this is how you pass down the
+			/>
+		);
 		// } else {
 		// 	return <div><Container><Card bg="unavailable"><Card.Body><Row><div className="Aqicontainer"><p className="aqiheadline">Getting Geolaction Data . . .</p><hr/></div></Row></Card.Body></Card></Container>
 		// 	</div>;
@@ -43,4 +42,4 @@ class Geolocation extends Component {
 // 	userDecisionTimeout: 0
 // })(Geolocation);
 
-export default Geolocation
+export default Geolocation;

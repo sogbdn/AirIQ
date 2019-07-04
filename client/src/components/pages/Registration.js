@@ -132,7 +132,7 @@ export default class Registration extends Component {
     const that = this;
     let emailCheck = this.uniqueEmail(this.state.email.value);
     let passMatch = this.passwordMatch(this.state.password.value, this.state.password_conf.value);
-    const { first_name, last_name, email, phone_number, concern_type, good_days, bad_days, password, password_conf } = this.state;
+    const { first_name, last_name, email, phone_number, concern_type, good_days, bad_days, password } = this.state;
     emailCheck.then(function(value){
       if(value && passMatch){
         let good = "";
