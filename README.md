@@ -1,3 +1,9 @@
+## SCREENSHOTS 
+!["Screenshots of Front page"](https://github.com/sogbdn/AirIQ/blob/master/docs/AirIQ%20Front%20page.png)
+!["Screenshots of Recommendations based on profiles"](https://github.com/sogbdn/AirIQ/blob/master/docs/AirIQ%20Recommandations.png)
+!["Screenshots of Google map API and Twilio"](https://github.com/sogbdn/AirIQ/blob/master/docs/AirIQ%20API%20and%20TWILIO.png)
+!["Screenshots of SMS"](https://github.com/sogbdn/AirIQ/blob/master/docs/AirIQ%20SMS.png)
+
 ## INSTALL DEPENDENCIES
 
 1. cd into the */server* folder.
@@ -18,7 +24,7 @@
 6. Run ```knex migrate:latest``` to create the empty migration tables.
 7. To populate the database with static data, run ```knex seed:run```
 
-## ADD GOOGLEAPI KEYS
+## ADD GOOGLE API KEYS
 
 1. You will need to generate and add your own Google maps API key, following the unfortunate change to a paid use/access to the API in 2018.
 
@@ -38,4 +44,5 @@ First, in the client folder (/client/public/index.html), in the index.html file,
 .
 Second, in the client folder, (/client/src/components/pages/MapView.js), in the MapView.js file, at line 287:
 ```apiKey: ('INSERTAPIKEYHERE')```
+
 
