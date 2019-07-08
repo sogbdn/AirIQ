@@ -80,7 +80,6 @@ app.post('/register', (req, res) => {
 				token: token
 			});
 		});
-
 });
 
 app.post('/changeNumber', (req, res) => {
@@ -110,26 +109,19 @@ app.post('/changeNumber', (req, res) => {
 		});
 });
 
-
-
-
 app.post('/checkEmail', (req, res) => {
-	knex
-		.select('*')
-		.from('users')
-		.where({ email:req.body.email })
-		.then((results) => {
-			if (results.length === 0) {
-				res.json({
-					uniqueness: true
-				})
-			} else {
-				res.json({
-					uniqueness: false
-				})
-			}
-		})
-})
+	knex.select('*').from('users').where({ email: req.body.email }).then((results) => {
+		if (results.length === 0) {
+			res.json({
+				uniqueness: true
+			});
+		} else {
+			res.json({
+				uniqueness: false
+			});
+		}
+	});
+});
 
 app.post('/login', (req, res) => {
 	const loginEmail = req.body.email;
@@ -162,7 +154,10 @@ app.get('/airqualityAPI', (req, res) => {
 		long: req.query.long,
 		airVisKey: process.env.airVisKey
 	};
-	fetch(`https://api.airvisual.com/v2/nearest_city?lat=${vars.lat}&lon=${vars.long}&key=${vars.airVisKey}`)
+	fetch(
+		`https://api.airvisual.com/v2/nearest_city?lat=${vars.lat}&lon=${vars.long}&key=${vars.airVisKey}`
+		// `https://api.airvisual.com/v2/nearest_city?lat=43.6465592&lon=-79.8423761&key=u78aw3FawH3LQxNQx`
+	)
 		.then(function(response) {
 			return response.json();
 		})

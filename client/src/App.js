@@ -13,6 +13,8 @@ import RegistrationComp from './components/pages/Registrationcomplete';
 import Geolocation from './components/partials/Geolocation.js';
 import axios from 'axios';
 
+// require('dotenv').config();
+
 class App extends Component {
 	constructor(props) {
 		super(props);
@@ -27,7 +29,7 @@ class App extends Component {
 	}
 	componentDidMount() {
 		console.log('Components Mounted!');
-		this.updatestateAQI(45.297756, -73.382723);
+		this.updatestateAQI(45.5016889, -73.567256);
 	}
 	updateLatAndLng(lat, lng, city) {
 		this.setState({
@@ -45,6 +47,7 @@ class App extends Component {
 	// }
 
 	updatestateAQI(lat, lng) {
+		console.log('updatestateAQI Mounted!');
 		axios.get(`http://localhost:3001/airqualityAPI?lat=${lat}&long=${lng}`).then((res) => {
 			console.log('AirVisual response', res);
 
