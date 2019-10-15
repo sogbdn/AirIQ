@@ -5,3 +5,4 @@ node_modules
  register_stash.html
  client/public/register_stash.html
  package-lock.json
+server/node_modules_old/

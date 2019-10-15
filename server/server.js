@@ -139,11 +139,12 @@ app.post('/login', (req, res) => {
 					token: token
 				});
 			} else {
-				res.json({ success: false, message: 'login was unsuccessful' });
+				res.json({ success: false, message: 'login was unsuccessful (no result)' });
 			}
 		})
 		.catch((error) => {
-			res.json({ success: false, message: 'login was unsuccessful' });
+			console.log(error);
+			res.json({ success: false, message: 'login was unsuccessful (error)' });
 		});
 	// redirect with react
 });

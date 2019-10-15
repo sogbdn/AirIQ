@@ -19,11 +19,13 @@
 1. From the */Final_Project* folder, run ```psql```.
 2. From the psql terminal, run ```CREATE DATABASE air_iq;```.
 3. Use ```\q``` to leave the psql terminal.
-4. Run ```knex migrate:currentVersion``` to check if a table already exists.
-5. If a current version exists, run ```knex migrate:rollback``` then repeat from step 4 until it says *none*.
+4. Run ```npx knex migrate:currentVersion``` to check if a table already exists.
+5. If a current version exists, run ```npx knex migrate:rollback``` then repeat from step 4 until it says *none*.
   - Most versions of knex will only need you to rollback once to clear all of them
-6. Run ```knex migrate:latest``` to create the empty migration tables.
-7. To populate the database with static data, run ```knex seed:run```
+6. Run ```npx knex migrate:latest``` to create the empty migration tables.
+7. To populate the database with static data, run ```npx knex seed:run```
+8. For more informations about PostgreSQL on Ubuntu:
+https://www.digitalocean.com/community/tutorials/how-to-install-and-use-postgresql-on-ubuntu-18-04
 
 ## ADD GOOGLE API KEYS
 
